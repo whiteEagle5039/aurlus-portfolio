@@ -1,0 +1,32 @@
+{
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "experience": "Experience",
+      "education": "Education",
+      "languages": "Languages",
+      "contact": "Contact"
+    },
+    "home": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "profession": "Web Developer",
+      "cta": "Get In Touch"
+    },
+    "about": {
+      "title": "About Me",
+      "subtitle": "Creative Web Designer Based in New York",
+      "description1": "I'm a passionate web developer with 5+ years of experience creating modern and responsive websites and applications. My goal is to build fast, accessible, and user-friendly digital experiences that solve real problems.",
+      "description2": "I specialize in Vue.js, React, TypeScript, and modern CSS frameworks like Tailwind CSS. I love learning new technologies and constantly improving my craft.",
+      "skills": {
+        "vue": "Vue.js / React",
+        "typescript": "TypeScript",
+        "tailwind": "Tailwind CSS",
+        "responsive": "Responsive Design",
+        "ui": "UI/UX Design",
+        "node": "Node.js / Express"
+      },
+      "downloadCV": "Download CV"
+    }
+  }
+  

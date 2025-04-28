@@ -1,0 +1,32 @@
+{
+    "nav": {
+      "home": "Accueil",
+      "about": "À propos",
+      "experience": "Expérience",
+      "education": "Formation",
+      "languages": "Langues",
+      "contact": "Contact"
+    },
+    "home": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "profession": "Développeur Web",
+      "cta": "Me Contacter"
+    },
+    "about": {
+      "title": "À propos de moi",
+      "subtitle": "Designer Web Créatif Basé à New York",
+      "description1": "Je suis un développeur web passionné avec plus de 5 ans d'expérience dans la création de sites web et d'applications modernes et responsives. Mon objectif est de construire des expériences numériques rapides, accessibles et conviviales qui résolvent de vrais problèmes.",
+      "description2": "Je me spécialise dans Vue.js, React, TypeScript et les frameworks CSS modernes comme Tailwind CSS. J'aime apprendre de nouvelles technologies et améliorer constamment mes compétences.",
+      "skills": {
+        "vue": "Vue.js / React",
+        "typescript": "TypeScript",
+        "tailwind": "Tailwind CSS",
+        "responsive": "Design Responsive",
+        "ui": "Design UI/UX",
+        "node": "Node.js / Express"
+      },
+      "downloadCV": "Télécharger CV"
+    }
+  }
+  
