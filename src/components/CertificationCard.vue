@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white dark:bg-gray-900 p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-300">
       <div class="flex items-center justify-center mb-2">
-        <span class="text-yellow-500 text-3xl">
+        <span class="text-green-500 text-3xl">
           <font-awesome-icon :icon="`fa-solid ${icon}`" />
         </span>
       </div>

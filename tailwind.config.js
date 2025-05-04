@@ -11,9 +11,9 @@ export default {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
-        yellow: {
-          500: '#F7CA18',
-          600: '#E5B917',
+        green: {
+          500: '#6BBBA0 ',
+          600: '#20C997 ',
         },
       },
     },

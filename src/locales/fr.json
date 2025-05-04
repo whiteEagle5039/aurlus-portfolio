@@ -1,32 +1,154 @@
 {
-    "nav": {
-      "home": "Accueil",
-      "about": "À propos",
-      "experience": "Expérience",
-      "education": "Formation",
-      "languages": "Langues",
-      "contact": "Contact"
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "experience": "Expérience",
+    "education": "Formation",
+    "certifications": "Certifications",
+    "languages": "Langues",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Bonjour, je suis",
+    "subtitle": "Développeur Full Stack",
+    "description": "Passionné par la création d'applications web modernes et performantes",
+    "downloadCV": "Télécharger CV"
+  },
+  "about": {
+    "title": "À",
+    "highlight": "propos",
+    "imageAlt": "À Propos de Moi",
+    "jobTitle": "Expert en Cybersécurité et Réseaux Informatiques",
+    "paragraph1": "Ingénieur diplômé de l'EAMAC en Électronique-Informatique avec plus de 7 ans d'expérience professionnelle à l'ASECNA. Actuellement Responsable de la Sécurité des Systèmes d'Information (RSSI), je combine expertise technique et compétences en gestion grâce à un DESS en gestion de projets.",
+    "paragraph2": "Je suis spécialisé dans la conception et la mise en œuvre d'architectures réseaux sécurisées, le déploiement de politiques de cybersécurité conformes à la norme ISO 27001 et à la stratégie de l'OACI, et la gestion d'équipes techniques multisites dans des environnements critiques.",
+    "skills": [
+      "Cybersécurité",
+      "Réseaux Informatiques",
+      "Norme ISO 27001",
+      "Gestion de Projets",
+      "Leadership d'Équipe",
+      "Environnements Critiques"
+    ],
+    "certificationsTitle": "Certifications",
+    "certifications": [
+      "CISSP",
+      "CISM",
+      "Fortinet",
+      "CCNP Security",
+      "CISO",
+      "CSA"
+    ],
+    "downloadCV": "Télécharger CV"
+  },
+  "experience": {
+    "title": "Expérience",
+    "professional": "professionnelle",
+    "viewDetails": "Voir les responsabilités détaillées",
+    "job1": {
+      "title": "Responsable de la Sécurité des Systèmes d'Information (RSSI)",
+      "company": "ASECNA",
+      "description": "Pilotage stratégique de la cybersécurité et gestion des risques pour le compte de l'Agence dans les 19 pays membres.",
+      "duration": "Janvier 2024 - Présent",
+      "responsibilities": [
+        "Pilotage et mise à jour de la Politique de Sécurité des Systèmes d'Information (PSSI) de l'ASECNA",
+        "Coordination de la gestion (identification, évaluation, hiérarchisation, traitement) des risques cyber selon le framework EBIOS Risk Manager, les normes ISO/IEC 27005, le NIST et le manuel des risques de l'Agence",
+        "Élaboration et coordination du plan de réponse aux incidents à l'échelle de l'ASECNA",
+        "Supervision d'une équipe de 48 référents sécurité pour la gouvernance de la sécurité des systèmes d'information dans les 19 pays membres de l'ASECNA",
+        "Mise en conformité avec les exigences ISO/IEC 27001 et la stratégie cybersécurité de l'OACI",
+        "Conduite de campagnes de sensibilisation et de formation à la sécurité des utilisateurs du Siège, des Représentations, des Écoles et des Délégations de l'ASECNA",
+        "Veille technologique et intégration de solutions innovantes"
+      ]
     },
-    "home": {
-      "firstName": "John",
-      "lastName": "Doe",
-      "profession": "Développeur Web",
-      "cta": "Me Contacter"
+    "job2": {
+      "title": "Cadre Supérieur Réseaux Informatiques",
+      "company": "Direction des moyens Techniques et Informatiques (DTI), ASECNA",
+      "description": "Conception et administration des infrastructures réseaux et sécurité pour l'ensemble de l'Agence.",
+      "duration": "Octobre 2022 - Présent",
+      "responsibilities": [
+        "Conception, supervision et mise à jour des architectures, des infrastructures réseaux et sécurité au Siège et dans les 19 pays membres de l'ASECNA",
+        "Mise en place, administration et maintenance des équipements réseaux et sécurité : Switch (Cisco, Fortinet), Routeur (Cisco, Mikrotik), FortiGate, FortiWeb, FortiManager, FortiAnalyzer, FortiAuthenticator, FortiPam, Forticlient EMS",
+        "Administration des systèmes centraux (messagerie Exchange, systèmes de sauvegardes, suite Microsoft O365, Microsoft Azure, Microsoft Sentinel, SCCM, Active Directory, Linux, etc.)",
+        "Administration du système de sécurité Kaspersky",
+        "Déploiement des mesures de sécurité, accompagnement et assistance aux utilisateurs du Siège et des Centres",
+        "Gestion (conception, suivi et réalisation) des projets stratégiques de modernisation réseaux et sécurité informatique",
+        "Proposition de sujets et encadrement des mémoires de fin d'études des Ingénieurs et techniciens supérieurs de l'exploitation de l'aviation civile, spécialité systèmes électroniques et informatiques à l'École Africaine de Météorologie et de l'Aviation Civile (EAMAC) sise à Niamey"
+      ]
     },
-    "about": {
-      "title": "À propos de moi",
-      "subtitle": "Designer Web Créatif Basé à New York",
-      "description1": "Je suis un développeur web passionné avec plus de 5 ans d'expérience dans la création de sites web et d'applications modernes et responsives. Mon objectif est de construire des expériences numériques rapides, accessibles et conviviales qui résolvent de vrais problèmes.",
-      "description2": "Je me spécialise dans Vue.js, React, TypeScript et les frameworks CSS modernes comme Tailwind CSS. J'aime apprendre de nouvelles technologies et améliorer constamment mes compétences.",
-      "skills": {
-        "vue": "Vue.js / React",
-        "typescript": "TypeScript",
-        "tailwind": "Tailwind CSS",
-        "responsive": "Design Responsive",
-        "ui": "Design UI/UX",
-        "node": "Node.js / Express"
-      },
-      "downloadCV": "Télécharger CV"
+    "job3": {
+      "title": "Cadre Supérieur Réseaux, Systèmes Informatiques et équipements Météorologiques",
+      "company": "Représentation de l'ASECNA au Bénin",
+      "description": "Administration des systèmes informatiques et météorologiques pour la navigation aérienne au Bénin.",
+      "duration": "Mars 2018 - Octobre 2022",
+      "responsibilities": [
+        "Administration et maintenance des réseaux (Switch Cisco, Routeur Cisco, Routeur Mikrotik, MESSIR COM, MUX, etc.) et systèmes informatiques (Chaîne Radio, Topsky, AMHS-RSFTA, Alcatel, etc.) d'aide à la navigation aérienne",
+        "Administration et maintenance des équipements météorologiques à composants électroniques (SAOMA, SAOSS, SADIS, SAAPI, EARTHNETWORK, SMT-SIO)",
+        "Participation à la mise en œuvre des projets informatiques locaux (SAGIM, RADAR METEO, etc.)",
+        "Support technique et assistance aux utilisateurs de la Représentation"
+      ]
     }
+  },
+  "education": {
+    "title": "Mon",
+    "academicPath": "parcours académique",
+    "master": {
+      "degree": "Master de Recherche",
+      "specialty": "Sécurité des Systèmes Embarqués (Cybersécurité matériel)",
+      "institution": "Faculté des Sciences et Techniques (FST) - UCAD, Dakar/Sénégal",
+      "duration": "2023-2025 (en cours)"
+    },
+    "dess": {
+      "degree": "Diplôme d'Études Supérieures Spécialisées (DESS)",
+      "specialty": "Gestion des projets et développement local",
+      "institution": "Ecole Doctorale des Sciences Economiques et de Gestion (ED-SEG) - UAC, Bénin",
+      "duration": "2019-2020"
+    },
+    "lawLicence": {
+      "degree": "Licence",
+      "specialty": "Droit privé",
+      "institution": "Faculté de Droit et de Science Politique (FADESP) - UAC, Bénin",
+      "duration": "2017-2021"
+    },
+    "engineering": {
+      "degree": "Diplôme d'Ingénieur",
+      "specialty": "Électronique-Informatique",
+      "institution": "Ecole Africaine de Météorologie et de l'Aviation Civile (EAMAC), Niamey/Niger",
+      "duration": "2013-2016"
+    },
+    "proLicence": {
+      "degree": "Licence Professionnelle",
+      "specialty": "Mathématique-Informatique",
+      "institution": "Ecole Normale Supérieure (ENS) de Natitingou, Bénin",
+      "duration": "2009-2012"
+    },
+    "baccalaureate": {
+      "degree": "Baccalauréats",
+      "specialty": "Série C (2009) & Série D (2007)",
+      "institution": "CS CRAMER & Collège Jean-Piaget I, Abomey-Calavi/Bénin",
+      "duration": "2006-2009"
+    }
+  },
+  "certifications": {
+    "title": "Certifications"
+  },
+  "languages": {
+    "title": "Compétences linguistiques",
+    "proficiency": {
+      "native": "Langue maternelle",
+      "fluent": "Courant",
+      "advanced": "Avancé",
+      "intermediate": "Intermédiaire",
+      "basic": "Notions de base"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "successMessage": "Votre message a été envoyé avec succès !",
+    "errorMessage": "Une erreur s'est produite. Veuillez réessayer."
   }
-  
+}
+

@@ -1,0 +1,30 @@
+docker exec -it 9b5cde583fc3 mysql -u root --password=password
+docker exec -it 20df32165260 mysql -u root -p
+docker exec -it CONTAINER ID mysql -u root --password=
+
+docker inspect --format='{{.Config.Image}}' 9b5cde583fc3
+docker inspect --format='{{.Config.Image}}' 20df32165260
+
+grep -l "mysql:8.0" $(find / -name "docker-compose.yml" 2>/dev/null)
+
+docker logs 9b5cde583fc3 | grep -i "password\|user\|root\|mysql"
+
+docker inspect 9b5cde583fc3 | grep -A 10 "Env"
+
+CREATE DATABASE laravel_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+CREATE USER 'laravel_user'@'%' IDENTIFIED WITH mysql_native_password BY 'benincare';
+GRANT ALL PRIVILEGES ON laravel_db.* TO 'laravel_user'@'%';
+FLUSH PRIVILEGES;
+EXIT;
+
+docker inspect 9b5cde583fc3 | grep -i "hostport\|ipaddress"
+docker inspect 20df32165260 | grep -i "hostport\|ipaddress"
+
+php artisan tinker
+
+DB::connection()->getPdo();
+
+docker restart 9b5cde583fc3
+
+php -r "print_r(PDO::getAvailableDrivers());"

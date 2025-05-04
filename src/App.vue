@@ -6,6 +6,7 @@
         @toggle-dark-mode="toggleDarkMode" 
         :activeSection="activeSection"
         @set-active-section="setActiveSection"
+        @change-language="handleLanguageChange"
       />
       <Home id="home" @observe="handleIntersection" />
       <About id="about" @observe="handleIntersection" />
@@ -20,6 +21,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import Navbar from './components/Navbar.vue';
 import Home from './components/Home.vue';
 import About from './components/About.vue';
@@ -42,6 +44,7 @@ export default defineComponent({
     Contact
   },
   setup() {
+    const { locale } = useI18n();
     const isDarkMode = ref(false);
     const activeSection = ref('home');
 
@@ -60,6 +63,12 @@ export default defineComponent({
       }
     };
 
+    // Fonction pour gérer le changement de langue
+    const handleLanguageChange = (newLocale: string) => {
+      locale.value = newLocale;
+      localStorage.setItem('userLocale', newLocale);
+    };
+
     onMounted(() => {
       // Check for saved dark mode preference
       const savedDarkMode = localStorage.getItem('darkMode');
@@ -70,6 +79,12 @@ export default defineComponent({
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         isDarkMode.value = prefersDark;
       }
+
+      // Check for saved language preference
+      const savedLocale = localStorage.getItem('userLocale');
+      if (savedLocale) {
+        locale.value = savedLocale;
+      }
     });
 
     return {
@@ -77,7 +92,8 @@ export default defineComponent({
       toggleDarkMode,
       activeSection,
       setActiveSection,
-      handleIntersection
+      handleIntersection,
+      handleLanguageChange
     };
   }
 });

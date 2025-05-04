@@ -6,7 +6,7 @@
 >
   <div class="container mx-auto">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg inline-block">
-      <span class="text-yellow-500">Contactez</span>-moi
+      <span class="text-green-500">Contactez</span>-moi
     </h2> 
     
     <div class="flex flex-col md:flex-row gap-10">
@@ -20,7 +20,7 @@
         <div class="space-y-6">
           <!-- Adresse -->
           <div class="flex items-start">
-            <div class="bg-yellow-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shrink-0">
+            <div class="bg-green-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shrink-0">
               <font-awesome-icon icon="fa-solid fa-location-dot" class="text-white text-xl" />
             </div>
             <div>
@@ -33,7 +33,7 @@
           
           <!-- Email -->
           <div class="flex items-start">
-            <div class="bg-yellow-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shrink-0">
+            <div class="bg-green-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shrink-0">
               <font-awesome-icon icon="fa-solid fa-envelope" class="text-white text-xl" />
             </div>
             <div>
@@ -46,7 +46,7 @@
           
           <!-- Téléphone -->
           <div class="flex items-start">
-            <div class="bg-yellow-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shrink-0">
+            <div class="bg-green-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shrink-0">
               <font-awesome-icon icon="fa-solid fa-phone" class="text-white text-xl" />
             </div>
             <div>
@@ -62,13 +62,13 @@
         <div class="mt-8">
           <h4 class="font-bold mb-4">Réseaux sociaux</h4>
           <div class="flex space-x-4">
-            <a href="#" class="bg-gray-200 dark:bg-gray-700 hover:bg-yellow-500 dark:hover:bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+            <a href="#" class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
               <font-awesome-icon icon="fa-brands fa-linkedin-in" class="text-gray-700 dark:text-gray-300 hover:text-white" />
             </a>
-            <a href="#" class="bg-gray-200 dark:bg-gray-700 hover:bg-yellow-500 dark:hover:bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+            <a href="#" class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
               <font-awesome-icon icon="fa-brands fa-github" class="text-gray-700 dark:text-gray-300 hover:text-white" />
             </a>
-            <a href="#" class="bg-gray-200 dark:bg-gray-700 hover:bg-yellow-500 dark:hover:bg-yellow-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+            <a href="#" class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
               <font-awesome-icon icon="fa-brands fa-twitter" class="text-gray-700 dark:text-gray-300 hover:text-white" />
             </a>
           </div>
@@ -91,7 +91,7 @@
                   type="text" 
                   id="name" 
                   v-model="form.name"
-                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
                   placeholder="Votre nom"
                   required
                 />
@@ -106,7 +106,7 @@
                   type="email" 
                   id="email" 
                   v-model="form.email"
-                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                  class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
                   placeholder="Votre email"
                   required
                 />
@@ -122,7 +122,7 @@
                 type="text" 
                 id="subject" 
                 v-model="form.subject"
-                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
                 placeholder="Objet de votre message"
                 required
               />
@@ -137,7 +137,7 @@
                 id="message" 
                 v-model="form.message"
                 rows="5"
-                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
                 placeholder="Votre message..."
                 required
               ></textarea>
@@ -146,7 +146,7 @@
             <!-- Bouton d'envoi -->
             <button 
               type="submit" 
-              class="w-full md:w-auto bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-lg transition-colors duration-300 flex items-center justify-center"
+              class="w-full md:w-auto bg-green-500 hover:bg-green-600 text-black font-bold py-3 px-8 rounded-lg transition-colors duration-300 flex items-center justify-center"
               :disabled="isSubmitting"
             >
               <span v-if="isSubmitting" class="mr-2">
@@ -164,11 +164,13 @@
   
   <script lang="ts">
   import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
+  import { useI18n } from 'vue-i18n';
   
   export default defineComponent({
     name: 'ContactSection',
     emits: ['observe'],
     setup(props, { emit }) {
+      const { t } = useI18n();
       const sectionRef = ref<HTMLElement | null>(null);
       const isSubmitting = ref(false);
       

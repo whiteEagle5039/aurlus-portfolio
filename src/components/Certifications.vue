@@ -6,7 +6,7 @@
     >
       <div class="container mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg inline-block">
-            Certifications <span class="text-yellow-500">professionnelles</span>
+            Certifications <span class="text-green-500">professionnelles</span>
         </h2>  
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
@@ -24,7 +24,7 @@
         <div class="text-center mt-6">
           <button 
             @click="showModal = true"
-            class="inline-flex items-center px-4 py-2 border border-yellow-500 text-yellow-500 dark:text-yellow-400 rounded-lg hover:bg-yellow-50 dark:hover:bg-gray-700 transition-colors"
+            class="inline-flex items-center px-4 py-2 border border-green-500 text-green-500 dark:text-green-400 rounded-lg hover:bg-green-50 dark:hover:bg-gray-700 transition-colors"
           >
             <span>Voir toutes les certifications</span>
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,7 +53,7 @@
                 :key="'all-'+index"
                 class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg"
               >
-                <h4 class="font-bold text-lg text-yellow-500">{{ cert.title }}</h4>
+                <h4 class="font-bold text-lg text-green-500">{{ cert.title }}</h4>
                 <p class="text-gray-700 dark:text-gray-300">{{ cert.description }}</p>
               </div>
             </div>
@@ -61,7 +61,7 @@
             <div class="mt-6 text-center">
               <button 
                 @click="showModal = false"
-                class="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors"
+                class="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
               >
                 Fermer
               </button>
@@ -75,6 +75,7 @@
   <script lang="ts">
   import { defineComponent, ref } from 'vue';
   import CertificationCard from '@/components/CertificationCard.vue';
+  import { useI18n } from 'vue-i18n';
   
   export default defineComponent({
     name: 'CertificationsSection',
@@ -83,6 +84,7 @@
     },
     emits: ['observe'],
     setup(props, { emit }) {
+      const { t } = useI18n();
       const sectionRef = ref<HTMLElement | null>(null);
       const showModal = ref(false);
   
