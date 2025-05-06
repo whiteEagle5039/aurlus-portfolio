@@ -9,10 +9,27 @@
     "contact": "Contact"
   },
   "home": {
-    "title": "Hello, I am",
-    "subtitle": "Full Stack Developer",
-    "description": "Passionate about creating modern and performant web applications",
-    "downloadCV": "Download CV"
+    "badge": "CYBERSECURITY EXPERT & CISO",
+    "name": {
+      "first": "Aurlus",
+      "last": "SOGBOSSI"
+    },
+    "description": "Information Systems Security Engineer with <span class='text-green-600 dark:text-green-300'>7+ years of expertise</span> at ASECNA. Specialist in secure network architectures and ISO 27001 compliance.",
+    "tags": {
+      "security": "Cybersecurity",
+      "ciso": "CISO",
+      "iso": "ISO 27001",
+      "management": "Project Management"
+    },
+    "buttons": {
+      "contact": "Professional Contact",
+      "expertise": "View My Expertise" 
+    },
+    "stats": {
+      "projects": "PROJECTS",
+      "clients": "CLIENTS",
+      "awards": "AWARDS"
+    }
   },
   "about": {
     "title": "About",
@@ -21,14 +38,14 @@
     "jobTitle": "Cybersecurity and Network Engineering Expert",
     "paragraph1": "EAMAC graduate engineer in Electronics-Computer Science with over 7 years of professional experience at ASECNA. Currently Chief Information Security Officer (CISO), I combine technical expertise and management skills thanks to a postgraduate degree in project management.",
     "paragraph2": "I specialize in designing and implementing secure network architectures, deploying cybersecurity policies compliant with ISO 27001 standards and ICAO strategy, and managing multi-site technical teams in critical environments.",
-    "skills": [
-      "Cybersecurity",
-      "Computer Networks",
-      "ISO 27001 Standard",
-      "Project Management",
-      "Team Leadership",
-      "Critical Environments"
-    ],
+    "skills": {
+    "cybersecurity": "Cybersecurity",
+    "networks": "Computer Networks",
+    "iso": "ISO 27001 Standard",
+    "projectManagement": "Project Management",
+    "leadership": "Team Leadership",
+    "criticalEnvironments": "Critical Environments"
+  },
     "certificationsTitle": "Certifications",
     "certifications": [
       "CISSP",
@@ -128,26 +145,60 @@
     }
   },
   "certifications": {
-    "title": "Certifications"
+    "title1": "Professional",
+    "title2": "Certifications",
+    "button": "View all certifications"
   },
   "languages": {
-    "title": "Language Skills",
-    "proficiency": {
-      "native": "Native",
-      "fluent": "Fluent",
-      "advanced": "Advanced",
-      "intermediate": "Intermediate",
-      "basic": "Basic"
+    "title": "Language <span class='text-green-500'>skills</span>",
+    "french": {
+      "name": "French",
+      "level": "Professional",
+      "stars": 5
+    },
+    "english": {
+      "name": "English",
+      "level": "Advanced",
+      "stars": 4
     }
   },
   "contact": {
-    "title": "Contact",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "send": "Send",
-    "sending": "Sending...",
-    "successMessage": "Your message was sent successfully!",
-    "errorMessage": "An error occurred. Please try again."
+    "title": "Contact Me",
+    "subtitle": "Contact Information",
+    "description": "I'm available to discuss your projects. Feel free to contact me for any professional opportunity.",
+    "address": {
+      "title": "Address",
+      "value": "Yoff-Dakar, Senegal"
+    },
+    "email": {
+      "title": "Email",
+      "value": "sogbossiaur@asecna.org"
+    },
+    "phone": {
+      "title": "Phone",
+      "value": "+221 78 185 66 71"
+    },
+    "social": "Social Networks",
+    "form": {
+      "title": "Send me a message",
+      "name": {
+        "label": "Full name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email address",
+        "placeholder": "Your email"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Your message subject"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message..."
+      },
+      "submit": "Send message",
+      "submitting": "Sending..."
+    }
   }
 }

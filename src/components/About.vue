@@ -34,32 +34,32 @@
           </p>
                   
          <!-- Skills -->
-         <div class="grid grid-cols-2 gap-4 mb-8">
-              <div class="flex items-center">
-                <font-awesome-icon icon="fa-solid fa-check" class="text-yellow-500 mr-2" />
-                <span>Cybersécurité</span>
-              </div>
-              <div class="flex items-center">
-                <font-awesome-icon icon="fa-solid fa-check" class="text-yellow-500 mr-2" />
-                <span>Réseaux Informatiques</span>
-              </div>
-              <div class="flex items-center">
-                <font-awesome-icon icon="fa-solid fa-check" class="text-yellow-500 mr-2" />
-                <span>Norme ISO 27001</span>
-              </div>
-              <div class="flex items-center">
-                <font-awesome-icon icon="fa-solid fa-check" class="text-yellow-500 mr-2" />
-                <span>Gestion de Projets</span>
-              </div>
-              <div class="flex items-center">
-                <font-awesome-icon icon="fa-solid fa-check" class="text-yellow-500 mr-2" />
-                <span>Leadership d'Équipe</span>
-              </div>
-              <div class="flex items-center">
-                <font-awesome-icon icon="fa-solid fa-check" class="text-yellow-500 mr-2" />
-                <span>Environnements Critiques</span>
-              </div>
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center">
+              <font-awesome-icon icon="fa-solid fa-check" class="text-green-500 mr-2" />
+              <span>{{ $t('about.skills.cybersecurity') }}</span>
             </div>
+            <div class="flex items-center">
+              <font-awesome-icon icon="fa-solid fa-check" class="text-green-500 mr-2" />
+              <span>{{ $t('about.skills.networks') }}</span>
+            </div>
+            <div class="flex items-center">
+              <font-awesome-icon icon="fa-solid fa-check" class="text-green-500 mr-2" />
+              <span>{{ $t('about.skills.iso') }}</span>
+            </div>
+            <div class="flex items-center">
+              <font-awesome-icon icon="fa-solid fa-check" class="text-green-500 mr-2" />
+              <span>{{ $t('about.skills.projectManagement') }}</span>
+            </div>
+            <div class="flex items-center">
+              <font-awesome-icon icon="fa-solid fa-check" class="text-green-500 mr-2" />
+              <span>{{ $t('about.skills.leadership') }}</span>
+            </div>
+            <div class="flex items-center">
+              <font-awesome-icon icon="fa-solid fa-check" class="text-green-500 mr-2" />
+              <span>{{ $t('about.skills.criticalEnvironments') }}</span>
+            </div>
+          </div>
 
             <!-- Certifications -->
             <div class="mb-8">

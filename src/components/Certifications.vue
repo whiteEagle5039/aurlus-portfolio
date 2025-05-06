@@ -6,7 +6,7 @@
     >
       <div class="container mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg inline-block">
-            Certifications <span class="text-green-500">professionnelles</span>
+              {{ $t('certifications.title1') }} <span class="text-green-500">{{ $t('certifications.title2') }}</span>
         </h2>  
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
@@ -26,7 +26,7 @@
             @click="showModal = true"
             class="inline-flex items-center px-4 py-2 border border-green-500 text-green-500 dark:text-green-400 rounded-lg hover:bg-green-50 dark:hover:bg-gray-700 transition-colors"
           >
-            <span>Voir toutes les certifications</span>
+            <span>{{ $t('certifications.button') }}</span>
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>

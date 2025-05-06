@@ -9,10 +9,27 @@
     "contact": "Contact"
   },
   "home": {
-    "title": "Bonjour, je suis",
-    "subtitle": "Développeur Full Stack",
-    "description": "Passionné par la création d'applications web modernes et performantes",
-    "downloadCV": "Télécharger CV"
+    "badge": "EXPERT EN CYBERSÉCURITÉ & RSSI",
+    "name": {
+      "first": "Aurlus",
+      "last": "SOGBOSSI"
+    },
+    "description": "Ingénieur en sécurité des systèmes d'information avec <span class='text-green-600 dark:text-green-300'>7+ ans d'expertise</span> à l'ASECNA. Spécialiste en architectures réseaux sécurisées et conformité ISO 27001.",
+    "tags": {
+      "security": "Cybersécurité",
+      "ciso": "RSSI",
+      "iso": "ISO 27001", 
+      "management": "Gestion de Projets"
+    },
+    "buttons": {
+      "contact": "Contact Professionnel",
+      "expertise": "Voir Mon Expertise"
+    },
+    "stats": {
+      "projects": "PROJETS",
+      "clients": "CLIENTS",
+      "awards": "RÉCOMPENSES"
+    }
   },
   "about": {
     "title": "À",
@@ -21,14 +38,14 @@
     "jobTitle": "Expert en Cybersécurité et Réseaux Informatiques",
     "paragraph1": "Ingénieur diplômé de l'EAMAC en Électronique-Informatique avec plus de 7 ans d'expérience professionnelle à l'ASECNA. Actuellement Responsable de la Sécurité des Systèmes d'Information (RSSI), je combine expertise technique et compétences en gestion grâce à un DESS en gestion de projets.",
     "paragraph2": "Je suis spécialisé dans la conception et la mise en œuvre d'architectures réseaux sécurisées, le déploiement de politiques de cybersécurité conformes à la norme ISO 27001 et à la stratégie de l'OACI, et la gestion d'équipes techniques multisites dans des environnements critiques.",
-    "skills": [
-      "Cybersécurité",
-      "Réseaux Informatiques",
-      "Norme ISO 27001",
-      "Gestion de Projets",
-      "Leadership d'Équipe",
-      "Environnements Critiques"
-    ],
+    "skills": {
+    "cybersecurity": "Cybersécurité",
+    "networks": "Réseaux Informatiques",
+    "iso": "Norme ISO 27001",
+    "projectManagement": "Gestion de Projets",
+    "leadership": "Leadership d'Équipe",
+    "criticalEnvironments": "Environnements Critiques"
+  },
     "certificationsTitle": "Certifications",
     "certifications": [
       "CISSP",
@@ -128,27 +145,61 @@
     }
   },
   "certifications": {
-    "title": "Certifications"
+    "title1": "Certifications",
+    "title2": "professionnelles",
+    "button": "Voir toutes les certifications"
   },
-  "languages": {
-    "title": "Compétences linguistiques",
-    "proficiency": {
-      "native": "Langue maternelle",
-      "fluent": "Courant",
-      "advanced": "Avancé",
-      "intermediate": "Intermédiaire",
-      "basic": "Notions de base"
+ "languages": {
+    "title": "Compétence <span class='text-green-500'>linguistique</span>",
+    "french": {
+      "name": "Français",
+      "level": "Professionnel",
+      "stars": 5
+    },
+    "english": {
+      "name": "Anglais",
+      "level": "Avancé",
+      "stars": 4
     }
   },
   "contact": {
-    "title": "Contact",
-    "name": "Nom",
-    "email": "Email",
-    "message": "Message",
-    "send": "Envoyer",
-    "sending": "Envoi en cours...",
-    "successMessage": "Votre message a été envoyé avec succès !",
-    "errorMessage": "Une erreur s'est produite. Veuillez réessayer."
+    "title": "Contactez-moi",
+    "subtitle": "Coordonnées",
+    "description": "Je suis disponible pour discuter de vos projets. N'hésitez pas à me contacter pour toute opportunité professionnelle.",
+    "address": {
+      "title": "Adresse",
+      "value": "Yoff-Dakar, Sénégal"
+    },
+    "email": {
+      "title": "Email",
+      "value": "sogbossiaur@asecna.org"
+    },
+    "phone": {
+      "title": "Téléphone",
+      "value": "+221 78 185 66 71"
+    },
+    "social": "Réseaux sociaux",
+    "form": {
+      "title": "Envoyez-moi un message",
+      "name": {
+        "label": "Nom complet",
+        "placeholder": "Votre nom"
+      },
+      "email": {
+        "label": "Adresse email",
+        "placeholder": "Votre email"
+      },
+      "subject": {
+        "label": "Objet",
+        "placeholder": "Objet de votre message"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Votre message..."
+      },
+      "submit": "Envoyer le message",
+      "submitting": "Envoi en cours..."
+    }
   }
 }
 

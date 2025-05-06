@@ -9,27 +9,33 @@
       {{ $t('experience.title') }} <span class="text-green-500">{{ $t('experience.professional') }}</span>
     </h2>
     
-    <div class="relative">
-      <!-- Timeline center line -->
-      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300 dark:bg-gray-700"></div>
-      
-      <!-- Timeline items -->
-      <div class="space-y-16 md:space-y-16">
-        <!-- Item 1 -->
-        <div class="relative flex flex-col md:flex-row items-center md:justify-between">
-          <!-- Left Side (odd) -->
-          <div class="w-full md:w-5/12 mb-8 md:mb-0 md:pr-8 md:text-right order-2 md:order-1">
-            <h3 class="text-xl font-bold mb-2">{{ $t('experience.job1.title') }}</h3>
-            <h4 class="text-green-500 font-semibold mb-3">{{ $t('experience.job1.company') }}</h4>
+    <div class="space-y-8">
+      <!-- Experience Card 1 -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-102 hover:shadow-xl">
+        <div class="flex flex-col md:flex-row">
+          <!-- Icon Column -->
+          <div class="bg-green-500 text-white p-6 flex items-center justify-center md:w-24">
+            <font-awesome-icon icon="fa-solid fa-shield-alt" class="text-3xl" />
+          </div>
+          
+          <!-- Content Column -->
+          <div class="flex-1 p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div>
+                <h3 class="text-xl font-bold">{{ $t('experience.job1.title') }}</h3>
+                <h4 class="text-green-500 font-semibold">{{ $t('experience.job1.company') }}</h4>
+              </div>
+              <span class="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm font-semibold py-1 px-3 rounded-full mt-2 md:mt-0">
+                {{ $t('experience.job1.duration') }}
+              </span>
+            </div>
+            
             <p class="text-gray-700 dark:text-gray-300 mb-4">
               {{ $t('experience.job1.description') }}
             </p>
-            <span class="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm font-semibold py-1 px-3 rounded-full mb-4">
-              {{ $t('experience.job1.duration') }}
-            </span>
             
             <!-- Expandable Content -->
-            <details class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-left">
+            <details class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
               <summary class="font-medium cursor-pointer">{{ $t('experience.viewDetails') }}</summary>
               <ul class="mt-3 space-y-2 list-disc pl-5 text-gray-700 dark:text-gray-300">
                 <li>{{ $t('experience.job1.responsibilities.0') }}</li>
@@ -42,38 +48,32 @@
               </ul>
             </details>
           </div>
-          
-          <!-- Visible only from md (768px) -->
-          <div class="hidden md:absolute md:left-1/2 md:transform md:-translate-x-1/2 md:w-10 md:h-10 md:rounded-full md:bg-green-500 md:flex md:items-center md:justify-center z-10 order-1 md:order-2">
-            <font-awesome-icon icon="fa-solid fa-shield-alt" class="text-black" />
-          </div>
-          
-          <!-- Right Side (empty for first item) -->
-          <div class="w-full md:w-5/12 md:pl-8 hidden md:block order-3">
-          </div>
         </div>
-        
-        <!-- Item 2 -->
-        <div class="relative flex flex-col md:flex-row items-center md:justify-between mt-12">
-          <!-- Left Side (empty for second item) -->
-          <div class="w-full md:w-5/12 md:pr-8 hidden md:block order-1">
+      </div>
+      
+      <!-- Experience Card 2 -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-102 hover:shadow-xl">
+        <div class="flex flex-col md:flex-row">
+          <!-- Icon Column -->
+          <div class="bg-green-500 text-white p-6 flex items-center justify-center md:w-24">
+            <font-awesome-icon icon="fa-solid fa-network-wired" class="text-3xl" />
           </div>
           
-          <!-- Circle Indicator -->
-          <div class="hidden md:absolute md:left-1/2 md:transform md:-translate-x-1/2 md:w-10 md:h-10 md:rounded-full md:bg-green-500 md:flex md:items-center md:justify-center z-10 order-1 md:order-2">
-            <font-awesome-icon icon="fa-solid fa-network-wired" class="text-black" />
-          </div>
-          
-          <!-- Right Side (even) -->
-          <div class="w-full md:w-5/12 mb-8 md:mb-0 md:pl-8 order-2 md:order-3">
-            <h3 class="text-xl font-bold mb-2">{{ $t('experience.job2.title') }}</h3>
-            <h4 class="text-green-500 font-semibold mb-3">{{ $t('experience.job2.company') }}</h4>
+          <!-- Content Column -->
+          <div class="flex-1 p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div>
+                <h3 class="text-xl font-bold">{{ $t('experience.job2.title') }}</h3>
+                <h4 class="text-green-500 font-semibold">{{ $t('experience.job2.company') }}</h4>
+              </div>
+              <span class="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm font-semibold py-1 px-3 rounded-full mt-2 md:mt-0">
+                {{ $t('experience.job2.duration') }}
+              </span>
+            </div>
+            
             <p class="text-gray-700 dark:text-gray-300 mb-4">
               {{ $t('experience.job2.description') }}
             </p>
-            <span class="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm font-semibold py-1 px-3 rounded-full mb-4">
-              {{ $t('experience.job2.duration') }}
-            </span>
             
             <!-- Expandable Content -->
             <details class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
@@ -90,22 +90,34 @@
             </details>
           </div>
         </div>
-        
-        <!-- Item 3 -->
-        <div class="relative flex flex-col md:flex-row items-center md:justify-between mt-12">
-          <!-- Left Side (odd) -->
-          <div class="w-full md:w-5/12 mb-8 md:mb-0 md:pr-8 md:text-right order-2 md:order-1">
-            <h3 class="text-xl font-bold mb-2">{{ $t('experience.job3.title') }}</h3>
-            <h4 class="text-green-500 font-semibold mb-3">{{ $t('experience.job3.company') }}</h4>
+      </div>
+      
+      <!-- Experience Card 3 -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-102 hover:shadow-xl">
+        <div class="flex flex-col md:flex-row">
+          <!-- Icon Column -->
+          <div class="bg-green-500 text-white p-6 flex items-center justify-center md:w-24">
+            <font-awesome-icon icon="fa-solid fa-server" class="text-3xl" />
+          </div>
+          
+          <!-- Content Column -->
+          <div class="flex-1 p-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div>
+                <h3 class="text-xl font-bold">{{ $t('experience.job3.title') }}</h3>
+                <h4 class="text-green-500 font-semibold">{{ $t('experience.job3.company') }}</h4>
+              </div>
+              <span class="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm font-semibold py-1 px-3 rounded-full mt-2 md:mt-0">
+                {{ $t('experience.job3.duration') }}
+              </span>
+            </div>
+            
             <p class="text-gray-700 dark:text-gray-300 mb-4">
               {{ $t('experience.job3.description') }}
             </p>
-            <span class="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm font-semibold py-1 px-3 rounded-full mb-4">
-              {{ $t('experience.job3.duration') }}
-            </span>
             
             <!-- Expandable Content -->
-            <details class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-left">
+            <details class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
               <summary class="font-medium cursor-pointer">{{ $t('experience.viewDetails') }}</summary>
               <ul class="mt-3 space-y-2 list-disc pl-5 text-gray-700 dark:text-gray-300">
                 <li>{{ $t('experience.job3.responsibilities.0') }}</li>
@@ -114,15 +126,6 @@
                 <li>{{ $t('experience.job3.responsibilities.3') }}</li>
               </ul>
             </details>
-          </div>
-          
-          <!-- Circle Indicator -->
-          <div class="hidden md:absolute md:left-1/2 md:transform md:-translate-x-1/2 md:w-10 md:h-10 md:rounded-full md:bg-green-500 md:flex md:items-center md:justify-center z-10 order-1 md:order-2">
-            <font-awesome-icon icon="fa-solid fa-server" class="text-black" />
-          </div>
-          
-          <!-- Right Side (empty for third item) -->
-          <div class="w-full md:w-5/12 md:pl-8 hidden md:block order-3">
           </div>
         </div>
       </div>
