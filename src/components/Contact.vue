@@ -1,20 +1,20 @@
 <template>
-<section 
+    <section 
   id="contact" 
   ref="sectionRef"
   class="py-20 px-4 bg-gray-100 dark:bg-gray-800"
 >
   <div class="container mx-auto">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg inline-block">
-      <span class="text-green-500">{{ $t('contact.title') }}</span>
+      <span class="text-green-500">Contactez</span>-moi
     </h2> 
     
     <div class="flex flex-col md:flex-row gap-10">
       <!-- Informations de contact -->
       <div class="w-full md:w-5/12">
-        <h3 class="text-2xl font-bold mb-6">{{ $t('contact.subtitle') }}</h3>
+        <h3 class="text-2xl font-bold mb-6">Coordonnées</h3>
         <p class="text-gray-700 dark:text-gray-300 mb-8">
-          {{ $t('contact.description') }}
+          Je suis disponible pour discuter de vos projets. N'hésitez pas à me contacter pour toute opportunité professionnelle.
         </p>
         
         <div class="space-y-6">
@@ -24,9 +24,9 @@
               <font-awesome-icon icon="fa-solid fa-location-dot" class="text-white text-xl" />
             </div>
             <div>
-              <h4 class="font-bold mb-1">{{ $t('contact.address.title') }}</h4>
+              <h4 class="font-bold mb-1">Adresse</h4>
               <p class="text-gray-700 dark:text-gray-300">
-                {{ $t('contact.address.value') }}
+                Yoff-Dakar,Sénégal
               </p>
             </div>
           </div>
@@ -37,9 +37,9 @@
               <font-awesome-icon icon="fa-solid fa-envelope" class="text-white text-xl" />
             </div>
             <div>
-              <h4 class="font-bold mb-1">{{ $t('contact.email.title') }}</h4>
+              <h4 class="font-bold mb-1">Email</h4>
               <p class="text-gray-700 dark:text-gray-300">
-                {{ $t('contact.email.value') }}
+                sogbossiaur@asecna.org
               </p>
             </div>
           </div>
@@ -50,9 +50,9 @@
               <font-awesome-icon icon="fa-solid fa-phone" class="text-white text-xl" />
             </div>
             <div>
-              <h4 class="font-bold mb-1">{{ $t('contact.phone.title') }}</h4>
+              <h4 class="font-bold mb-1">Téléphone</h4>
               <p class="text-gray-700 dark:text-gray-300">
-                {{ $t('contact.phone.value') }}
+                +221 78 185 66 71
               </p>
             </div>
           </div>
@@ -60,7 +60,7 @@
         
         <!-- Réseaux sociaux -->
         <div class="mt-8">
-          <h4 class="font-bold mb-4">{{ $t('contact.social') }}</h4>
+          <h4 class="font-bold mb-4">Réseaux sociaux</h4>
           <div class="flex space-x-4">
             <a href="#" class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
               <font-awesome-icon icon="fa-brands fa-linkedin-in" class="text-gray-700 dark:text-gray-300 hover:text-white" />
@@ -78,21 +78,21 @@
       <!-- Formulaire de contact -->
       <div class="w-full md:w-7/12">
         <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md">
-          <h3 class="text-2xl font-bold mb-6">{{ $t('contact.form.title') }}</h3>
+          <h3 class="text-2xl font-bold mb-6">Envoyez-moi un message</h3>
           
           <form @submit.prevent="submitForm">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <!-- Nom -->
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  {{ $t('contact.form.name.label') }}
+                  Nom complet
                 </label>
                 <input 
                   type="text" 
                   id="name" 
                   v-model="form.name"
                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                  :placeholder="$t('contact.form.name.placeholder')"
+                  placeholder="Votre nom"
                   required
                 />
               </div>
@@ -100,14 +100,14 @@
               <!-- Email -->
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  {{ $t('contact.form.email.label') }}
+                  Adresse email
                 </label>
                 <input 
                   type="email" 
                   id="email" 
                   v-model="form.email"
                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                  :placeholder="$t('contact.form.email.placeholder')"
+                  placeholder="Votre email"
                   required
                 />
               </div>
@@ -116,14 +116,14 @@
             <!-- Sujet -->
             <div class="mb-6">
               <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                {{ $t('contact.form.subject.label') }}
+                Objet
               </label>
               <input 
                 type="text" 
                 id="subject" 
                 v-model="form.subject"
                 class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                :placeholder="$t('contact.form.subject.placeholder')"
+                placeholder="Objet de votre message"
                 required
               />
             </div>
@@ -131,14 +131,14 @@
             <!-- Message -->
             <div class="mb-6">
               <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                {{ $t('contact.form.message.label') }}
+                Message
               </label>
               <textarea 
                 id="message" 
                 v-model="form.message"
                 rows="5"
                 class="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
-                :placeholder="$t('contact.form.message.placeholder')"
+                placeholder="Votre message..."
                 required
               ></textarea>
             </div>
@@ -152,7 +152,7 @@
               <span v-if="isSubmitting" class="mr-2">
                 <font-awesome-icon icon="fa-solid fa-spinner" class="animate-spin" />
               </span>
-              <span>{{ isSubmitting ? $t('contact.form.submitting') : $t('contact.form.submit') }}</span>
+              <span>{{ isSubmitting ? 'Envoi en cours...' : 'Envoyer le message' }}</span>
             </button>
           </form>
         </div>
@@ -160,7 +160,7 @@
     </div>
   </div>
 </section>
-</template>
+  </template>
   
   <script lang="ts">
   import { defineComponent, ref, onMounted, onUnmounted } from 'vue';
