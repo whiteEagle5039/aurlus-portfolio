@@ -96,7 +96,7 @@
   </div>
 
   <!-- Statistiques -->
-  <div class="hidden lg:flex absolute bottom-8 xl:bottom-12 left-8 xl:left-12 gap-6 xl:gap-8">
+  <!-- <div class="hidden lg:flex absolute bottom-8 xl:bottom-12 left-8 xl:left-12 gap-6 xl:gap-8">
     <div class="text-center">
       <div class="text-green-600 dark:text-green-400 text-2xl xl:text-3xl font-bold transition-colors duration-500">200+</div>
       <div class="text-gray-500 dark:text-gray-400 text-xs xl:text-sm transition-colors duration-500">{{ $t('home.stats.projects') }}</div>
@@ -109,7 +109,7 @@
       <div class="text-green-600 dark:text-green-400 text-2xl xl:text-3xl font-bold transition-colors duration-500">15+</div>
       <div class="text-gray-500 dark:text-gray-400 text-xs xl:text-sm transition-colors duration-500">{{ $t('home.stats.awards') }}</div>
     </div>
-  </div>  
+  </div>   -->
 </section>
 </template>
 

@@ -103,7 +103,7 @@ export default defineComponent({
     
     const downloadCV = () => {
       // Chemin relatif depuis le dossier public
-      const cvPath = '/Aurlus_cv.pdf'; // Adaptez le nom du fichier
+      const cvPath = '/Aurlus_SOGBOSSI.pdf'; // Adaptez le nom du fichier
       
       // Ouvrir une nouvelle fenêtre pour le téléchargement
       const newWindow = window.open(cvPath, '_blank');
