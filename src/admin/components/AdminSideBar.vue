@@ -2,8 +2,8 @@
   <aside class="w-64 bg-white shadow-lg border-r border-gray-200 flex flex-col">
     <!-- Logo/Brand -->
     <div class="p-6 border-b border-gray-200">
-      <h1 class="text-2xl font-bold text-green-500">Admin Panel</h1>
-      <p class="text-sm text-gray-600 mt-1">Gestion du portfolio</p>
+      <h1 class="text-2xl font-bold text-green-500">{{ $t('admin.sidebar.title') }}</h1>
+      <p class="text-sm text-gray-600 mt-1">{{ $t('admin.sidebar.subtitle') }}</p>
     </div>
 
     <!-- Navigation Menu -->
@@ -20,30 +20,33 @@
             ]"
           >
             <i :class="[item.icon, 'mr-3 text-lg']"></i>
-            {{ item.label }}
+            {{ $t(`admin.sidebar.menu.${item.key}`) }}
           </router-link>
         </li>
       </ul>
     </nav>
 
-    <!-- User Info / Footer -->
+    <!-- Language Toggle & User Info / Footer -->
     <div class="p-4 border-t border-gray-200">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-          <i class="fas fa-user text-white"></i>
-        </div>
-        <div class="flex-1">
-          <p class="text-sm font-medium text-gray-900">Administrateur</p>
-          <p class="text-xs text-gray-600">En ligne</p>
-        </div>
+      <!-- Language Toggle Button -->
+      <div class="mb-4">
+        <button 
+          @click="toggleLanguage" 
+          class="w-full p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center space-x-2"
+          :aria-label="$t('admin.sidebar.toggleLanguage')"
+        >
+          <i class="fas fa-language text-gray-600"></i>
+          <span class="text-gray-700 font-medium">{{ currentLocale.toUpperCase() }}</span>
+        </button>
       </div>
-      
+
+      <!-- Logout Button -->
       <button 
         @click="handleLogout"
-        class="w-full mt-3 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors duration-200 flex items-center justify-center"
+        class="w-full px-3 py-2 bg-red-700 text-sm text-gray-900 hover:bg-red-600 rounded-lg transition-colors duration-200 flex items-center justify-center"
       >
         <i class="fas fa-sign-out-alt mr-2"></i>
-        Déconnexion
+        {{ $t('admin.sidebar.logout') }}
       </button>
     </div>
   </aside>
@@ -52,50 +55,60 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 const route = useRoute()
 const router = useRouter()
+const { locale, t } = useI18n()
+
+const currentLocale = computed(() => locale.value)
 
 const menuItems = [
   {
     path: '/admin/dashboard',
-    label: 'Tableau de bord',
+    key: 'dashboard',
     icon: 'fas fa-tachometer-alt'
   },
   {
     path: '/admin/experiences',
-    label: 'Expériences',
+    key: 'experiences',
     icon: 'fas fa-briefcase'
   },
   {
     path: '/admin/education',
-    label: 'Formations',
+    key: 'education',
     icon: 'fas fa-graduation-cap'
   },
   {
     path: '/admin/certifications',
-    label: 'Certifications',
+    key: 'certifications',
     icon: 'fas fa-certificate'
   },
   {
     path: '/admin/languages',
-    label: 'Langues & Compétences',
+    key: 'languages',
     icon: 'fas fa-language'
   },
   {
     path: '/admin/projects',
-    label: 'Projets',
+    key: 'projects',
     icon: 'fas fa-project-diagram'
   },
   {
     path: '/admin/contact',
-    label: 'Messages',
+    key: 'contact',
     icon: 'fas fa-envelope'
   }
 ]
 
 const isActiveRoute = (path: string) => {
   return route.path === path
+}
+
+const toggleLanguage = () => {
+  const newLocale = locale.value === 'fr' ? 'en' : 'fr'
+  locale.value = newLocale
+  localStorage.setItem('userLocale', newLocale)
 }
 
 const handleLogout = () => {

@@ -205,6 +205,25 @@
     "header": {
       "viewPortfolio": "Voir Portfolio"
     },
+    "sidebar": {
+      "title": "Panel Admin",
+      "subtitle": "Gestion du portfolio",
+      "toggleLanguage": "Changer de langue",
+      "user": {
+        "name": "Aurlus Administrateur",
+        "status": "En ligne"
+      },
+      "logout": "Déconnexion",
+      "menu": {
+        "dashboard": "Tableau de bord",
+        "experiences": "Expériences",
+        "education": "Formations",
+        "certifications": "Certifications",
+        "languages": "Langues & Compétences",
+        "projects": "Projets",
+        "contact": "Messages"
+      }
+    },
     "pages": {
       "dashboard": {
         "title": "Tableau de bord",

@@ -35,7 +35,7 @@
           class="px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-lg hover:bg-green-600 transition-colors duration-200 flex items-center space-x-2"
         >
           <i class="fas fa-external-link-alt"></i>
-          <span>Voir Portfolio</span>
+          <span>{{ $t('admin.header.viewPortfolio') }}</span>
         </button>
         
         <!-- User Profile -->
@@ -44,7 +44,7 @@
             <i class="fas fa-user text-white text-sm"></i>
           </div>
           <div class="hidden md:block">
-            <p class="text-sm font-medium text-gray-700">{{ userName }}</p>
+            <p class="text-sm font-medium text-gray-700">{{ $t('admin.sidebar.user.name') }}</p>
             <p class="text-xs text-gray-500">{{ userRole }}</p>
           </div>
         </div>
@@ -65,8 +65,7 @@ const { locale, t } = useI18n()
 // Reactive state
 const notificationCount = ref(3)
 const hasUnreadNotifications = computed(() => notificationCount.value > 0)
-const userName = ref('Administrateur')
-const userRole = ref('Super Admin')
+const userRole = computed(() => t('admin.sidebar.user.status'))
 
 const currentLocale = computed(() => locale.value)
 
@@ -113,12 +112,6 @@ const pageTitle = computed(() => pageInfo.value.title)
 const pageDescription = computed(() => pageInfo.value.description)
 
 // Methods
-const toggleLanguage = () => {
-  const newLocale = locale.value === 'fr' ? 'en' : 'fr'
-  locale.value = newLocale
-  localStorage.setItem('userLocale', newLocale)
-}
-
 const toggleNotifications = () => {
   console.log('Toggle notifications')
   // Logique pour afficher/masquer les notifications
