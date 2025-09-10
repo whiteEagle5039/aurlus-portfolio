@@ -1,11 +1,15 @@
 <template>
-  <div class="flex min-h-screen bg-gray-50">
+  <div class="flex h-screen bg-gray-50">
+    <!-- Sidebar -->
     <AdminSidebar />
     
-    <div class="flex-1 flex flex-col">
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <!-- Header -->
       <AdminHeader />
       
-      <main class="flex-1 p-6">
+      <!-- Page Content -->
+      <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
         <router-view />
       </main>
     </div>

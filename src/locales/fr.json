@@ -201,16 +201,95 @@
       "submitting": "Envoi en cours..."
     }
   },
-  "admin": {
-    "header": {
-      "viewPortfolio": "Voir Portfolio"
+   "admin": {
+    "login": {
+      "title": " Aurlus Connexion",
+      "subtitle": "Accédez à votre interface d'administration",
+      "toggleLanguage": "Changer de langue",
+      "form": {
+        "username": {
+          "label": "Nom d'utilisateur",
+          "placeholder": "Entrez votre nom d'utilisateur"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "Entrez votre mot de passe"
+        },
+        "remember": "Se souvenir de moi",
+        "forgotPassword": "Mot de passe oublié ?",
+        "submit": "Se connecter",
+        "loggingIn": "Connexion en cours..."
+      },
+      "firstLogin": {
+        "title": "Première connexion",
+        "message": "Utilisez les identifiants par défaut : admin / admin123. Vous serez invité à changer votre mot de passe."
+      },
+      "forgotModal": {
+        "title": "Réinitialiser le mot de passe",
+        "message": "Pour des raisons de sécurité, contactez l'administrateur système pour réinitialiser votre mot de passe.",
+        "cancel": "Annuler",
+        "confirm": "Compris"
+      },
+      "errors": {
+        "invalidCredentials": "Nom d'utilisateur ou mot de passe incorrect",
+        "serverError": "Erreur serveur. Veuillez réessayer plus tard."
+      },
+      "backToPortfolio": "Retour au portfolio"
+    },
+    "changePassword": {
+      "title": "Changer le mot de passe",
+      "subtitle": "Sécurisez votre compte avec un nouveau mot de passe",
+      "toggleLanguage": "Changer de langue",
+      "securityNotice": {
+        "title": "Changement de mot de passe obligatoire",
+        "message": "Pour des raisons de sécurité, vous devez changer le mot de passe par défaut lors de votre première connexion."
+      },
+      "form": {
+        "currentPassword": {
+          "label": "Mot de passe actuel",
+          "placeholder": "Entrez votre mot de passe actuel"
+        },
+        "newPassword": {
+          "label": "Nouveau mot de passe",
+          "placeholder": "Entrez votre nouveau mot de passe"
+        },
+        "confirmPassword": {
+          "label": "Confirmer le mot de passe",
+          "placeholder": "Confirmez votre nouveau mot de passe"
+        },
+        "cancel": "Annuler",
+        "submit": "Mettre à jour",
+        "updating": "Mise à jour..."
+      },
+      "requirements": {
+        "minLength": "Au moins 8 caractères",
+        "hasUppercase": "Au moins une lettre majuscule",
+        "hasLowercase": "Au moins une lettre minuscule",
+        "hasNumber": "Au moins un chiffre",
+        "hasSpecialChar": "Au moins un caractère spécial"
+      },
+      "strength": {
+        "weak": "Faible",
+        "medium": "Moyen",
+        "strong": "Fort"
+      },
+      "errors": {
+        "invalidCurrentPassword": "Le mot de passe actuel est incorrect",
+        "passwordMismatch": "Les mots de passe ne correspondent pas",
+        "samePassword": "Le nouveau mot de passe doit être différent de l'ancien",
+        "serverError": "Erreur serveur. Veuillez réessayer plus tard."
+      },
+      "success": {
+        "passwordMatch": "Les mots de passe correspondent",
+        "passwordChanged": "Mot de passe mis à jour avec succès ! Redirection en cours..."
+      }
     },
     "sidebar": {
       "title": "Panel Admin",
       "subtitle": "Gestion du portfolio",
       "toggleLanguage": "Changer de langue",
       "user": {
-        "name": "Aurlus Administrateur",
+        "name": "Administrateur",
         "status": "En ligne"
       },
       "logout": "Déconnexion",
@@ -223,6 +302,9 @@
         "projects": "Projets",
         "contact": "Messages"
       }
+    },
+    "header": {
+      "viewPortfolio": "Voir Portfolio"
     },
     "pages": {
       "dashboard": {
