@@ -200,6 +200,45 @@
       "submit": "Envoyer le message",
       "submitting": "Envoi en cours..."
     }
+  },
+  "admin": {
+    "header": {
+      "viewPortfolio": "Voir Portfolio"
+    },
+    "pages": {
+      "dashboard": {
+        "title": "Tableau de bord",
+        "description": "Vue d'ensemble de votre portfolio"
+      },
+      "experiences": {
+        "title": "Gestion des expériences",
+        "description": "Gérer vos expériences professionnelles"
+      },
+      "education": {
+        "title": "Gestion des formations",
+        "description": "Gérer vos formations et diplômes"
+      },
+      "certifications": {
+        "title": "Gestion des certifications",
+        "description": "Gérer vos certifications professionnelles"
+      },
+      "languages": {
+        "title": "Langues & Compétences",
+        "description": "Gérer vos compétences linguistiques et techniques"
+      },
+      "projects": {
+        "title": "Gestion des projets",
+        "description": "Gérer vos projets et réalisations"
+      },
+      "contact": {
+        "title": "Messages reçus",
+        "description": "Consulter les messages depuis le formulaire de contact"
+      },
+      "default": {
+        "title": "Administration",
+        "description": "Interface d'administration"
+      }
+    }
   }
 }
 

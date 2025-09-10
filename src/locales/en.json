@@ -200,5 +200,44 @@
       "submit": "Send message",
       "submitting": "Sending..."
     }
+  },
+  "admin": {
+    "header": {
+      "viewPortfolio": "View Portfolio"
+    },
+    "pages": {
+      "dashboard": {
+        "title": "Dashboard",
+        "description": "Overview of your portfolio"
+      },
+      "experiences": {
+        "title": "Experience Management",
+        "description": "Manage your professional experiences"
+      },
+      "education": {
+        "title": "Education Management",
+        "description": "Manage your education and degrees"
+      },
+      "certifications": {
+        "title": "Certifications Management",
+        "description": "Manage your professional certifications"
+      },
+      "languages": {
+        "title": "Languages & Skills",
+        "description": "Manage your linguistic and technical skills"
+      },
+      "projects": {
+        "title": "Projects Management",
+        "description": "Manage your projects and achievements"
+      },
+      "contact": {
+        "title": "Received Messages",
+        "description": "View messages from contact form"
+      },
+      "default": {
+        "title": "Administration",
+        "description": "Administration interface"
+      }
+    }
   }
 }
