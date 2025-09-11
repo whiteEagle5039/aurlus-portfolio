@@ -20,4 +20,9 @@ export const API_ENDPOINT = {
     projects: "admin/projects",
     //contacts routes
 
+
+    //portfolio experiences routes
+    portfolioExperiences: "portfolio/experiences",
+    //portfolio educations routes
+    portfolioEducations: "portfolio/educations"
 }

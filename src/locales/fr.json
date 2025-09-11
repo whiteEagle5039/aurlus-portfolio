@@ -215,7 +215,10 @@
     "activate": "Activer",
     "deactivate": "Désactiver",
     "french": "Français",
-    "english": "Anglais"
+    "english": "Anglais", 
+    "retry": "Réessayer",
+    "current": "Actuel",
+    "errorLoadingData": "Erreur lors du chargement des données"
   },
   "admin": {
     "login": {
