@@ -201,11 +201,27 @@
       "submitting": "Sending..."
     }
   },
+  "common": {
+    "loading": "Loading...",
+    "saving": "Saving...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "update": "Update",
+    "active": "Active",
+    "inactive": "Inactive",
+    "activate": "Activate",
+    "deactivate": "Deactivate",
+    "french": "French",
+    "english": "English"
+  },
   "admin": {
     "login": {
       "title": "Aurlus Login",
-      "subtitle": "Access your administration interface",
-      "toggleLanguage": "Toggle language",
+      "subtitle": "Access your administration panel",
+      "toggleLanguage": "Switch language",
       "form": {
         "username": {
           "label": "Username",
@@ -217,21 +233,21 @@
         },
         "remember": "Remember me",
         "forgotPassword": "Forgot password?",
-        "submit": "Sign In",
-        "loggingIn": "Signing in..."
+        "submit": "Login",
+        "loggingIn": "Logging in..."
       },
       "firstLogin": {
         "title": "First Login",
-        "message": "Use default credentials: admin / admin123. You will be prompted to change your password."
+        "message": "Use the default credentials: admin / admin123. You will be asked to change your password."
       },
       "forgotModal": {
         "title": "Reset Password",
-        "message": "For security reasons, contact the system administrator to reset your password.",
+        "message": "For security reasons, please contact the system administrator to reset your password.",
         "cancel": "Cancel",
-        "confirm": "Understood"
+        "confirm": "Got it"
       },
       "errors": {
-        "invalidCredentials": "Invalid username or password",
+        "invalidCredentials": "Incorrect username or password",
         "serverError": "Server error. Please try again later."
       },
       "backToPortfolio": "Back to portfolio"
@@ -239,7 +255,7 @@
     "changePassword": {
       "title": "Change Password",
       "subtitle": "Secure your account with a new password",
-      "toggleLanguage": "Toggle language",
+      "toggleLanguage": "Switch language",
       "securityNotice": {
         "title": "Mandatory Password Change",
         "message": "For security reasons, you must change the default password on your first login."
@@ -274,9 +290,9 @@
         "strong": "Strong"
       },
       "errors": {
-        "invalidCurrentPassword": "Current password is incorrect",
+        "invalidCurrentPassword": "The current password is incorrect",
         "passwordMismatch": "Passwords do not match",
-        "samePassword": "New password must be different from the current one",
+        "samePassword": "The new password must be different from the old one",
         "serverError": "Server error. Please try again later."
       },
       "success": {
@@ -286,10 +302,10 @@
     },
     "sidebar": {
       "title": "Admin Panel",
-      "subtitle": "Portfolio management",
-      "toggleLanguage": "Toggle language",
+      "subtitle": "Portfolio Management",
+      "toggleLanguage": "Switch language",
       "user": {
-        "name": "Administrator",
+        "name": "Aurlus Admin",
         "status": "Online"
       },
       "logout": "Logout",
@@ -312,28 +328,71 @@
         "description": "Overview of your portfolio"
       },
       "experiences": {
-        "title": "Experience Management",
-        "description": "Manage your professional experiences"
+        "title": "Manage Experiences",
+        "subtitle": "Manage your professional experiences",
+        "addButton": "Add Experience",
+        "addTitle": "Add Experience",
+        "editTitle": "Edit Experience",
+        "current": "Current",
+        "noData": "No experience found",
+        "confirmDelete": "Are you sure you want to delete this experience?",
+        "deleteSuccess": "Experience deleted successfully",
+        "frenchContent": "French Content",
+        "englishContent": "English Content",
+        "generalInfo": "General Information",
+        "table": {
+          "position": "Position",
+          "company": "Company",
+          "period": "Period",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "form": {
+          "titleFr": "Job Title (French)",
+          "titleEn": "Job Title (English)",
+          "titlePlaceholder": "Ex: Cybersecurity Manager",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe your responsibilities and achievements...",
+          "company": "Company",
+          "companyPlaceholder": "Ex: ASECNA",
+          "location": "Location",
+          "locationPlaceholder": "Ex: Dakar, Senegal",
+          "startDate": "Start Date",
+          "endDate": "End Date",
+          "isCurrent": "Current Position",
+          "skills": "Skills",
+          "skillPlaceholder": "Ex: Cybersecurity",
+          "addSkill": "Add Skill",
+          "sortOrder": "Display Order",
+          "isActive": "Visible on portfolio"
+        },
+        "errors": {
+          "loadFailed": "Error loading experiences",
+          "saveFailed": "Error saving experience",
+          "deleteFailed": "Error deleting experience",
+          "statusFailed": "Error changing status"
+        }
       },
       "education": {
-        "title": "Education Management",
+        "title": "Manage Education",
         "description": "Manage your education and degrees"
       },
       "certifications": {
-        "title": "Certifications Management",
+        "title": "Manage Certifications",
         "description": "Manage your professional certifications"
       },
       "languages": {
         "title": "Languages & Skills",
-        "description": "Manage your linguistic and technical skills"
+        "description": "Manage your language and technical skills"
       },
       "projects": {
-        "title": "Projects Management",
+        "title": "Manage Projects",
         "description": "Manage your projects and achievements"
       },
       "contact": {
         "title": "Received Messages",
-        "description": "View messages from contact form"
+        "description": "View messages from the contact form"
       },
       "default": {
         "title": "Administration",

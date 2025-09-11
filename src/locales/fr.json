@@ -201,7 +201,23 @@
       "submitting": "Envoi en cours..."
     }
   },
-   "admin": {
+  "common": {
+    "loading": "Chargement...",
+    "saving": "Enregistrement...",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "add": "Ajouter",
+    "update": "Mettre à jour",
+    "active": "Actif",
+    "inactive": "Inactif",
+    "activate": "Activer",
+    "deactivate": "Désactiver",
+    "french": "Français",
+    "english": "Anglais"
+  },
+  "admin": {
     "login": {
       "title": " Aurlus Connexion",
       "subtitle": "Accédez à votre interface d'administration",
@@ -289,7 +305,7 @@
       "subtitle": "Gestion du portfolio",
       "toggleLanguage": "Changer de langue",
       "user": {
-        "name": "Administrateur",
+        "name": "Aurlus Admin",
         "status": "En ligne"
       },
       "logout": "Déconnexion",
@@ -313,7 +329,50 @@
       },
       "experiences": {
         "title": "Gestion des expériences",
-        "description": "Gérer vos expériences professionnelles"
+        "subtitle": "Gérez vos expériences professionnelles",
+        "addButton": "Ajouter une expérience",
+        "addTitle": "Ajouter une expérience",
+        "editTitle": "Modifier l'expérience",
+        "current": "Actuel",
+        "noData": "Aucune expérience trouvée",
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer cette expérience ?",
+        "deleteSuccess": "Expérience supprimée avec succès",
+        "frenchContent": "Contenu en français",
+        "englishContent": "Contenu en anglais",
+        "generalInfo": "Informations générales",
+        "table": {
+          "position": "Poste",
+          "company": "Entreprise",
+          "period": "Période",
+          "status": "Statut",
+          "actions": "Actions"
+        },
+        "form": {
+          "titleFr": "Titre du poste (Français)",
+          "titleEn": "Titre du poste (Anglais)",
+          "titlePlaceholder": "Ex: Responsable Cybersécurité",
+          "descriptionFr": "Description (Français)",
+          "descriptionEn": "Description (Anglais)",
+          "descriptionPlaceholder": "Décrivez vos responsabilités et réalisations...",
+          "company": "Entreprise",
+          "companyPlaceholder": "Ex: ASECNA",
+          "location": "Localisation",
+          "locationPlaceholder": "Ex: Dakar, Sénégal",
+          "startDate": "Date de début",
+          "endDate": "Date de fin",
+          "isCurrent": "Poste actuel",
+          "skills": "Compétences",
+          "skillPlaceholder": "Ex: Cybersécurité",
+          "addSkill": "Ajouter une compétence",
+          "sortOrder": "Ordre d'affichage",
+          "isActive": "Visible sur le portfolio"
+        },
+        "errors": {
+          "loadFailed": "Erreur lors du chargement des expériences",
+          "saveFailed": "Erreur lors de la sauvegarde",
+          "deleteFailed": "Erreur lors de la suppression",
+          "statusFailed": "Erreur lors du changement de statut"
+        }
       },
       "education": {
         "title": "Gestion des formations",
