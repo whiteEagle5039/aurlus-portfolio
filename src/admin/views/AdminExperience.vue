@@ -3,15 +3,15 @@
     <!-- Header avec bouton d'ajout -->
     <div class="flex justify-between items-center">
       <div>
-        <h3 class="text-lg font-medium text-gray-900">{{ $t('admin.experiences.title') }}</h3>
-        <p class="text-sm text-gray-600">{{ $t('admin.experiences.subtitle') }}</p>
+        <h3 class="text-lg font-medium text-gray-900">{{ $t('admin.pages.experiences.title') }}</h3>
+        <p class="text-sm text-gray-600">{{ $t('admin.pages.experiences.subtitle') }}</p>
       </div>
       <button
         @click="openModal()"
         class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
       >
         <i class="fas fa-plus"></i>
-        <span>{{ $t('admin.experiences.addButton') }}</span>
+        <span>{{ $t('admin.pages.experiences.addButton') }}</span>
       </button>
     </div>
     
@@ -28,19 +28,19 @@
           <thead class="bg-gray-50">
             <tr>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                {{ $t('admin.experiences.table.position') }}
+                {{ $t('admin.pages.experiences.table.position') }}
               </th>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                {{ $t('admin.experiences.table.company') }}
+                {{ $t('admin.pages.experiences.table.company') }}
               </th>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                {{ $t('admin.experiences.table.period') }}
+                {{ $t('admin.pages.experiences.table.period') }}
               </th>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                {{ $t('admin.experiences.table.status') }}
+                {{ $t('admin.pages.experiences.table.status') }}
               </th>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                {{ $t('admin.experiences.table.actions') }}
+                {{ $t('admin.pages.experiences.table.actions') }}
               </th>
             </tr>
           </thead>
@@ -63,7 +63,7 @@
                   {{ currentLocale === 'fr' ? experience.duration_fr : experience.duration_en }}
                 </div>
                 <div v-if="experience.is_current" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                  {{ $t('admin.experiences.current') }}
+                  {{ $t('admin.pages.experiences.current') }}
                 </div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
@@ -109,7 +109,7 @@
             </tr>
             <tr v-if="experiences.length === 0">
               <td colspan="5" class="px-6 py-8 text-center text-gray-500">
-                {{ $t('admin.experiences.noData') }}
+                {{ $t('admin.pages.experiences.noData') }}
               </td>
             </tr>
           </tbody>
@@ -123,7 +123,7 @@
         <div class="p-6">
           <div class="flex justify-between items-center mb-6">
             <h3 class="text-lg font-medium text-gray-900">
-              {{ editingExperience ? $t('admin.experiences.editTitle') : $t('admin.experiences.addTitle') }}
+              {{ editingExperience ? $t('admin.pages.experiences.editTitle') : $t('admin.pages.experiences.addTitle') }}
             </h3>
             <button @click="closeModal" class="text-gray-400 hover:text-gray-600">
               <i class="fas fa-times"></i>
@@ -167,32 +167,32 @@
             <div v-show="activeTab === 'fr'" class="space-y-4">
               <h4 class="text-md font-medium text-gray-800 flex items-center">
                 <i class="fas fa-flag mr-2 text-blue-500"></i>
-                {{ $t('admin.experiences.frenchContent') }}
+                {{ $t('admin.pages.experiences.frenchContent') }}
               </h4>
               
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">
-                  {{ $t('admin.experiences.form.titleFr') }} *
+                  {{ $t('admin.pages.experiences.form.titleFr') }} *
                 </label>
                 <input
                   v-model="form.title_fr"
                   type="text"
                   required
                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  :placeholder="$t('admin.experiences.form.titlePlaceholder')"
+                  :placeholder="$t('admin.pages.experiences.form.titlePlaceholder')"
                 >
                 <p v-if="errors.title_fr" class="text-red-500 text-xs mt-1">{{ errors.title_fr[0] }}</p>
               </div>
               
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">
-                  {{ $t('admin.experiences.form.descriptionFr') }}
+                  {{ $t('admin.pages.experiences.form.descriptionFr') }}
                 </label>
                 <textarea
                   v-model="form.description_fr"
                   rows="4"
                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  :placeholder="$t('admin.experiences.form.descriptionPlaceholder')"
+                  :placeholder="$t('admin.pages.experiences.form.descriptionPlaceholder')"
                 ></textarea>
                 <p v-if="errors.description_fr" class="text-red-500 text-xs mt-1">{{ errors.description_fr[0] }}</p>
               </div>
@@ -202,32 +202,32 @@
             <div v-show="activeTab === 'en'" class="space-y-4">
               <h4 class="text-md font-medium text-gray-800 flex items-center">
                 <i class="fas fa-flag mr-2 text-red-500"></i>
-                {{ $t('admin.experiences.englishContent') }}
+                {{ $t('admin.pages.experiences.englishContent') }}
               </h4>
               
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">
-                  {{ $t('admin.experiences.form.titleEn') }} *
+                  {{ $t('admin.pages.experiences.form.titleEn') }} *
                 </label>
                 <input
                   v-model="form.title_en"
                   type="text"
                   required
                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  :placeholder="$t('admin.experiences.form.titlePlaceholder')"
+                  :placeholder="$t('admin.pages.experiences.form.titlePlaceholder')"
                 >
                 <p v-if="errors.title_en" class="text-red-500 text-xs mt-1">{{ errors.title_en[0] }}</p>
               </div>
               
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">
-                  {{ $t('admin.experiences.form.descriptionEn') }}
+                  {{ $t('admin.pages.experiences.form.descriptionEn') }}
                 </label>
                 <textarea
                   v-model="form.description_en"
                   rows="4"
                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                  :placeholder="$t('admin.experiences.form.descriptionPlaceholder')"
+                  :placeholder="$t('admin.pages.experiences.form.descriptionPlaceholder')"
                 ></textarea>
                 <p v-if="errors.description_en" class="text-red-500 text-xs mt-1">{{ errors.description_en[0] }}</p>
               </div>
@@ -237,33 +237,33 @@
             <div class="border-t border-gray-200 pt-4">
               <h4 class="text-md font-medium text-gray-800 mb-4 flex items-center">
                 <i class="fas fa-info-circle mr-2 text-gray-500"></i>
-                {{ $t('admin.experiences.generalInfo') }}
+                {{ $t('admin.pages.experiences.generalInfo') }}
               </h4>
               
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">
-                    {{ $t('admin.experiences.form.company') }} *
+                    {{ $t('admin.pages.experiences.form.company') }} *
                   </label>
                   <input
                     v-model="form.company"
                     type="text"
                     required
                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                    :placeholder="$t('admin.experiences.form.companyPlaceholder')"
+                    :placeholder="$t('admin.pages.experiences.form.companyPlaceholder')"
                   >
                   <p v-if="errors.company" class="text-red-500 text-xs mt-1">{{ errors.company[0] }}</p>
                 </div>
 
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">
-                    {{ $t('admin.experiences.form.location') }}
+                    {{ $t('admin.pages.experiences.form.location') }}
                   </label>
                   <input
                     v-model="form.location"
                     type="text"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                    :placeholder="$t('admin.experiences.form.locationPlaceholder')"
+                    :placeholder="$t('admin.pages.experiences.form.locationPlaceholder')"
                   >
                 </div>
               </div>
@@ -271,7 +271,7 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">
-                    {{ $t('admin.experiences.form.startDate') }} *
+                    {{ $t('admin.pages.experiences.form.startDate') }} *
                   </label>
                   <input
                     v-model="form.start_date"
@@ -284,7 +284,7 @@
                 
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">
-                    {{ $t('admin.experiences.form.endDate') }}
+                    {{ $t('admin.pages.experiences.form.endDate') }}
                   </label>
                   <input
                     v-model="form.end_date"
@@ -304,7 +304,7 @@
                     class="rounded border-gray-300 text-green-600 shadow-sm focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50"
                   >
                   <span class="ml-2 text-sm text-gray-700">
-                    {{ $t('admin.experiences.form.isCurrent') }}
+                    {{ $t('admin.pages.experiences.form.isCurrent') }}
                   </span>
                 </label>
               </div>
@@ -312,7 +312,7 @@
               <!-- Compétences -->
               <div class="mt-4">
                 <label class="block text-sm font-medium text-gray-700 mb-2">
-                  {{ $t('admin.experiences.form.skills') }}
+                  {{ $t('admin.pages.experiences.form.skills') }}
                 </label>
                 <div class="space-y-2">
                   <div v-for="(skill, index) in form.skills" :key="index" class="flex items-center space-x-2">
@@ -320,7 +320,7 @@
                       v-model="form.skills[index]"
                       type="text"
                       class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                      :placeholder="$t('admin.experiences.form.skillPlaceholder')"
+                      :placeholder="$t('admin.pages.experiences.form.skillPlaceholder')"
                     >
                     <button
                       type="button"
@@ -336,7 +336,7 @@
                     class="text-green-500 hover:text-green-700 text-sm flex items-center"
                   >
                     <i class="fas fa-plus-circle mr-1"></i>
-                    {{ $t('admin.experiences.form.addSkill') }}
+                    {{ $t('admin.pages.experiences.form.addSkill') }}
                   </button>
                 </div>
               </div>
@@ -344,7 +344,7 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">
-                    {{ $t('admin.experiences.form.sortOrder') }}
+                    {{ $t('admin.pages.experiences.form.sortOrder') }}
                   </label>
                   <input
                     v-model.number="form.sort_order"
@@ -362,7 +362,7 @@
                       class="rounded border-gray-300 text-green-600 shadow-sm focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50"
                     >
                     <span class="ml-2 text-sm text-gray-700">
-                      {{ $t('admin.experiences.form.isActive') }}
+                      {{ $t('admin.pages.experiences.form.isActive') }}
                     </span>
                   </label>
                 </div>
@@ -408,7 +408,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { API_BASE_URL, TOKEN_STORAGE_KEY } from '@/config/global'
+import { API_BASE_URL, API_ENDPOINT, TOKEN_STORAGE_KEY } from '@/config/global'
 
 const { locale, t } = useI18n()
 
@@ -477,7 +477,7 @@ const apiHeaders = computed(() => ({
 const loadExperiences = async () => {
   loading.value = true
   try {
-    const response = await fetch(`${API_BASE_URL}/admin/experiences`, {
+    const response = await fetch(`${API_BASE_URL}${API_ENDPOINT.experiences}`, {
       method: 'GET',
       headers: apiHeaders.value
     })
@@ -490,7 +490,7 @@ const loadExperiences = async () => {
     }
   } catch (error) {
     console.error('Erreur:', error)
-    showNotification('error', t('admin.experiences.errors.loadFailed'))
+    showNotification('error', t('admin.pages.experiences.errors.loadFailed'))
   } finally {
     loading.value = false
   }
@@ -565,8 +565,8 @@ const saveExperience = async () => {
     }
 
     const url = editingExperience.value 
-      ? `${API_BASE_URL}/admin/experiences/${editingExperience.value.id}`
-      : `${API_BASE_URL}/admin/experiences`
+      ? `${API_BASE_URL}${API_ENDPOINT.experiences}/${editingExperience.value.id}`
+      : `${API_BASE_URL}${API_ENDPOINT.experiences}`
     
     const method = editingExperience.value ? 'PUT' : 'POST'
     
@@ -590,7 +590,7 @@ const saveExperience = async () => {
     }
   } catch (error: any) {
     console.error('Erreur:', error)
-    showNotification('error', error.message || t('admin.experiences.errors.saveFailed'))
+    showNotification('error', error.message || t('admin.pages.experiences.errors.saveFailed'))
   } finally {
     saving.value = false
   }
@@ -612,12 +612,12 @@ const toggleStatus = async (id: number) => {
     }
   } catch (error) {
     console.error('Erreur:', error)
-    showNotification('error', t('admin.experiences.errors.statusFailed'))
+    showNotification('error', t('admin.pages.experiences.errors.statusFailed'))
   }
 }
 
 const deleteExperience = async (id: number) => {
-  if (!confirm(t('admin.experiences.confirmDelete'))) {
+  if (!confirm(t('admin.pages.experiences.confirmDelete'))) {
     return
   }
 
@@ -628,14 +628,14 @@ const deleteExperience = async (id: number) => {
     })
 
     if (response.ok) {
-      showNotification('success', t('admin.experiences.deleteSuccess'))
+      showNotification('success', t('admin.pages.experiences.deleteSuccess'))
       await loadExperiences()
     } else {
       throw new Error('Erreur lors de la suppression')
     }
   } catch (error) {
     console.error('Erreur:', error)
-    showNotification('error', t('admin.experiences.errors.deleteFailed'))
+    showNotification('error', t('admin.pages.experiences.errors.deleteFailed'))
   }
 }
 
