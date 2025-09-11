@@ -147,7 +147,25 @@
   "certifications": {
     "title1": "Certifications",
     "title2": "professionnelles",
-    "button": "Voir toutes les certifications"
+    "button": "Voir toutes les certifications",
+    "neverExpires": "N'expire jamais",
+    "viewCertificate": "Voir le certificat",
+    "allCertifications": "Toutes mes certifications",
+    "noCertifications": "Aucune certification trouvée",
+    "stats": {
+      "total": "Total",
+      "valid": "Valides", 
+      "expiringSoon": "Expire bientôt",
+      "expired": "Expirées"
+    },
+    "filters": {
+      "all": "Toutes",
+      "valid": "Valides",
+      "expired": "Expirées", 
+      "permanent": "Permanentes"
+    },
+    "showing": "Affichage de",
+    "of": "sur"
   },
  "languages": {
     "title": "Compétence <span class='text-green-500'>linguistique</span>",

@@ -147,7 +147,26 @@
   "certifications": {
     "title1": "Professional",
     "title2": "Certifications",
-    "button": "View all certifications"
+    "button": "View all certifications",
+    "neverExpires": "Never expires",
+    "viewCertificate": "View certificate",
+    "allCertifications": "All my certifications",
+    "noCertifications": "No certification found",
+    "stats": {
+      "total": "Total",
+      "valid": "Valid",
+      "expiringSoon": "Expiring Soon",
+      "expired": "Expired"
+    },
+    "filters": {
+      "all": "All",
+      "valid": "Valid",
+      "expired": "Expired",
+      "permanent": "Permanent"
+    },
+    "showing": "Showing",
+    "of": "of"
+
   },
   "languages": {
     "title": "Language <span class='text-green-500'>skills</span>",
