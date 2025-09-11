@@ -4,6 +4,9 @@ export const API_ENDPOINT = {
     login : "auth/login",
     logout: "auth/logout",
 
-    //experieces routes 
-    experiences : "admin/experiences",
+    //experiences routes
+    experiences: "admin/experiences",
+
+    //toogle status
+    toggleStatus: "toggle-status",
 }

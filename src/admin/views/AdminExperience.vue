@@ -79,13 +79,15 @@
                 </span>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                <!-- Éditer -->
                 <button
                   @click="openModal(experience)"
                   class="text-indigo-600 hover:text-indigo-900 transition-colors"
                   :title="$t('common.edit')"
                 >
-                  <i class="fas fa-edit"></i>
+                  <font-awesome-icon icon="edit" />
                 </button>
+                <!-- Activer / Désactiver -->
                 <button
                   @click="toggleStatus(experience.id)"
                   :class="[
@@ -96,14 +98,15 @@
                   ]"
                   :title="experience.is_active ? $t('common.deactivate') : $t('common.activate')"
                 >
-                  <i :class="experience.is_active ? 'fas fa-pause' : 'fas fa-play'"></i>
+                  <font-awesome-icon :icon="experience.is_active ? 'pause' : 'play'" />
                 </button>
+                <!-- Supprimer -->
                 <button
                   @click="deleteExperience(experience.id)"
                   class="text-red-600 hover:text-red-900 transition-colors"
                   :title="$t('common.delete')"
                 >
-                  <i class="fas fa-trash"></i>
+                  <font-awesome-icon icon="trash" />
                 </button>
               </td>
             </tr>
@@ -598,7 +601,7 @@ const saveExperience = async () => {
 
 const toggleStatus = async (id: number) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/admin/experiences/${id}/toggle-status`, {
+    const response = await fetch(`${API_BASE_URL}${API_ENDPOINT.experiences}/${id}/${API_ENDPOINT.toggleStatus}`, {
       method: 'PATCH',
       headers: apiHeaders.value
     })

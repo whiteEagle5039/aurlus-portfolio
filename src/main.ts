@@ -13,14 +13,15 @@ import fr from './locales/fr.json'
 
 //others
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faB, faBell } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { 
   faCode, faMoon, faSun, faBars, faTimes, 
   faCheck, faDownload, faGraduationCap, faCertificate, 
   faBriefcase, faStar as fasStar, faLocationDot, 
-  faEnvelope, faPhone, faSpinner, faLanguage, faNetworkWired, faShieldAlt, faServer, faSchool, faUserGraduate
+  faEnvelope, faPhone, faSpinner, faLanguage, faNetworkWired, 
+  faShieldAlt, faServer, faSchool, faUserGraduate, faBell,
+  faEdit, faPause, faPlay, faTrash
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { 
@@ -32,8 +33,10 @@ library.add(
   faCheck, faDownload, faGraduationCap, faCertificate, 
   faBriefcase, fasStar, farStar, faLocationDot, 
   faEnvelope, faPhone, faSpinner, faLanguage,
-  faLinkedinIn, faGithub, faTwitter, faInstagram, faNetworkWired, faShieldAlt, faServer, faSchool,
-  faUserGraduate, faBell
+  faLinkedinIn, faGithub, faTwitter, faInstagram, 
+  faNetworkWired, faShieldAlt, faServer, faSchool,
+  faUserGraduate, faBell,
+  faEdit, faPause, faPlay, faTrash
 );
 
 // Typage des messages
