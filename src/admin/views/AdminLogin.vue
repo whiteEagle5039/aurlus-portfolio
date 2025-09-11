@@ -186,6 +186,7 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { API_BASE_URL, API_ENDPOINT } from '@/config/global'
 
 const router = useRouter()
 const { locale, t } = useI18n()
@@ -219,21 +220,42 @@ const handleLogin = async () => {
   try {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
+    const response = await fetch(`${API_BASE_URL}${API_ENDPOINT.login}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        email: loginForm.value.username,
+        password: loginForm.value.password
+      })
+    });
+    const data = await response.json(); 
 
-    // Default credentials check (à remplacer par votre logique d'authentification)
-    if (loginForm.value.username === 'admin' && loginForm.value.password === 'admin123') {
-      // Check if it's first login with default password
-      if (loginForm.value.password === 'admin123') {
-        router.push('/admin/change-password')
-        return
-      }
-      
+    if (response.ok) {
       // Successful login
-      localStorage.setItem('adminToken', 'mock-token')
+      localStorage.setItem('adminToken', data.token)
       router.push('/admin/dashboard')
-    } else {
-      loginError.value = t('admin.login.errors.invalidCredentials')
     }
+    else{
+      loginError.value = t('admin.login.errors.invalidCredentials')
+      // return
+    }
+    // Default credentials check (à remplacer par votre logique d'authentification)
+    // if (loginForm.value.username === 'admin' && loginForm.value.password === 'admin123') {
+    //   // Check if it's first login with default password
+    //   if (loginForm.value.password === 'admin123') {
+    //     router.push('/admin/change-password')
+    //     return
+    //   }
+      
+    //   // Successful login
+    //   localStorage.setItem('adminToken', 'mock-token')
+    //   router.push('/admin/dashboard')
+    // } else {
+    //   loginError.value = t('admin.login.errors.invalidCredentials')
+    // }
   } catch (error) {
     loginError.value = t('admin.login.errors.serverError')
   } finally {
