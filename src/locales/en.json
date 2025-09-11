@@ -375,8 +375,51 @@
         }
       },
       "education": {
-        "title": "Manage Education",
-        "description": "Manage your education and degrees"
+        "title": "Education Management",
+        "subtitle": "Manage your education and degrees",
+        "addButton": "Add Education",
+        "addTitle": "Add Education",
+        "editTitle": "Edit Education",
+        "current": "Ongoing",
+        "noData": "No education found",
+        "confirmDelete": "Are you sure you want to delete this education?",
+        "deleteSuccess": "Education deleted successfully",
+        "frenchContent": "French Content",
+        "englishContent": "English Content", 
+        "generalInfo": "General Information",
+        "table": {
+          "degree": "Degree",
+          "institution": "Institution",
+          "period": "Period",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "form": {
+          "degreeFr": "Degree (French)",
+          "degreeEn": "Degree (English)",
+          "degreePlaceholder": "Ex: Master in Cybersecurity",
+          "specialtyFr": "Specialty (French)",
+          "specialtyEn": "Specialty (English)",
+          "specialtyPlaceholder": "Ex: Information Systems Security",
+          "institution": "Institution",
+          "institutionPlaceholder": "Ex: University of Technology",
+          "location": "Location",
+          "locationPlaceholder": "Ex: Dakar, Senegal",
+          "startYear": "Start Year",
+          "endYear": "End Year",
+          "isCurrent": "Ongoing Education",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe the education content...",
+          "sortOrder": "Display Order",
+          "isActive": "Visible on portfolio"
+        },
+        "errors": {
+          "loadFailed": "Error loading education",
+          "saveFailed": "Error saving education",
+          "deleteFailed": "Error deleting education",
+          "statusFailed": "Error changing status"
+        }
       },
       "certifications": {
         "title": "Manage Certifications",

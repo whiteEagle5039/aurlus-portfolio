@@ -376,7 +376,50 @@
       },
       "education": {
         "title": "Gestion des formations",
-        "description": "Gérer vos formations et diplômes"
+        "subtitle": "Gérez vos formations et diplômes",
+        "addButton": "Ajouter une formation",
+        "addTitle": "Ajouter une formation",
+        "editTitle": "Modifier la formation",
+        "current": "En cours",
+        "noData": "Aucune formation trouvée",
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer cette formation ?",
+        "deleteSuccess": "Formation supprimée avec succès",
+        "frenchContent": "Contenu en français",
+        "englishContent": "Contenu en anglais",
+        "generalInfo": "Informations générales",
+        "table": {
+          "degree": "Diplôme",
+          "institution": "Institution",
+          "period": "Période",
+          "status": "Statut",
+          "actions": "Actions"
+        },
+        "form": {
+          "degreeFr": "Diplôme (Français)",
+          "degreeEn": "Diplôme (Anglais)",
+          "degreePlaceholder": "Ex: Master en Cybersécurité",
+          "specialtyFr": "Spécialité (Français)",
+          "specialtyEn": "Spécialité (Anglais)",
+          "specialtyPlaceholder": "Ex: Sécurité des Systèmes d'Information",
+          "institution": "Institution",
+          "institutionPlaceholder": "Ex: Université de Technologie",
+          "location": "Localisation",
+          "locationPlaceholder": "Ex: Dakar, Sénégal",
+          "startYear": "Année de début",
+          "endYear": "Année de fin",
+          "isCurrent": "Formation en cours",
+          "descriptionFr": "Description (Français)",
+          "descriptionEn": "Description (Anglais)",
+          "descriptionPlaceholder": "Décrivez le contenu de la formation...",
+          "sortOrder": "Ordre d'affichage",
+          "isActive": "Visible sur le portfolio"
+        },
+        "errors": {
+          "loadFailed": "Erreur lors du chargement des formations",
+          "saveFailed": "Erreur lors de la sauvegarde",
+          "deleteFailed": "Erreur lors de la suppression",
+          "statusFailed": "Erreur lors du changement de statut"
+        }
       },
       "certifications": {
         "title": "Gestion des certifications",

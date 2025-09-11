@@ -6,7 +6,8 @@ export const API_ENDPOINT = {
 
     //experiences routes
     experiences: "admin/experiences",
-
     //toogle status
     toggleStatus: "toggle-status",
+    //educations routes
+    educations: "admin/educations",
 }

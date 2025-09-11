@@ -488,6 +488,10 @@ const loadExperiences = async () => {
     if (response.ok) {
       const result = await response.json()
       experiences.value = result.data || []
+    } else if (response.status === 401) {
+      // Gérer la déconnexion si nécessaire
+      localStorage.removeItem(TOKEN_STORAGE_KEY)
+      window.location.href = '/admin/login'
     } else {
       throw new Error('Erreur lors du chargement des expériences')
     }
