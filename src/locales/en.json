@@ -586,8 +586,58 @@
         }
       },
       "projects": {
-        "title": "Manage Projects",
-        "description": "Manage your projects and achievements"
+        "title": "Project Management",
+        "subtitle": "Manage your projects and achievements",
+        "addButton": "Add project",
+        "addTitle": "Add new project",
+        "editTitle": "Edit project",
+        "noData": "No projects found",
+        "featured": "Featured",
+        "demo": "Demo",
+        "code": "Code",
+        "frenchContent": "French content",
+        "englishContent": "English content",
+        "generalInfo": "General information",
+        "addFeatured": "Mark as featured",
+        "removeFeatured": "Remove from featured",
+        "confirmDelete": "Are you sure you want to delete this project?",
+        "deleteSuccess": "Project deleted successfully",
+        "form": {
+          "titleFr": "Project title (French)",
+          "titleEn": "Project title (English)",
+          "titlePlaceholder": "E.g: Security management system",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe your project...",
+          "technologies": "Technologies used",
+          "technologyPlaceholder": "E.g: Vue.js, Laravel, MySQL",
+          "addTechnology": "Add technology",
+          "status": "Project status",
+          "image": "Project image",
+          "imagePlaceholder": "Image URL",
+          "demoUrl": "Demo URL",
+          "demoUrlPlaceholder": "https://demo.example.com",
+          "githubUrl": "GitHub URL",
+          "githubUrlPlaceholder": "https://github.com/user/project",
+          "startDate": "Start date",
+          "endDate": "End date",
+          "order": "Display order",
+          "isActive": "Active project",
+          "isFeatured": "Featured project"
+        },
+        "status": {
+          "completed": "Completed",
+          "in_progress": "In Progress",
+          "planned": "Planned",
+          "archived": "Archived"
+        },
+        "errors": {
+          "loadFailed": "Failed to load projects",
+          "saveFailed": "Failed to save project",
+          "statusFailed": "Failed to update status",
+          "featuredFailed": "Failed to update featured status",
+          "deleteFailed": "Failed to delete project"
+        }
       },
       "contact": {
         "title": "Received Messages",

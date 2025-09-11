@@ -587,7 +587,57 @@
       },
       "projects": {
         "title": "Gestion des projets",
-        "description": "Gérer vos projets et réalisations"
+        "subtitle": "Gérez vos projets et réalisations",
+        "addButton": "Ajouter un projet",
+        "addTitle": "Ajouter un nouveau projet",
+        "editTitle": "Modifier le projet",
+        "noData": "Aucun projet trouvé",
+        "featured": "Vedette",
+        "demo": "Démo",
+        "code": "Code",
+        "frenchContent": "Contenu en français",
+        "englishContent": "Contenu en anglais",
+        "generalInfo": "Informations générales",
+        "addFeatured": "Marquer en vedette",
+        "removeFeatured": "Retirer de la vedette",
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer ce projet ?",
+        "deleteSuccess": "Projet supprimé avec succès",
+        "form": {
+          "titleFr": "Titre du projet (Français)",
+          "titleEn": "Titre du projet (Anglais)",
+          "titlePlaceholder": "Ex: Système de gestion de sécurité",
+          "descriptionFr": "Description (Français)",
+          "descriptionEn": "Description (Anglais)",
+          "descriptionPlaceholder": "Décrivez votre projet...",
+          "technologies": "Technologies utilisées",
+          "technologyPlaceholder": "Ex: Vue.js, Laravel, MySQL",
+          "addTechnology": "Ajouter une technologie",
+          "status": "Statut du projet",
+          "image": "Image du projet",
+          "imagePlaceholder": "URL de l'image",
+          "demoUrl": "URL de démonstration",
+          "demoUrlPlaceholder": "https://demo.example.com",
+          "githubUrl": "URL GitHub",
+          "githubUrlPlaceholder": "https://github.com/user/project",
+          "startDate": "Date de début",
+          "endDate": "Date de fin",
+          "order": "Ordre d'affichage",
+          "isActive": "Projet actif",
+          "isFeatured": "Projet vedette"
+        },
+        "status": {
+          "completed": "Terminé",
+          "in_progress": "En cours",
+          "planned": "Planifié",
+          "archived": "Archivé"
+        },
+        "errors": {
+          "loadFailed": "Erreur lors du chargement des projets",
+          "saveFailed": "Erreur lors de la sauvegarde du projet",
+          "statusFailed": "Erreur lors du changement de statut",
+          "featuredFailed": "Erreur lors du changement du statut vedette",
+          "deleteFailed": "Erreur lors de la suppression du projet"
+        }
       },
       "contact": {
         "title": "Messages reçus",

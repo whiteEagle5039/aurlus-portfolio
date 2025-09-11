@@ -152,9 +152,7 @@
                 >
                   {{ getStatusText(certification) }}
                 </span>
-                <div v-if="!certification.is_active" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mt-1">
-                  {{ $t('common.inactive') }}
-                </div>
+                
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                 <!-- Éditer -->
