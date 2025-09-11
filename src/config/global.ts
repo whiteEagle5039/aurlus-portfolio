@@ -10,4 +10,11 @@ export const API_ENDPOINT = {
     toggleStatus: "toggle-status",
     //educations routes
     educations: "admin/educations",
+    //certifications routes
+    certifications: "admin/certifications",
+    //languages routes
+    languages: "admin/languages",
+    //skills routes
+    skills: "admin/skills",
+
 }

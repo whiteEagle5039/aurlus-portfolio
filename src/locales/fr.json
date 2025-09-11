@@ -422,12 +422,119 @@
         }
       },
       "certifications": {
-        "title": "Gestion des certifications",
-        "description": "Gérer vos certifications professionnelles"
+        "title": "Gérer les Certifications",
+        "subtitle": "Gérez vos certifications professionnelles",
+        "addButton": "Ajouter une Certification",
+        "addTitle": "Ajouter une Certification",
+        "editTitle": "Modifier la Certification",
+        "noData": "Aucune certification trouvée",
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer cette certification ?",
+        "deleteSuccess": "Certification supprimée avec succès",
+        "frenchContent": "Contenu en Français",
+        "englishContent": "Contenu en Anglais",
+        "generalInfo": "Informations Générales",
+        "validityInfo": "Informations de Validité",
+        "table": {
+          "name": "Certification",
+          "organization": "Organisme",
+          "obtained": "Obtenue le",
+          "expiry": "Expiration",
+          "status": "Statut",
+          "actions": "Actions"
+        },
+        "status": {
+          "valid": "Valide",
+          "expired": "Expirée",
+          "expiring_soon": "Expire Bientôt",
+          "permanent": "Permanente"
+        },
+        "form": {
+          "nameFr": "Nom de la Certification (Français)",
+          "nameEn": "Nom de la Certification (Anglais)",
+          "namePlaceholder": "Ex : CISSP - Certified Information Systems Security Professional",
+          "descriptionFr": "Description (Français)",
+          "descriptionEn": "Description (Anglais)",
+          "descriptionPlaceholder": "Décrivez la certification et les compétences acquises...",
+          "issuingOrganization": "Organisme Délivreur",
+          "organizationPlaceholder": "Ex : (ISC)²",
+          "obtainedDate": "Date d’Obtention",
+          "expiryDate": "Date d’Expiration",
+          "neverExpires": "N’expire Jamais",
+          "certificateUrl": "URL du Certificat",
+          "urlPlaceholder": "https://exemple.com/certificat",
+          "certificateId": "Identifiant du Certificat",
+          "idPlaceholder": "Identifiant ou numéro du certificat",
+          "sortOrder": "Ordre d’Affichage",
+          "isActive": "Visible sur le portfolio"
+        },
+        "errors": {
+          "loadFailed": "Erreur lors du chargement des certifications",
+          "saveFailed": "Erreur lors de l’enregistrement de la certification",
+          "deleteFailed": "Erreur lors de la suppression de la certification",
+          "statusFailed": "Erreur lors du changement de statut"
+        },
+        "stats": {
+          "total": "Nombre Total de Certifications",
+          "active": "Actives",
+          "valid": "Valides",
+          "expired": "Expirées",
+          "expiringSoon": "Expirant Bientôt"
+        }
       },
       "languages": {
-        "title": "Langues & Compétences",
-        "description": "Gérer vos compétences linguistiques et techniques"
+        "title": "Gérer les Langues",
+        "subtitle": "Gérez vos compétences linguistiques",
+        "addButton": "Ajouter une Langue",
+        "addTitle": "Ajouter une Langue",
+        "editTitle": "Modifier la Langue",
+        "noData": "Aucune langue trouvée",
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer cette langue ?",
+        "deleteSuccess": "Langue supprimée avec succès",
+        "frenchContent": "Contenu en Français",
+        "englishContent": "Contenu en Anglais",
+        "generalInfo": "Informations Générales",
+        "table": {
+          "language": "Langue",
+          "level": "Niveau",
+          "certification": "Certification",
+          "status": "Statut",
+          "actions": "Actions"
+        },
+        "levels": {
+          "native": "Langue Maternelle",
+          "advanced": "Avancé",
+          "intermediate": "Intermédiaire",
+          "elementary": "Élémentaire",
+          "beginner": "Débutant"
+        },
+        "form": {
+          "nameFr": "Nom de la Langue (Français)",
+          "nameEn": "Nom de la Langue (Anglais)",
+          "namePlaceholder": "Ex : Français",
+          "descriptionFr": "Description (Français)",
+          "descriptionEn": "Description (Anglais)",
+          "descriptionPlaceholder": "Décrivez votre niveau et expérience avec cette langue...",
+          "flag": "Drapeau",
+          "flagPlaceholder": "🇫🇷",
+          "level": "Niveau de Maîtrise",
+          "certification": "Certification",
+          "certificationPlaceholder": "Ex : TOEIC 850, DELF B2",
+          "sortOrder": "Ordre d'Affichage",
+          "isActive": "Visible sur le portfolio"
+        },
+        "errors": {
+          "loadFailed": "Erreur lors du chargement des langues",
+          "saveFailed": "Erreur lors de l'enregistrement de la langue",
+          "deleteFailed": "Erreur lors de la suppression de la langue",
+          "statusFailed": "Erreur lors du changement de statut"
+        },
+        "stats": {
+          "total": "Total des Langues",
+          "active": "Actives",
+          "native": "Langues Maternelles",
+          "advanced": "Niveau Avancé",
+          "withCertification": "Avec Certification"
+        }
       },
       "projects": {
         "title": "Gestion des projets",

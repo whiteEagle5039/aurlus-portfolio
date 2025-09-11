@@ -423,11 +423,118 @@
       },
       "certifications": {
         "title": "Manage Certifications",
-        "description": "Manage your professional certifications"
+        "subtitle": "Manage your professional certifications",
+        "addButton": "Add Certification",
+        "addTitle": "Add Certification",
+        "editTitle": "Edit Certification",
+        "noData": "No certification found",
+        "confirmDelete": "Are you sure you want to delete this certification?",
+        "deleteSuccess": "Certification deleted successfully",
+        "frenchContent": "French Content",
+        "englishContent": "English Content",
+        "generalInfo": "General Information",
+        "validityInfo": "Validity Information",
+        "table": {
+          "name": "Certification",
+          "organization": "Organization",
+          "obtained": "Obtained",
+          "expiry": "Expiry",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "status": {
+          "valid": "Valid",
+          "expired": "Expired",
+          "expiring_soon": "Expiring Soon",
+          "permanent": "Permanent"
+        },
+        "form": {
+          "nameFr": "Certification Name (French)",
+          "nameEn": "Certification Name (English)",
+          "namePlaceholder": "Ex: CISSP - Certified Information Systems Security Professional",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe the certification and skills acquired...",
+          "issuingOrganization": "Issuing Organization",
+          "organizationPlaceholder": "Ex: (ISC)²",
+          "obtainedDate": "Date Obtained",
+          "expiryDate": "Expiry Date",
+          "neverExpires": "Never Expires",
+          "certificateUrl": "Certificate URL",
+          "urlPlaceholder": "https://example.com/certificate",
+          "certificateId": "Certificate ID",
+          "idPlaceholder": "Certificate identifier or number",
+          "sortOrder": "Display Order",
+          "isActive": "Visible on portfolio"
+        },
+        "errors": {
+          "loadFailed": "Error loading certifications",
+          "saveFailed": "Error saving certification",
+          "deleteFailed": "Error deleting certification",
+          "statusFailed": "Error changing status"
+        },
+        "stats": {
+          "total": "Total Certifications",
+          "active": "Active",
+          "valid": "Valid",
+          "expired": "Expired",
+          "expiringSoon": "Expiring Soon"
+        }
       },
-      "languages": {
-        "title": "Languages & Skills",
-        "description": "Manage your language and technical skills"
+     "languages": {
+        "title": "Manage Languages",
+        "subtitle": "Manage your language skills",
+        "addButton": "Add Language",
+        "addTitle": "Add Language",
+        "editTitle": "Edit Language",
+        "noData": "No languages found",
+        "confirmDelete": "Are you sure you want to delete this language?",
+        "deleteSuccess": "Language deleted successfully",
+        "frenchContent": "French Content",
+        "englishContent": "English Content",
+        "generalInfo": "General Information",
+        "table": {
+          "language": "Language",
+          "level": "Level",
+          "certification": "Certification",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "levels": {
+          "native": "Native",
+          "advanced": "Advanced",
+          "intermediate": "Intermediate",
+          "elementary": "Elementary",
+          "beginner": "Beginner"
+        },
+        "form": {
+          "nameFr": "Language Name (French)",
+          "nameEn": "Language Name (English)",
+          "namePlaceholder": "Ex: English",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe your level and experience with this language...",
+          "flag": "Flag",
+          "flagPlaceholder": "🇺🇸",
+          "level": "Proficiency Level",
+          "certification": "Certification",
+          "certificationPlaceholder": "Ex: TOEIC 850, Cambridge C1",
+          "sortOrder": "Display Order",
+          "isActive": "Visible on portfolio"
+        },
+        "errors": {
+          "loadFailed": "Error loading languages",
+          "saveFailed": "Error saving language",
+          "deleteFailed": "Error deleting language",
+          "statusFailed": "Error changing status"
+        },
+        "stats": {
+          "total": "Total Languages",
+          "active": "Active",
+          "native": "Native Languages",
+          "advanced": "Advanced Level",
+          "withCertification": "With Certification"
+        }
       },
       "projects": {
         "title": "Manage Projects",
