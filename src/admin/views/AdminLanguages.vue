@@ -19,7 +19,7 @@
           class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
         >
           <i class="fas fa-cogs"></i>
-          <span>Ajouter une compétence</span>
+          <span>{{ $t('admin.pages.skills.addButton') }}</span>
         </button>
       </div>
     </div>
@@ -41,7 +41,8 @@
           class="whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm flex items-center"
         >
           <i class="fas fa-cogs mr-2"></i>
-          Compétences techniques
+          <!-- Compétences techniques -->
+          {{ $t('admin.pages.skills.table.skill') }}
         </button>
       </nav>
     </div>
@@ -168,24 +169,25 @@
             <thead class="bg-gray-50">
               <tr>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Compétence
+                  {{ $t('admin.pages.skills.table.skill') }}
                 </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Catégorie
+                  {{ $t('admin.pages.skills.table.category') }}
                 </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Niveau
+                  {{ $t('admin.pages.skills.table.level') }}
                 </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Statut
+                  {{ $t('admin.pages.skills.table.status') }}
                 </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
+                  {{ $t('admin.pages.skills.table.actions') }}
                 </th>
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
               <tr v-for="skill in skills" :key="skill.id">
+                <!-- Nom & description -->
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div v-if="skill.icon" class="flex-shrink-0 h-8 w-8 mr-3">
@@ -201,6 +203,8 @@
                     </div>
                   </div>
                 </td>
+
+                <!-- Catégorie -->
                 <td class="px-6 py-4 whitespace-nowrap">
                   <span 
                     :class="getCategoryColor(currentLocale === 'fr' ? skill.category_fr : skill.category_en)"
@@ -209,6 +213,8 @@
                     {{ currentLocale === 'fr' ? skill.category_fr : skill.category_en }}
                   </span>
                 </td>
+
+                <!-- Niveau -->
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="flex-1 bg-gray-200 rounded-full h-2 mr-3">
@@ -221,6 +227,8 @@
                     <span class="text-sm text-gray-600">{{ skill.level }}%</span>
                   </div>
                 </td>
+
+                <!-- Statut -->
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex flex-col space-y-1">
                     <span 
@@ -231,21 +239,23 @@
                     </span>
                     <div class="flex space-x-1">
                       <span v-if="skill.is_featured" class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                        <i class="fas fa-star mr-1"></i>
-                        Featured
+                        <font-awesome-icon icon="star" class="mr-1" />
+                        {{ $t('admin.pages.skills.featured') }}
                       </span>
                       <span v-if="!skill.is_active" class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                        Inactif
+                        {{ $t('admin.pages.skills.inactive') }}
                       </span>
                     </div>
                   </div>
                 </td>
+
+                <!-- Actions -->
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                   <!-- Bouton Éditer -->
                   <button
                     @click="openModal('skill', skill)"
                     class="text-indigo-600 hover:text-indigo-900 transition-colors"
-                    title="Éditer"
+                    :title="$t('common.edit')"
                   >
                     <font-awesome-icon icon="edit" />
                   </button>
@@ -259,7 +269,7 @@
                         ? 'text-yellow-600 hover:text-yellow-900' 
                         : 'text-gray-400 hover:text-yellow-600'
                     ]"
-                    title="Basculer Featured"
+                    :title="$t('admin.pages.skills.toggleFeatured')"
                   >
                     <font-awesome-icon icon="star" />
                   </button>
@@ -273,7 +283,7 @@
                         ? 'text-orange-600 hover:text-orange-900' 
                         : 'text-green-600 hover:text-green-900'
                     ]"
-                    :title="skill.is_active ? 'Désactiver' : 'Activer'"
+                    :title="skill.is_active ? $t('common.deactivate') : $t('common.activate')"
                   >
                     <font-awesome-icon :icon="skill.is_active ? 'pause' : 'play'" />
                   </button>
@@ -282,22 +292,24 @@
                   <button
                     @click="deleteSkill(skill.id)"
                     class="text-red-600 hover:text-red-900 transition-colors"
-                    title="Supprimer"
+                    :title="$t('common.delete')"
                   >
                     <font-awesome-icon icon="trash" />
                   </button>
                 </td>
-
               </tr>
+
+              <!-- Aucun résultat -->
               <tr v-if="skills.length === 0">
                 <td colspan="5" class="px-6 py-8 text-center text-gray-500">
-                  Aucune compétence trouvée
+                  {{ $t('admin.pages.skills.noData') }}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+
     </div>
     
     <!-- Modal d'ajout/édition -->

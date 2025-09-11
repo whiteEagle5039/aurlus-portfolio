@@ -536,6 +536,55 @@
           "withCertification": "Avec Certification"
         }
       },
+      "skills": {
+        "title": "Gérer les Compétences",
+        "subtitle": "Gérez vos compétences techniques",
+        "addButton": "Ajouter une Compétence",
+        "addTitle": "Ajouter une Compétence",
+        "editTitle": "Modifier une Compétence",
+        "noData": "Aucune compétence trouvée",
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer cette compétence ?",
+        "deleteSuccess": "Compétence supprimée avec succès",
+        "frenchContent": "Contenu Français",
+        "englishContent": "Contenu Anglais",
+        "generalInfo": "Informations Générales",
+        "table": {
+          "skill": "Compétence",
+          "category": "Catégorie",
+          "level": "Niveau",
+          "status": "Statut",
+          "actions": "Actions"
+        },
+        "form": {
+          "nameFr": "Nom de la compétence (Français)",
+          "nameEn": "Nom de la compétence (Anglais)",
+          "namePlaceholder": "Ex: JavaScript, Laravel, Vue.js",
+          "descriptionFr": "Description (Français)",
+          "descriptionEn": "Description (Anglais)",
+          "descriptionPlaceholder": "Décrivez votre expérience et expertise avec cette compétence...",
+          "categoryFr": "Catégorie (Français)",
+          "categoryEn": "Catégorie (Anglais)",
+          "level": "Niveau de maîtrise",
+          "icon": "Icône (classe FontAwesome)",
+          "color": "Couleur",
+          "sortOrder": "Ordre d'affichage",
+          "isActive": "Visible sur le portfolio",
+          "isFeatured": "Mettre en avant"
+        },
+        "errors": {
+          "loadFailed": "Erreur lors du chargement des compétences",
+          "saveFailed": "Erreur lors de l'enregistrement de la compétence",
+          "deleteFailed": "Erreur lors de la suppression de la compétence",
+          "statusFailed": "Erreur lors du changement de statut"
+        },
+        "stats": {
+          "total": "Nombre total de compétences",
+          "active": "Compétences actives",
+          "featured": "Compétences mises en avant",
+          "byCategory": "Par Catégorie",
+          "advanced": "Niveau Avancé"
+        }
+      },
       "projects": {
         "title": "Gestion des projets",
         "description": "Gérer vos projets et réalisations"
