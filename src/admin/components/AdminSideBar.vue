@@ -56,6 +56,7 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { API_BASE_URL, API_ENDPOINT, TOKEN_STORAGE_KEY } from '@/config/global'
 
 const route = useRoute()
 const router = useRouter()
@@ -111,9 +112,34 @@ const toggleLanguage = () => {
   localStorage.setItem('userLocale', newLocale)
 }
 
-const handleLogout = () => {
-  // Logique de déconnexion
+//logique de déconnexion
+const handleLogout = async () => {
   console.log('Déconnexion...')
-  // router.push('/')
+  try{
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    const response = await fetch(`${API_BASE_URL}${API_ENDPOINT.logout}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json', 
+        'Authorization': `Bearer ${localStorage.getItem(`${TOKEN_STORAGE_KEY}`)}` // Utilisation de la clé depuis la config
+      },
+     
+    })
+
+    if (response && response.ok) {
+      console.log('Déconnexion réussie')
+      localStorage.removeItem(`${TOKEN_STORAGE_KEY}`) // Utilisation de la clé depuis la config
+      router.push('/admin/login')
+      
+    } else {
+      //debug key error
+      console.log(`Contenue de la clé : `, localStorage.getItem(`${TOKEN_STORAGE_KEY}`)) // Utilisation de la clé depuis la config
+      console.error('Échec de la déconnexion')
+    }
+
+  }catch(error){
+    console.error('Erreur lors de la déconnexion:', error)
+  }
 }
 </script>

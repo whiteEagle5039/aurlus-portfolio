@@ -186,7 +186,7 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { API_BASE_URL, API_ENDPOINT } from '@/config/global'
+import { API_BASE_URL, API_ENDPOINT , TOKEN_STORAGE_KEY} from '@/config/global'
 
 const router = useRouter()
 const { locale, t } = useI18n()
@@ -235,27 +235,13 @@ const handleLogin = async () => {
 
     if (response.ok) {
       // Successful login
-      localStorage.setItem('adminToken', data.token)
+      localStorage.setItem(`${TOKEN_STORAGE_KEY}`, data.token)
       router.push('/admin/dashboard')
     }
     else{
       loginError.value = t('admin.login.errors.invalidCredentials')
       // return
     }
-    // Default credentials check (à remplacer par votre logique d'authentification)
-    // if (loginForm.value.username === 'admin' && loginForm.value.password === 'admin123') {
-    //   // Check if it's first login with default password
-    //   if (loginForm.value.password === 'admin123') {
-    //     router.push('/admin/change-password')
-    //     return
-    //   }
-      
-    //   // Successful login
-    //   localStorage.setItem('adminToken', 'mock-token')
-    //   router.push('/admin/dashboard')
-    // } else {
-    //   loginError.value = t('admin.login.errors.invalidCredentials')
-    // }
   } catch (error) {
     loginError.value = t('admin.login.errors.serverError')
   } finally {
