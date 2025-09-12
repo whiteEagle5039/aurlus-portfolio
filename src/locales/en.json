@@ -38,6 +38,7 @@
     "jobTitle": "Cybersecurity and Network Engineering Expert",
     "paragraph1": "EAMAC graduate engineer in Electronics-Computer Science with over 7 years of professional experience at ASECNA. Currently Chief Information Security Officer (CISO), I combine technical expertise and management skills thanks to a postgraduate degree in project management.",
     "paragraph2": "I specialize in designing and implementing secure network architectures, deploying cybersecurity policies compliant with ISO 27001 standards and ICAO strategy, and managing multi-site technical teams in critical environments.",
+    "viewAllCertifications": "View all certifications",
     "skills": {
     "cybersecurity": "Cybersecurity",
     "networks": "Computer Networks",
@@ -45,7 +46,7 @@
     "projectManagement": "Project Management",
     "leadership": "Team Leadership",
     "criticalEnvironments": "Critical Environments"
-  },
+    },
     "certificationsTitle": "Certifications",
     "certifications": [
       "CISSP",
