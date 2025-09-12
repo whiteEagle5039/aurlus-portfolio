@@ -16,7 +16,7 @@ export const API_ENDPOINT = {
     languages: "admin/languages",
     //skills routes
     skills: "admin/skills",
-    //projects routes
+    //projects route
     projects: "admin/projects",
     //about routes
     about: "admin/about",
