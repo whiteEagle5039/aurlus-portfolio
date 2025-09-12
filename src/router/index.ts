@@ -70,15 +70,7 @@ const routes: Array<RouteRecordRaw> = [
       requiresGuest: true 
     }
   },
-  {
-    path: '/admin/change-password',
-    name: 'AdminChangePassword',
-    component: AdminChangePassword,
-    meta: { 
-      title: 'Changer le mot de passe',
-      allowWithoutAuth: true // Permet l'accès même sans token pour le premier changement
-    }
-  },
+  
 
   // Routes admin protégées (avec layout)
   {
@@ -133,6 +125,12 @@ const routes: Array<RouteRecordRaw> = [
         name: 'AdminContact', 
         component: AdminContact,
         meta: { title: 'Messages reçus' }
+      },
+      {
+        path: 'change-password',
+        name: 'AdminChangePassword',
+        component: AdminChangePassword,
+        meta: { title: 'Changer profil'}
       }
     ]
   },

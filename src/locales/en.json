@@ -339,7 +339,8 @@
         "certifications": "Certifications",
         "languages": "Languages & Skills",
         "projects": "Projects",
-        "contact": "Messages"
+        "contact": "Messages",
+        "adminChangePassword":"Update Profil"
       }
     },
     "header": {
@@ -660,6 +661,46 @@
           "statusFailed": "Failed to update status",
           "featuredFailed": "Failed to update featured status",
           "deleteFailed": "Failed to delete project"
+        }
+      },
+      "profile": {
+        "title": "My Profile",
+        "subtitle": "Manage your login credentials and security settings",
+        "currentInfo": "Current Information",
+        "currentEmail": "Current email",
+        "updateCredentials": "Change Email + Password",
+        "updateEmail": "Change Email only",
+        "updatePassword": "Change Password only",
+        "modal": {
+          "credentialsTitle": "Update Email and Password",
+          "emailTitle": "Update Email",
+          "passwordTitle": "Update Password"
+        },
+        "form": {
+          "currentPassword": "Current password",
+          "currentPasswordPlaceholder": "Enter your current password",
+          "newEmail": "New email",
+          "emailPlaceholder": "example@domain.com",
+          "newPassword": "New password",
+          "newPasswordPlaceholder": "Enter a secure new password",
+          "confirmPassword": "Confirm password",
+          "confirmPasswordPlaceholder": "Confirm your new password"
+        },
+        "passwordRequirements": {
+          "title": "Password requirements:",
+          "minLength": "At least 8 characters",
+          "mixedCase": "Upper and lowercase letters",
+          "numbers": "At least one number",
+          "symbols": "At least one symbol"
+        },
+        "errors": {
+          "loadFailed": "Unable to load profile information",
+          "updateFailed": "Error updating profile"
+        },
+        "success": {
+          "credentialsUpdated": "Email and password updated successfully",
+          "emailUpdated": "Email updated successfully",
+          "passwordUpdated": "Password updated successfully"
         }
       },
       "contact": {

@@ -338,7 +338,8 @@
         "certifications": "Certifications",
         "languages": "Langues & Compétences",
         "projects": "Projets",
-        "contact": "Messages"
+        "contact": "Messages",
+        "adminChangePassword":"Changer Profil"
       }
     },
     "header": {
@@ -607,6 +608,47 @@
           "advanced": "Niveau Avancé"
         }
       },
+      "profile": {
+        "title": "Mon Profil",
+        "subtitle": "Gérez vos informations de connexion et paramètres de sécurité",
+        "currentInfo": "Informations actuelles",
+        "currentEmail": "Email actuel",
+        "updateCredentials": "Changer Email + Mot de passe",
+        "updateEmail": "Changer Email uniquement",
+        "updatePassword": "Changer Mot de passe uniquement",
+        "modal": {
+          "credentialsTitle": "Modifier Email et Mot de passe",
+          "emailTitle": "Modifier l'Email",
+          "passwordTitle": "Modifier le Mot de passe"
+        },
+        "form": {
+          "currentPassword": "Mot de passe actuel",
+          "currentPasswordPlaceholder": "Entrez votre mot de passe actuel",
+          "newEmail": "Nouvel email",
+          "emailPlaceholder": "exemple@domaine.com",
+          "newPassword": "Nouveau mot de passe",
+          "newPasswordPlaceholder": "Entrez un nouveau mot de passe sécurisé",
+          "confirmPassword": "Confirmer le mot de passe",
+          "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe"
+        },
+        "passwordRequirements": {
+          "title": "Exigences du mot de passe :",
+          "minLength": "Au moins 8 caractères",
+          "mixedCase": "Majuscules et minuscules",
+          "numbers": "Au moins un chiffre",
+          "symbols": "Au moins un symbole"
+        },
+        "errors": {
+          "loadFailed": "Impossible de charger les informations du profil",
+          "updateFailed": "Erreur lors de la mise à jour du profil"
+        },
+        "success": {
+          "credentialsUpdated": "Email et mot de passe mis à jour avec succès",
+          "emailUpdated": "Email mis à jour avec succès",
+          "passwordUpdated": "Mot de passe mis à jour avec succès"
+        }
+      },
+      
       "projects": {
         "title": "Gestion des projets",
         "subtitle": "Gérez vos projets et réalisations",

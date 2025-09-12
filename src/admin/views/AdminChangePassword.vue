@@ -1,367 +1,399 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center px-4">
-    <div class="max-w-lg w-full">
-      <!-- Header -->
-      <div class="text-center mb-8">
-        <div class="inline-flex items-center justify-center w-16 h-16 bg-orange-500 rounded-full mb-4">
-          <i class="fas fa-key text-white text-2xl"></i>
+  <div class="space-y-6">
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+      <div>
+        <h3 class="text-lg font-medium text-gray-900">{{ $t('admin.pages.profile.title') }}</h3>
+        <p class="text-sm text-gray-600">{{ $t('admin.pages.profile.subtitle') }}</p>
+      </div>
+    </div>
+    
+    <!-- Indicateur de chargement -->
+    <div v-if="loading" class="flex justify-center items-center py-8">
+      <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-green-500"></div>
+      <span class="ml-2 text-gray-600">{{ $t('common.loading') }}</span>
+    </div>
+    
+    <!-- Informations actuelles -->
+    <div v-else class="bg-white rounded-lg shadow p-6">
+      <div class="mb-6">
+        <h4 class="text-md font-medium text-gray-800 mb-4 flex items-center">
+          <i class="fas fa-user-circle mr-2 text-gray-500"></i>
+          {{ $t('admin.pages.profile.currentInfo') }}
+        </h4>
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <p class="text-sm text-gray-600">
+            <span class="font-medium">{{ $t('admin.pages.profile.currentEmail') }}:</span>
+            {{ currentUser?.email }}
+          </p>
         </div>
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{{ $t('admin.changePassword.title') }}</h1>
-        <p class="text-gray-600 dark:text-gray-400 mt-2">{{ $t('admin.changePassword.subtitle') }}</p>
       </div>
 
-      <!-- Language Toggle -->
-      <div class="flex justify-center mb-6">
-        <button 
-          @click="toggleLanguage" 
-          class="inline-flex items-center px-3 py-2 bg-white dark:bg-gray-700 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-600"
-          :aria-label="$t('admin.changePassword.toggleLanguage')"
+      <!-- Boutons d'action -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <button
+          @click="openModal('credentials')"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
         >
-          <i class="fas fa-language text-gray-600 dark:text-gray-300 mr-2"></i>
-          <span class="text-gray-700 dark:text-gray-300 font-medium">{{ currentLocale.toUpperCase() }}</span>
+          <i class="fas fa-key"></i>
+          <span>{{ $t('admin.pages.profile.updateCredentials') }}</span>
+        </button>
+        
+        <button
+          @click="openModal('email')"
+          class="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+        >
+          <i class="fas fa-envelope"></i>
+          <span>{{ $t('admin.pages.profile.updateEmail') }}</span>
+        </button>
+        
+        <button
+          @click="openModal('password')"
+          class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg flex items-center justify-center space-x-2 transition-colors"
+        >
+          <i class="fas fa-lock"></i>
+          <span>{{ $t('admin.pages.profile.updatePassword') }}</span>
         </button>
       </div>
-
-      <!-- Change Password Form -->
-      <div class="bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
-        <!-- Security Notice -->
-        <div v-if="isFirstTimeChange" class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mb-6">
-          <div class="flex items-start">
-            <i class="fas fa-exclamation-triangle text-amber-500 mt-1 mr-3"></i>
+    </div>
+    
+    <!-- Modal de mise à jour -->
+    <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-lg font-medium text-gray-900">
+              {{ getModalTitle() }}
+            </h3>
+            <button @click="closeModal" class="text-gray-400 hover:text-gray-600">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          
+          <form @submit.prevent="updateProfile" class="space-y-4">
+            <!-- Mot de passe actuel (obligatoire pour toutes les actions) -->
             <div>
-              <h4 class="text-sm font-medium text-amber-800 dark:text-amber-300 mb-1">
-                {{ $t('admin.changePassword.securityNotice.title') }}
-              </h4>
-              <p class="text-sm text-amber-700 dark:text-amber-400">
-                {{ $t('admin.changePassword.securityNotice.message') }}
-              </p>
+              <label class="block text-sm font-medium text-gray-700 mb-1">
+                {{ $t('admin.pages.profile.form.currentPassword') }} *
+              </label>
+              <div class="relative">
+                <input
+                  v-model="form.current_password"
+                  :type="showCurrentPassword ? 'text' : 'password'"
+                  required
+                  class="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  :placeholder="$t('admin.pages.profile.form.currentPasswordPlaceholder')"
+                >
+                <button
+                  type="button"
+                  @click="showCurrentPassword = !showCurrentPassword"
+                  class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                >
+                  <i :class="showCurrentPassword ? 'fas fa-eye-slash' : 'fas fa-eye'" class="text-gray-400"></i>
+                </button>
+              </div>
+              <p v-if="errors.current_password" class="text-red-500 text-xs mt-1">{{ errors.current_password[0] }}</p>
             </div>
-          </div>
+
+            <!-- Email (pour credentials et email uniquement) -->
+            <div v-if="modalType === 'credentials' || modalType === 'email'">
+              <label class="block text-sm font-medium text-gray-700 mb-1">
+                {{ $t('admin.pages.profile.form.newEmail') }} *
+              </label>
+              <input
+                v-model="form.email"
+                type="email"
+                required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                :placeholder="$t('admin.pages.profile.form.emailPlaceholder')"
+              >
+              <p v-if="errors.email" class="text-red-500 text-xs mt-1">{{ errors.email[0] }}</p>
+            </div>
+
+            <!-- Nouveau mot de passe (pour credentials et password uniquement) -->
+            <div v-if="modalType === 'credentials' || modalType === 'password'">
+              <label class="block text-sm font-medium text-gray-700 mb-1">
+                {{ $t('admin.pages.profile.form.newPassword') }} *
+              </label>
+              <div class="relative">
+                <input
+                  v-model="form.password"
+                  :type="showNewPassword ? 'text' : 'password'"
+                  required
+                  class="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  :placeholder="$t('admin.pages.profile.form.newPasswordPlaceholder')"
+                >
+                <button
+                  type="button"
+                  @click="showNewPassword = !showNewPassword"
+                  class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                >
+                  <i :class="showNewPassword ? 'fas fa-eye-slash' : 'fas fa-eye'" class="text-gray-400"></i>
+                </button>
+              </div>
+              <p v-if="errors.password" class="text-red-500 text-xs mt-1">{{ errors.password[0] }}</p>
+            </div>
+
+            <!-- Confirmation du mot de passe -->
+            <div v-if="modalType === 'credentials' || modalType === 'password'">
+              <label class="block text-sm font-medium text-gray-700 mb-1">
+                {{ $t('admin.pages.profile.form.confirmPassword') }} *
+              </label>
+              <div class="relative">
+                <input
+                  v-model="form.password_confirmation"
+                  :type="showConfirmPassword ? 'text' : 'password'"
+                  required
+                  class="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  :placeholder="$t('admin.pages.profile.form.confirmPasswordPlaceholder')"
+                >
+                <button
+                  type="button"
+                  @click="showConfirmPassword = !showConfirmPassword"
+                  class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                >
+                  <i :class="showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'" class="text-gray-400"></i>
+                </button>
+              </div>
+              <p v-if="errors.password_confirmation" class="text-red-500 text-xs mt-1">{{ errors.password_confirmation[0] }}</p>
+            </div>
+
+            <!-- Exigences du mot de passe -->
+            <div v-if="modalType === 'credentials' || modalType === 'password'" class="bg-blue-50 p-3 rounded-lg">
+              <p class="text-xs text-blue-700 font-medium mb-2">{{ $t('admin.pages.profile.passwordRequirements.title') }}</p>
+              <ul class="text-xs text-blue-600 space-y-1">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2 w-3"></i>
+                  {{ $t('admin.pages.profile.passwordRequirements.minLength') }}
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2 w-3"></i>
+                  {{ $t('admin.pages.profile.passwordRequirements.mixedCase') }}
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2 w-3"></i>
+                  {{ $t('admin.pages.profile.passwordRequirements.numbers') }}
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-green-500 mr-2 w-3"></i>
+                  {{ $t('admin.pages.profile.passwordRequirements.symbols') }}
+                </li>
+              </ul>
+            </div>
+
+            <div class="flex justify-end space-x-3 pt-4 border-t border-gray-200">
+              <button
+                type="button"
+                @click="closeModal"
+                class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 transition-colors"
+              >
+                {{ $t('common.cancel') }}
+              </button>
+              <button
+                type="submit"
+                :disabled="saving"
+                class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors disabled:opacity-50 flex items-center"
+              >
+                <i v-if="saving" class="fas fa-spinner fa-spin mr-2"></i>
+                {{ saving ? $t('common.saving') : $t('common.update') }}
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
+    </div>
 
-        <form @submit.prevent="handleChangePassword" class="space-y-6">
-          <!-- Current Password Field -->
-          <div>
-            <label for="currentPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              {{ $t('admin.changePassword.form.currentPassword.label') }}
-            </label>
-            <div class="relative">
-              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <i class="fas fa-lock text-gray-400"></i>
-              </div>
-              <input
-                id="currentPassword"
-                v-model="passwordForm.currentPassword"
-                :type="showCurrentPassword ? 'text' : 'password'"
-                required
-                :class="[
-                  'w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors duration-200',
-                  passwordError ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600',
-                  'bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400'
-                ]"
-                :placeholder="$t('admin.changePassword.form.currentPassword.placeholder')"
-              />
-              <button
-                type="button"
-                @click="showCurrentPassword = !showCurrentPassword"
-                class="absolute inset-y-0 right-0 pr-3 flex items-center"
-              >
-                <i :class="showCurrentPassword ? 'fas fa-eye-slash' : 'fas fa-eye'" class="text-gray-400 hover:text-gray-600"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- New Password Field -->
-          <div>
-            <label for="newPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              {{ $t('admin.changePassword.form.newPassword.label') }}
-            </label>
-            <div class="relative">
-              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <i class="fas fa-key text-gray-400"></i>
-              </div>
-              <input
-                id="newPassword"
-                v-model="passwordForm.newPassword"
-                :type="showNewPassword ? 'text' : 'password'"
-                required
-                :class="[
-                  'w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors duration-200',
-                  passwordError ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600',
-                  'bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400'
-                ]"
-                :placeholder="$t('admin.changePassword.form.newPassword.placeholder')"
-                @input="checkPasswordStrength"
-              />
-              <button
-                type="button"
-                @click="showNewPassword = !showNewPassword"
-                class="absolute inset-y-0 right-0 pr-3 flex items-center"
-              >
-                <i :class="showNewPassword ? 'fas fa-eye-slash' : 'fas fa-eye'" class="text-gray-400 hover:text-gray-600"></i>
-              </button>
-            </div>
-            
-            <!-- Password Strength Indicator -->
-            <div v-if="passwordForm.newPassword" class="mt-2">
-              <div class="flex items-center space-x-2">
-                <div class="flex-1 bg-gray-200 dark:bg-gray-600 rounded-full h-2">
-                  <div
-                    :class="[
-                      'h-2 rounded-full transition-all duration-300',
-                      passwordStrength.color
-                    ]"
-                    :style="{ width: passwordStrength.percentage + '%' }"
-                  ></div>
-                </div>
-                <span :class="['text-xs font-medium', passwordStrength.textColor]">
-                  {{ passwordStrength.label }}
-                </span>
-              </div>
-              
-              <!-- Password Requirements -->
-              <div class="mt-3 space-y-1">
-                <div v-for="requirement in passwordRequirements" :key="requirement.key" class="flex items-center text-xs">
-                  <i :class="[
-                    requirement.met ? 'fas fa-check text-green-500' : 'fas fa-times text-red-500',
-                    'mr-2'
-                  ]"></i>
-                  <span :class="requirement.met ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'">
-                    {{ $t(`admin.changePassword.requirements.${requirement.key}`) }}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Confirm Password Field -->
-          <div>
-            <label for="confirmPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              {{ $t('admin.changePassword.form.confirmPassword.label') }}
-            </label>
-            <div class="relative">
-              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <i class="fas fa-shield-alt text-gray-400"></i>
-              </div>
-              <input
-                id="confirmPassword"
-                v-model="passwordForm.confirmPassword"
-                :type="showConfirmPassword ? 'text' : 'password'"
-                required
-                :class="[
-                  'w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors duration-200',
-                  passwordError || !passwordsMatch ? 'border-red-500 dark:border-red-500' : 'border-gray-300 dark:border-gray-600',
-                  'bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400'
-                ]"
-                :placeholder="$t('admin.changePassword.form.confirmPassword.placeholder')"
-              />
-              <button
-                type="button"
-                @click="showConfirmPassword = !showConfirmPassword"
-                class="absolute inset-y-0 right-0 pr-3 flex items-center"
-              >
-                <i :class="showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'" class="text-gray-400 hover:text-gray-600"></i>
-              </button>
-            </div>
-            
-            <!-- Password Match Indicator -->
-            <div v-if="passwordForm.confirmPassword && !passwordsMatch" class="mt-2 flex items-center text-red-600 dark:text-red-400 text-xs">
-              <i class="fas fa-times mr-2"></i>
-              {{ $t('admin.changePassword.errors.passwordMismatch') }}
-            </div>
-            <div v-else-if="passwordForm.confirmPassword && passwordsMatch" class="mt-2 flex items-center text-green-600 dark:text-green-400 text-xs">
-              <i class="fas fa-check mr-2"></i>
-              {{ $t('admin.changePassword.success.passwordMatch') }}
-            </div>
-          </div>
-
-          <!-- Error Message -->
-          <div v-if="passwordError" class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3">
-            <div class="flex items-center">
-              <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
-              <p class="text-sm text-red-700 dark:text-red-400">{{ passwordError }}</p>
-            </div>
-          </div>
-
-          <!-- Success Message -->
-          <div v-if="successMessage" class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-3">
-            <div class="flex items-center">
-              <i class="fas fa-check-circle text-green-500 mr-2"></i>
-              <p class="text-sm text-green-700 dark:text-green-400">{{ successMessage }}</p>
-            </div>
-          </div>
-
-          <!-- Action Buttons -->
-          <div class="flex space-x-4">
-            <button
-              type="button"
-              @click="goBack"
-              :disabled="isLoading"
-              class="flex-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 font-medium py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center"
-            >
-              <i class="fas fa-arrow-left mr-2"></i>
-              {{ $t('admin.changePassword.form.cancel') }}
-            </button>
-            
-            <button
-              type="submit"
-              :disabled="isLoading || !canSubmit"
-              class="flex-1 bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center"
-            >
-              <i v-if="isLoading" class="fas fa-spinner fa-spin mr-2"></i>
-              <i v-else class="fas fa-save mr-2"></i>
-              {{ isLoading ? $t('admin.changePassword.form.updating') : $t('admin.changePassword.form.submit') }}
-            </button>
-          </div>
-        </form>
+    <!-- Notifications -->
+    <div v-if="notification.show" 
+         :class="[
+           'fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300',
+           notification.type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+         ]">
+      <div class="flex items-center">
+        <i :class="notification.type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle'" class="mr-2"></i>
+        {{ notification.message }}
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { ref, onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { API_BASE_URL, TOKEN_STORAGE_KEY } from '@/config/global'
 
-const router = useRouter()
-const route = useRoute()
 const { locale, t } = useI18n()
 
-// Reactive state
-const passwordForm = ref({
-  currentPassword: '',
-  newPassword: '',
-  confirmPassword: ''
-})
+interface User {
+  id: number
+  email: string
+  name?: string
+}
 
-const isLoading = ref(false)
-const passwordError = ref('')
-const successMessage = ref('')
+const currentLocale = computed(() => locale.value)
+const currentUser = ref<User | null>(null)
+const loading = ref(false)
+const saving = ref(false)
+const showModal = ref(false)
+const modalType = ref<'credentials' | 'email' | 'password'>('credentials')
+
+// Visibilité des mots de passe
 const showCurrentPassword = ref(false)
 const showNewPassword = ref(false)
 const showConfirmPassword = ref(false)
 
-const currentLocale = computed(() => locale.value)
-const isFirstTimeChange = computed(() => route.query.firstTime === 'true')
-
-// Password validation
-const passwordRequirements = computed(() => [
-  {
-    key: 'minLength',
-    met: passwordForm.value.newPassword.length >= 8
-  },
-  {
-    key: 'hasUppercase',
-    met: /[A-Z]/.test(passwordForm.value.newPassword)
-  },
-  {
-    key: 'hasLowercase',
-    met: /[a-z]/.test(passwordForm.value.newPassword)
-  },
-  {
-    key: 'hasNumber',
-    met: /\d/.test(passwordForm.value.newPassword)
-  },
-  {
-    key: 'hasSpecialChar',
-    met: /[!@#$%^&*(),.?":{}|<>]/.test(passwordForm.value.newPassword)
-  }
-])
-
-const passwordStrength = computed(() => {
-  const metRequirements = passwordRequirements.value.filter(req => req.met).length
-  const percentage = (metRequirements / passwordRequirements.value.length) * 100
-
-  if (percentage < 40) {
-    return {
-      label: t('admin.changePassword.strength.weak'),
-      color: 'bg-red-500',
-      textColor: 'text-red-600 dark:text-red-400',
-      percentage
-    }
-  } else if (percentage < 80) {
-    return {
-      label: t('admin.changePassword.strength.medium'),
-      color: 'bg-yellow-500',
-      textColor: 'text-yellow-600 dark:text-yellow-400',
-      percentage
-    }
-  } else {
-    return {
-      label: t('admin.changePassword.strength.strong'),
-      color: 'bg-green-500',
-      textColor: 'text-green-600 dark:text-green-400',
-      percentage
-    }
-  }
+const form = ref({
+  current_password: '',
+  email: '',
+  password: '',
+  password_confirmation: ''
 })
 
-const passwordsMatch = computed(() => {
-  return passwordForm.value.newPassword === passwordForm.value.confirmPassword
+const errors = ref<Record<string, string[]>>({})
+
+const notification = ref({
+  show: false,
+  type: 'success' as 'success' | 'error',
+  message: ''
 })
 
-const canSubmit = computed(() => {
-  return passwordForm.value.currentPassword &&
-         passwordForm.value.newPassword &&
-         passwordForm.value.confirmPassword &&
-         passwordsMatch.value &&
-         passwordRequirements.value.every(req => req.met)
-})
-
-// Methods
-const toggleLanguage = () => {
-  const newLocale = locale.value === 'fr' ? 'en' : 'fr'
-  locale.value = newLocale
-  localStorage.setItem('userLocale', newLocale)
+const showNotification = (type: 'success' | 'error', message: string) => {
+  notification.value = { show: true, type, message }
+  setTimeout(() => {
+    notification.value.show = false
+  }, 3000)
 }
 
-const checkPasswordStrength = () => {
-  // Cette méthode est appelée lors de la saisie pour mettre à jour l'indicateur de force
-  // La logique est déjà dans les computed properties
-}
+const apiHeaders = computed(() => ({
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': `Bearer ${localStorage.getItem(TOKEN_STORAGE_KEY)}`
+}))
 
-const handleChangePassword = async () => {
-  isLoading.value = true
-  passwordError.value = ''
-  successMessage.value = ''
-
+const loadCurrentUser = async () => {
+  loading.value = true
   try {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    const response = await fetch(`${API_BASE_URL}/user`, {
+      method: 'GET',
+      headers: apiHeaders.value
+    })
 
-    // Vérification du mot de passe actuel (à remplacer par votre logique)
-    if (passwordForm.value.currentPassword !== 'admin123') {
-      passwordError.value = t('admin.changePassword.errors.invalidCurrentPassword')
-      return
+    if (response.ok) {
+      currentUser.value = await response.json()
+    } else if (response.status === 401) {
+      localStorage.removeItem(TOKEN_STORAGE_KEY)
+      window.location.href = '/admin/login'
+    } else {
+      throw new Error('Erreur lors du chargement des informations utilisateur')
     }
-
-    // Vérification que le nouveau mot de passe est différent
-    if (passwordForm.value.newPassword === passwordForm.value.currentPassword) {
-      passwordError.value = t('admin.changePassword.errors.samePassword')
-      return
-    }
-
-    // Succès
-    successMessage.value = t('admin.changePassword.success.passwordChanged')
-    
-    // Redirection après 2 secondes
-    setTimeout(() => {
-      router.push('/admin/dashboard')
-    }, 2000)
-
   } catch (error) {
-    passwordError.value = t('admin.changePassword.errors.serverError')
+    console.error('Erreur:', error)
+    showNotification('error', t('admin.pages.profile.errors.loadFailed'))
   } finally {
-    isLoading.value = false
+    loading.value = false
   }
 }
 
-const goBack = () => {
-  if (isFirstTimeChange.value) {
-    router.push('/admin/login')
-  } else {
-    router.go(-1)
+const getModalTitle = () => {
+  switch (modalType.value) {
+    case 'credentials':
+      return t('admin.pages.profile.modal.credentialsTitle')
+    case 'email':
+      return t('admin.pages.profile.modal.emailTitle')
+    case 'password':
+      return t('admin.pages.profile.modal.passwordTitle')
+    default:
+      return ''
   }
 }
+
+const openModal = (type: 'credentials' | 'email' | 'password') => {
+  modalType.value = type
+  errors.value = {}
+  
+  // Réinitialiser le formulaire
+  form.value = {
+    current_password: '',
+    email: type === 'credentials' || type === 'email' ? (currentUser.value?.email || '') : '',
+    password: '',
+    password_confirmation: ''
+  }
+
+  // Réinitialiser la visibilité des mots de passe
+  showCurrentPassword.value = false
+  showNewPassword.value = false
+  showConfirmPassword.value = false
+  
+  showModal.value = true
+}
+
+const closeModal = () => {
+  showModal.value = false
+  errors.value = {}
+}
+
+const updateProfile = async () => {
+  saving.value = true
+  errors.value = {}
+  
+  try {
+    let endpoint = ''
+    let requestBody: any = {
+      current_password: form.value.current_password
+    }
+
+    switch (modalType.value) {
+      case 'credentials':
+        endpoint = 'auth/update-credentials'
+        requestBody.email = form.value.email
+        requestBody.password = form.value.password
+        requestBody.password_confirmation = form.value.password_confirmation
+        break
+      case 'email':
+        endpoint = 'auth/update-email'
+        requestBody.email = form.value.email
+        break
+      case 'password':
+        endpoint = 'auth/update-password'
+        requestBody.password = form.value.password
+        requestBody.password_confirmation = form.value.password_confirmation
+        break
+    }
+    
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+      method: 'PUT',
+      headers: apiHeaders.value,
+      body: JSON.stringify(requestBody)
+    })
+
+    const result = await response.json()
+
+    if (response.ok) {
+      showNotification('success', result.message)
+      closeModal()
+      
+      // Mettre à jour le token si nécessaire (pour credentials)
+      if (result.token && modalType.value === 'credentials') {
+        localStorage.setItem(TOKEN_STORAGE_KEY, result.token)
+      }
+      
+      // Recharger les informations utilisateur
+      await loadCurrentUser()
+    } else {
+      if (result.errors) {
+        errors.value = result.errors
+      }
+      throw new Error(result.message || 'Erreur lors de la mise à jour')
+    }
+  } catch (error: any) {
+    console.error('Erreur:', error)
+    showNotification('error', error.message || t('admin.pages.profile.errors.updateFailed'))
+  } finally {
+    saving.value = false
+  }
+}
+
+onMounted(() => {
+  loadCurrentUser()
+})
 </script>

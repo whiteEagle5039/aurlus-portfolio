@@ -99,7 +99,12 @@ const menuItems = [
     path: '/admin/contact',
     key: 'contact',
     icon: 'fas fa-envelope'
-  }
+  },
+  {
+    path: '/admin/change-password',
+    key: 'adminChangePassword',
+    icon: 'fas fa-key'
+  },
 ]
 
 const isActiveRoute = (path: string) => {
