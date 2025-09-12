@@ -104,7 +104,7 @@
 </template>
 
 <script lang="ts">
-import { API_ENDPOINT } from '@/config/global';
+import { API_BASE_URL, API_ENDPOINT } from '@/config/global';
 import { defineComponent, ref, onMounted, onUnmounted, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
@@ -132,8 +132,6 @@ export default defineComponent({
     const loading = ref(false);
     const error = ref<string | null>(null);
 
-    // API Configuration
-    const API_BASE_URL = "http://127.0.0.1:8000/api/";
     
     // Icon mapping based on job titles/companies
     const getExperienceIcon = (title: string): string => {

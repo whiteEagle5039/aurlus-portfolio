@@ -349,7 +349,45 @@
     "pages": {
       "dashboard": {
         "title": "Dashboard",
-        "description": "Overview of your portfolio"
+        "stats": {
+          "experiences": "Experiences",
+          "educations": "Education",
+          "certifications": "Certifications", 
+          "projects": "Projects",
+          "languages": "Languages",
+          "skills": "Skills",
+          "about": "About",
+          "messages": "Messages"
+        },
+        "quickActions": {
+          "title": "Quick actions",
+          "addExperience": "Add experience",
+          "addEducation": "Add education",
+          "addCertification": "Add certification", 
+          "addProject": "Add project",
+          "addSkill": "Add skill",
+          "addLanguage": "Add language",
+          "addAbout": "Add about section",
+          "viewMessages": "View messages"
+        },
+        "recentActivity": {
+          "title": "Recent activity",
+          "noActivity": "No recent activity",
+          "newMessage": "New message received",
+          "experienceUpdated": "Experience updated", 
+          "certificationAdded": "New certification added",
+          "projectCreated": "New project created"
+        },
+        "time": {
+          "justNow": "Just now",
+          "hoursAgo": "{hours}h ago",
+          "daysAgo": "{days}d ago"
+        },
+        "errors": {
+          "statsLoadFailed": "Error loading statistics",
+          "activityLoadFailed": "Error loading recent activity",
+          "initFailed": "Error initializing dashboard"
+        }
       },
       "experiences": {
         "title": "Manage Experiences",

@@ -348,7 +348,45 @@
     "pages": {
       "dashboard": {
         "title": "Tableau de bord",
-        "description": "Vue d'ensemble de votre portfolio"
+        "stats": {
+          "experiences": "Expériences",
+          "educations": "Formations", 
+          "certifications": "Certifications",
+          "projects": "Projets",
+          "languages": "Langues",
+          "skills": "Compétences",
+          "about": "À propos",
+          "messages": "Messages"
+        },
+        "quickActions": {
+          "title": "Actions rapides",
+          "addExperience": "Ajouter une expérience",
+          "addEducation": "Ajouter une formation",
+          "addCertification": "Ajouter une certification",
+          "addProject": "Ajouter un projet",
+          "addSkill": "Ajouter une compétence",
+          "addLanguage": "Ajouter une langue",
+          "addAbout": "Ajouter une section À propos",
+          "viewMessages": "Voir les messages"
+        },
+        "recentActivity": {
+          "title": "Activité récente",
+          "noActivity": "Aucune activité récente",
+          "newMessage": "Nouveau message reçu",
+          "experienceUpdated": "Expérience mise à jour",
+          "certificationAdded": "Nouvelle certification ajoutée",
+          "projectCreated": "Nouveau projet créé"
+        },
+        "time": {
+          "justNow": "À l'instant",
+          "hoursAgo": "il y a {hours}h",
+          "daysAgo": "il y a {days}j"
+        },
+        "errors": {
+          "statsLoadFailed": "Erreur lors du chargement des statistiques",
+          "activityLoadFailed": "Erreur lors du chargement de l'activité récente",
+          "initFailed": "Erreur lors de l'initialisation du tableau de bord"
+        }
       },
       "experiences": {
         "title": "Gestion des expériences",

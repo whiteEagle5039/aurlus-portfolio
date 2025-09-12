@@ -11,22 +11,6 @@
       
       <!-- Header Actions -->
       <div class="flex items-center space-x-4">
-        <!-- Notifications -->
-        <button 
-          @click="toggleNotifications"
-          class="relative p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200 rounded-lg hover:bg-gray-100"
-          :class="{ 'text-green-500': hasUnreadNotifications }"
-        >
-          <font-awesome-icon icon="bell" class="text-lg" />
-          
-          <!-- Badge -->
-          <span 
-            v-if="notificationCount > 0" 
-            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-md"
-          >
-            {{ notificationCount > 9 ? '9+' : notificationCount }}
-          </span>
-        </button>
         
         <!-- Settings -->
         <button 

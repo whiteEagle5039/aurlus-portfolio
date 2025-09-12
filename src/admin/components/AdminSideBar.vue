@@ -43,7 +43,7 @@
       <!-- Logout Button -->
       <button 
         @click="handleLogout"
-        class="w-full px-3 py-2 bg-red-700 text-sm text-gray-900 hover:bg-red-600 rounded-lg transition-colors duration-200 flex items-center justify-center"
+        class="w-full px-3 py-2 bg-red-700 text-sm text-gray-100 hover:bg-red-600 rounded-lg transition-colors duration-200 flex items-center justify-center"
       >
         <i class="fas fa-sign-out-alt mr-2"></i>
         {{ $t('admin.sidebar.logout') }}
@@ -86,24 +86,19 @@ const menuItems = [
     icon: 'fas fa-certificate'
   },
   {
-    path: '/admin/languages',
-    key: 'languages',
-    icon: 'fas fa-language'
-  },
-  {
     path: '/admin/projects',
     key: 'projects',
     icon: 'fas fa-project-diagram'
   },
   {
-    path: '/admin/contact',
-    key: 'contact',
-    icon: 'fas fa-envelope'
-  },
-  {
     path: '/admin/change-password',
     key: 'adminChangePassword',
     icon: 'fas fa-key'
+  },
+  {
+    path: '/admin/languages',
+    key: 'languages',
+    icon: 'fas fa-language'
   },
 ]
 

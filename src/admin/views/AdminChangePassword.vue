@@ -273,7 +273,7 @@ const apiHeaders = computed(() => ({
 const loadCurrentUser = async () => {
   loading.value = true
   try {
-    const response = await fetch(`${API_BASE_URL}/user`, {
+    const response = await fetch(`${API_BASE_URL}user`, {
       method: 'GET',
       headers: apiHeaders.value
     })
