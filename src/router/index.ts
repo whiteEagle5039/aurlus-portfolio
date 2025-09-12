@@ -21,8 +21,7 @@ import AdminEducation from '../admin/views/AdminEducation.vue'
 import AdminCertifications from '../admin/views/AdminCertifications.vue'
 import AdminLanguages from '../admin/views/AdminLanguages.vue'
 import AdminProjects from '../admin/views/AdminProjects.vue'
-import AdminContact from '../admin/views/AdminContact.vue'
-
+import AdminAbout from '@/admin/views/AdminAbout.vue'
 // Guards d'authentification
 const requireAuth = (to: any, from: any, next: any) => {
   const token = localStorage.getItem('adminToken')
@@ -120,17 +119,17 @@ const routes: Array<RouteRecordRaw> = [
         component: AdminProjects,
         meta: { title: 'Gestion des projets' }
       },
-      { 
-        path: 'contact', 
-        name: 'AdminContact', 
-        component: AdminContact,
-        meta: { title: 'Messages reçus' }
-      },
       {
         path: 'change-password',
         name: 'AdminChangePassword',
         component: AdminChangePassword,
         meta: { title: 'Changer profil'}
+      }, 
+      {
+        path: 'about',
+        name: 'AdminAbout',
+        component: AdminAbout,
+        meta: { requiresAuth: true }
       }
     ]
   },

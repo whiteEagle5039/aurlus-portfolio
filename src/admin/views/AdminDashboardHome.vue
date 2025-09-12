@@ -144,14 +144,6 @@
               <i class="fas fa-plus text-teal-600 mr-3"></i>
               <span class="font-medium">{{ $t('admin.pages.dashboard.quickActions.addAbout') }}</span>
             </router-link>
-            
-            <router-link
-              to="/admin/contact"
-              class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              <i class="fas fa-eye text-gray-600 mr-3"></i>
-              <span class="font-medium">{{ $t('admin.pages.dashboard.quickActions.viewMessages') }}</span>
-            </router-link>
           </div>
         </div>
       </div>
@@ -261,13 +253,17 @@ const loadStats = async () => {
       if (response.status === 'fulfilled' && response.value.ok) {
         const result = await response.value.json()
         
+        console.log(`${endpoint.key} response:`, result) // Debug
+        
         if (endpoint.key === 'experiences' || endpoint.key === 'educations') {
           // Pour les endpoints qui retournent directement les données
           newStats[endpoint.key as keyof Stats] = result.data?.length || 0
         } else {
-          // Pour les endpoints stats qui retournent { total: number }
-          newStats[endpoint.key as keyof Stats] = result.total || 0
+          // Pour les endpoints stats qui retournent { success: true, data: { total: number } }
+          newStats[endpoint.key as keyof Stats] = result.data?.total || 0
         }
+      } else {
+        console.error(`Error loading ${endpoint.key}:`, response.status === 'fulfilled' ? response.value.status : response.reason)
       }
     }
 

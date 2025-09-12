@@ -340,7 +340,8 @@
         "languages": "Languages & Skills",
         "projects": "Projects",
         "contact": "Messages",
-        "adminChangePassword":"Update Profil"
+        "adminChangePassword":"Update Profil",
+        "about":"About"
       }
     },
     "header": {
@@ -748,6 +749,42 @@
       "default": {
         "title": "Administration",
         "description": "Administration interface"
+      }, 
+       "about": {
+        "title": "About Management",
+        "subtitle": "Manage the About sections of your portfolio",
+        "addButton": "Add section",
+        "editTitle": "Edit section",
+        "addTitle": "Add section",
+        "frenchContent": "French content",
+        "englishContent": "English content",
+        "generalSettings": "General settings",
+        "noData": "No About sections found",
+        "confirmDelete": "Are you sure you want to delete this section?",
+        "deleteSuccess": "Section deleted successfully",
+        "table": {
+          "title": "Title",
+          "description": "Description",
+          "status": "Status",
+          "order": "Order",
+          "actions": "Actions"
+        },
+        "form": {
+          "titleFr": "Title in French",
+          "titleEn": "Title in English",
+          "titlePlaceholder": "Enter title...",
+          "descriptionFr": "Description in French",
+          "descriptionEn": "Description in English",
+          "descriptionPlaceholder": "Enter description...",
+          "sortOrder": "Display order",
+          "isActive": "Active section"
+        },
+        "errors": {
+          "loadFailed": "Error loading sections",
+          "saveFailed": "Error saving",
+          "deleteFailed": "Error deleting",
+          "statusFailed": "Error changing status"
+        }
       }
     }
   }

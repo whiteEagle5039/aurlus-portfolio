@@ -71,6 +71,11 @@ const menuItems = [
     icon: 'fas fa-tachometer-alt'
   },
   {
+    path: '/admin/about',
+    key: 'about',
+    icon: 'fas fa-info-circle'
+  },
+  {
     path: '/admin/experiences',
     key: 'experiences',
     icon: 'fas fa-briefcase'
@@ -100,6 +105,7 @@ const menuItems = [
     key: 'languages',
     icon: 'fas fa-language'
   },
+
 ]
 
 const isActiveRoute = (path: string) => {
