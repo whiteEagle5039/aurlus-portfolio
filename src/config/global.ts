@@ -18,11 +18,21 @@ export const API_ENDPOINT = {
     skills: "admin/skills",
     //projects routes
     projects: "admin/projects",
-    //contacts routes
-
+    //about routes
+    about: "admin/about",
 
     //portfolio experiences routes
     portfolioExperiences: "portfolio/experiences",
     //portfolio educations routes
-    portfolioEducations: "portfolio/educations"
+    portfolioEducations: "portfolio/educations",
+    //portfolio certifications routes
+    portfolioCertifications: "portfolio/certifications",
+    //portfolio languages routes
+    portfolioLanguages: "portfolio/languages",
+    //portfolio skills routes
+    portfolioSkills: "portfolio/skills",
+    //portfolio projects routes
+    portfolioProjects: "portfolio/projects",
+    //portfolio about routes
+    portfolioAbout: "portfolio/about"
 }

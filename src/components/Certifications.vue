@@ -129,6 +129,7 @@
 import { defineComponent, ref, computed, onMounted, onUnmounted } from 'vue';
 import CertificationCard from '@/components/CertificationCard.vue';
 import { useI18n } from 'vue-i18n';
+import { API_BASE_URL, API_ENDPOINT } from '@/config/global';
 
 interface Certification {
   id: number;
@@ -167,9 +168,6 @@ export default defineComponent({
     const loading = ref(false);
     const error = ref<string | null>(null);
     const activeFilter = ref('all');
-
-    // API Configuration
-    const API_BASE_URL = "http://127.0.0.1:8000/api/";
 
     // Top certifications to show (first 10)
     const topCertifications = computed(() => {
@@ -230,7 +228,7 @@ export default defineComponent({
       error.value = null;
       
       try {
-        const response = await fetch(`${API_BASE_URL}portfolio/certifications?locale=${locale.value}`);
+        const response = await fetch(`${API_BASE_URL}${API_ENDPOINT.portfolioCertifications}?locale=${locale.value}`);
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -253,26 +251,26 @@ export default defineComponent({
     };
 
     // Fetch certification statistics
-    const fetchStats = async () => {
-      try {
-        const response = await fetch(`${API_BASE_URL}portfolio/certifications-stats`);
+    // const fetchStats = async () => {
+    //   try {
+    //     const response = await fetch(`${API_BASE_URL}portfolio/certifications-stats`);
         
-        if (response.ok) {
-          const data = await response.json();
-          if (data.success) {
-            stats.value = data.data;
-          }
-        }
-      } catch (err) {
-        console.error('Error fetching certification stats:', err);
-        // Don't show error for stats, it's optional
-      }
-    };
+    //     if (response.ok) {
+    //       const data = await response.json();
+    //       if (data.success) {
+    //         stats.value = data.data;
+    //       }
+    //     }
+    //   } catch (err) {
+    //     console.error('Error fetching certification stats:', err);
+    //     // Don't show error for stats, it's optional
+    //   }
+    // };
 
     onMounted(() => {
       // Fetch data on component mount
       fetchCertifications();
-      fetchStats();
+      // fetchStats();
       
       // Watch for locale changes
       let previousLocale = locale.value;
