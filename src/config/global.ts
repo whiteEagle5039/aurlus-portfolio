@@ -35,5 +35,11 @@ export const API_ENDPOINT = {
     //portfolio projects routes
     portfolioProjects: "portfolio/projects",
     //portfolio about routes
-    portfolioAbout: "portfolio/about"
+    portfolioAbout: "portfolio/about",
+    // Contact routes
+    contactSend: "portfolio/contact/send",
+
+    // Admin contact routes
+    adminContacts: "admin/contacts",
+    adminContactMarkRead: "admin/contacts/{id}/mark-read"
 }
