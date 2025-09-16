@@ -343,7 +343,7 @@
         "contact": "Messages",
         "adminChangePassword":"Changer Profil", 
         "about":"À propos", 
-        "profile": "Mon Profil"
+        "profile": "À propos"
       }
     },
     "header": {
@@ -651,6 +651,13 @@
         }
       },
       "profile": {
+        "currentInfo": "Informations actuelles",
+        "currentEmail": "Email actuel",
+        "modal": {
+          "credentialsTitle": "Modifier Email et Mot de passe",
+          "emailTitle": "Modifier l'Email",
+          "passwordTitle": "Modifier le Mot de passe"
+        },
         "title": "Mon Profil",
         "subtitle": "Gérez vos informations personnelles et professionnelles",
         "complete": "Profil complet",
@@ -697,11 +704,25 @@
           "confirmPassword": "Confirmer le mot de passe",
           "updating": "Mise à jour en cours...",
           "newEmail": "Nouvel email",
-          "newEmailPlaceholder": "votre.nouvel.email{'@'}example.com"
+          "newEmailPlaceholder": "votre.nouvel.email{'@'}example.com",
+          "newPasswordPlaceholder": "Entrez un nouveau mot de passe sécurisé",
+          "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe"
+        },
+        "passwordRequirements": {
+          "title": "Exigences du mot de passe :",
+          "minLength": "Au moins 8 caractères",
+          "mixedCase": "Majuscules et minuscules",
+          "numbers": "Au moins un chiffre",
+          "symbols": "Au moins un symbole"
         },
         "errors": {
           "loadFailed": "Impossible de charger le profil",
           "saveFailed": "Erreur lors de la sauvegarde du profil"
+        },
+         "success": {
+          "credentialsUpdated": "Email et mot de passe mis à jour avec succès",
+          "emailUpdated": "Email mis à jour avec succès",
+          "passwordUpdated": "Mot de passe mis à jour avec succès"
         }
       },
       "projects": {

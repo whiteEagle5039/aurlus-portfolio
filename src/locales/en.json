@@ -714,6 +714,13 @@
         "title": "My Profile",
         "subtitle": "Manage your personal and professional information",
         "complete": "Profile complete",
+        "currentInfo": "Current Information",
+        "currentEmail": "Current email",
+        "modal": {
+          "credentialsTitle": "Update Email and Password",
+          "emailTitle": "Update Email",
+          "passwordTitle": "Update Password"
+        },
         "incomplete": "Profile incomplete",
         "personalInfo": "Personal information",
         "frenchContent": "French content",
@@ -757,11 +764,25 @@
           "confirmPassword": "Confirm new password",
           "updating": "Updating...",
           "newEmail": "New email",
-          "newEmailPlaceholder": "Enter your new email"
+          "newEmailPlaceholder": "Enter your new email",
+          "newPasswordPlaceholder": "Enter a secure new password",
+          "confirmPasswordPlaceholder": "Confirm your new password"
         },
         "errors": {
           "loadFailed": "Unable to load profile",
           "saveFailed": "Error saving profile"
+        },
+        "passwordRequirements": {
+          "title": "Password requirements:",
+          "minLength": "At least 8 characters",
+          "mixedCase": "Upper and lowercase letters",
+          "numbers": "At least one number",
+          "symbols": "At least one symbol"
+        },
+        "success": {
+          "credentialsUpdated": "Email and password updated successfully",
+          "emailUpdated": "Email updated successfully",
+          "passwordUpdated": "Password updated successfully"
         }
       },
       "contact": {

@@ -1,0 +1,80 @@
+"profile": {
+        "title": "Mon Profil",
+        "subtitle": "Gérez vos informations de connexion et paramètres de sécurité",
+        "currentInfo": "Informations actuelles",
+        "currentEmail": "Email actuel",
+        "updateCredentials": "Changer Email + Mot de passe",
+        "updateEmail": "Changer Email uniquement",
+        "updatePassword": "Changer Mot de passe uniquement",
+        "modal": {
+          "credentialsTitle": "Modifier Email et Mot de passe",
+          "emailTitle": "Modifier l'Email",
+          "passwordTitle": "Modifier le Mot de passe"
+        },
+        "form": {
+          "currentPassword": "Mot de passe actuel",
+          "currentPasswordPlaceholder": "Entrez votre mot de passe actuel",
+          "newEmail": "Nouvel email",
+          "emailPlaceholder": "exemple@domaine.com",
+          "newPassword": "Nouveau mot de passe",
+          "newPasswordPlaceholder": "Entrez un nouveau mot de passe sécurisé",
+          "confirmPassword": "Confirmer le mot de passe",
+          "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe"
+        },
+        "passwordRequirements": {
+          "title": "Exigences du mot de passe :",
+          "minLength": "Au moins 8 caractères",
+          "mixedCase": "Majuscules et minuscules",
+          "numbers": "Au moins un chiffre",
+          "symbols": "Au moins un symbole"
+        },
+        "errors": {
+          "loadFailed": "Impossible de charger les informations du profil",
+          "updateFailed": "Erreur lors de la mise à jour du profil"
+        },
+        "success": {
+          "credentialsUpdated": "Email et mot de passe mis à jour avec succès",
+          "emailUpdated": "Email mis à jour avec succès",
+          "passwordUpdated": "Mot de passe mis à jour avec succès"
+        }
+      },
+       "profile": {
+        "title": "My Profile",
+        "subtitle": "Manage your login credentials and security settings",
+        "currentInfo": "Current Information",
+        "currentEmail": "Current email",
+        "updateCredentials": "Change Email + Password",
+        "updateEmail": "Change Email only",
+        "updatePassword": "Change Password only",
+        "modal": {
+          "credentialsTitle": "Update Email and Password",
+          "emailTitle": "Update Email",
+          "passwordTitle": "Update Password"
+        },
+        "form": {
+          "currentPassword": "Current password",
+          "currentPasswordPlaceholder": "Enter your current password",
+          "newEmail": "New email",
+          "emailPlaceholder": "example@domain.com",
+          "newPassword": "New password",
+          "newPasswordPlaceholder": "Enter a secure new password",
+          "confirmPassword": "Confirm password",
+          "confirmPasswordPlaceholder": "Confirm your new password"
+        },
+        "passwordRequirements": {
+          "title": "Password requirements:",
+          "minLength": "At least 8 characters",
+          "mixedCase": "Upper and lowercase letters",
+          "numbers": "At least one number",
+          "symbols": "At least one symbol"
+        },
+        "errors": {
+          "loadFailed": "Unable to load profile information",
+          "updateFailed": "Error updating profile"
+        },
+        "success": {
+          "credentialsUpdated": "Email and password updated successfully",
+          "emailUpdated": "Email updated successfully",
+          "passwordUpdated": "Password updated successfully"
+        }
+      },
