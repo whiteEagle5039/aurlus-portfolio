@@ -352,6 +352,7 @@
     "pages": {
       "dashboard": {
         "title": "Tableau de bord",
+        "description": "Aperçu rapide de l'état du portfolio",
         "stats": {
           "experiences": "Expériences",
           "educations": "Formations", 
@@ -394,6 +395,7 @@
       },
       "experiences": {
         "title": "Gestion des expériences",
+        "description":" Expériences professionnelles",
         "subtitle": "Gérez vos expériences professionnelles",
         "addButton": "Ajouter une expérience",
         "addTitle": "Ajouter une expérience",
@@ -441,6 +443,7 @@
       },
       "education": {
         "title": "Gestion des formations",
+        "description": "Parcours académique",
         "subtitle": "Gérez vos formations et diplômes",
         "addButton": "Ajouter une formation",
         "addTitle": "Ajouter une formation",
@@ -488,6 +491,7 @@
       },
       "certifications": {
         "title": "Gérer les Certifications",
+        "description": " Certifications professionnelles",
         "subtitle": "Gérez vos certifications professionnelles",
         "addButton": "Ajouter une Certification",
         "addTitle": "Ajouter une Certification",
@@ -548,6 +552,7 @@
       },
       "languages": {
         "title": "Gérer les Langues",
+        "description": " Compétences linguistiques",
         "subtitle": "Gérez vos compétences linguistiques",
         "addButton": "Ajouter une Langue",
         "addTitle": "Ajouter une Langue",
@@ -603,6 +608,7 @@
       },
       "skills": {
         "title": "Gérer les Compétences",
+        "description": " Compétences techniques",
         "subtitle": "Gérez vos compétences techniques",
         "addButton": "Ajouter une Compétence",
         "addTitle": "Ajouter une Compétence",
@@ -727,6 +733,7 @@
       },
       "projects": {
         "title": "Gestion des projets",
+        "description": " Projets et réalisations",
         "subtitle": "Gérez vos projets et réalisations",
         "addButton": "Ajouter un projet",
         "addTitle": "Ajouter un nouveau projet",

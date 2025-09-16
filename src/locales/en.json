@@ -358,6 +358,7 @@
     "pages": {
       "dashboard": {
         "title": "Dashboard",
+        "description": "Quick overview of portfolio status",
         "stats": {
           "experiences": "Experiences",
           "educations": "Education",
@@ -400,6 +401,7 @@
       },
       "experiences": {
         "title": "Manage Experiences",
+        "description":" Professional Experiences",
         "subtitle": "Manage your professional experiences",
         "addButton": "Add Experience",
         "addTitle": "Add Experience",
@@ -447,6 +449,7 @@
       },
       "education": {
         "title": "Education Management",
+        "description":" Academic Background",
         "subtitle": "Manage your education and degrees",
         "addButton": "Add Education",
         "addTitle": "Add Education",
@@ -494,6 +497,7 @@
       },
       "certifications": {
         "title": "Manage Certifications",
+        "description": " Professional Certifications",
         "subtitle": "Manage your professional certifications",
         "addButton": "Add Certification",
         "addTitle": "Add Certification",
@@ -554,6 +558,7 @@
       },
      "languages": {
         "title": "Manage Languages",
+        "description": " Language skills",
         "subtitle": "Manage your language skills",
         "addButton": "Add Language",
         "addTitle": "Add Language",
@@ -609,6 +614,7 @@
       },
       "skills": {
         "title": "Manage Skills",
+        "description": " Technical Skills",
         "subtitle": "Manage your technical skills",
         "addButton": "Add Skill",
         "addTitle": "Add Skill",
@@ -658,6 +664,7 @@
       },
       "projects": {
         "title": "Project Management",
+        "description": " Projects & Achievements",
         "subtitle": "Manage your projects and achievements",
         "addButton": "Add project",
         "addTitle": "Add new project",
