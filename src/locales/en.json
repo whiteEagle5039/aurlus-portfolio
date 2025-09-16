@@ -1,0 +1,791 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "education": "Education",
+    "certifications": "Certifications",
+    "languages": "Languages",
+    "contact": "Contact"
+  },
+  "home": {
+    "badge": "CYBERSECURITY EXPERT & CISO",
+    "name": {
+      "first": "Aurlus",
+      "last": "SOGBOSSI"
+    },
+    "description": "Information Systems Security Engineer with <span class='text-green-600 dark:text-green-300'>7+ years of expertise</span> at ASECNA. Specialist in secure network architectures and ISO 27001 compliance.",
+    "tags": {
+      "security": "Cybersecurity",
+      "ciso": "CISO",
+      "iso": "ISO 27001",
+      "management": "Project Management"
+    },
+    "buttons": {
+      "contact": "Professional Contact",
+      "expertise": "View My Expertise" 
+    },
+    "stats": {
+      "projects": "PROJECTS",
+      "clients": "CLIENTS",
+      "awards": "AWARDS"
+    }
+  },
+  "about": {
+    "title": "About",
+    "highlight": "me",
+    "imageAlt": "About Me",
+    "jobTitle": "Cybersecurity and Network Engineering Expert",
+    "paragraph1": "EAMAC graduate engineer in Electronics-Computer Science with over 7 years of professional experience at ASECNA. Currently Chief Information Security Officer (CISO), I combine technical expertise and management skills thanks to a postgraduate degree in project management.",
+    "paragraph2": "I specialize in designing and implementing secure network architectures, deploying cybersecurity policies compliant with ISO 27001 standards and ICAO strategy, and managing multi-site technical teams in critical environments.",
+    "viewAllCertifications": "View all certifications",
+    "skills": {
+    "cybersecurity": "Cybersecurity",
+    "networks": "Computer Networks",
+    "iso": "ISO 27001 Standard",
+    "projectManagement": "Project Management",
+    "leadership": "Team Leadership",
+    "criticalEnvironments": "Critical Environments"
+    },
+    "certificationsTitle": "Certifications",
+    "certifications": [
+      "CISSP",
+      "CISM",
+      "Fortinet",
+      "CCNP Security",
+      "CISO",
+      "CSA"
+    ],
+    "downloadCV": "Download CV"
+  },
+  "experience": {
+    "title": "Professional",
+    "professional": "experience",
+    "viewDetails": "View detailed responsibilities",
+    "job1": {
+      "title": "Chief Information Security Officer (CISO)",
+      "company": "ASECNA",
+      "description": "Strategic cybersecurity leadership and risk management for the Agency across 19 member countries.",
+      "duration": "January 2024 - Present",
+      "responsibilities": [
+        "Leadership and updating of ASECNA's Information Systems Security Policy (ISSP)",
+        "Coordination of cyber risk management (identification, assessment, prioritization, treatment) according to EBIOS Risk Manager framework, ISO/IEC 27005 standards, NIST and the Agency's risk manual",
+        "Development and coordination of the incident response plan for ASECNA",
+        "Supervision of a team of 48 security referents for information systems security governance in ASECNA's 19 member countries",
+        "Compliance with ISO/IEC 27001 requirements and ICAO cybersecurity strategy",
+        "Conducting awareness campaigns and security training for users at Headquarters, Representations, Schools and Delegations of ASECNA",
+        "Technological watch and integration of innovative solutions"
+      ]
+    },
+    "job2": {
+      "title": "Senior IT Network Specialist",
+      "company": "Technical and IT Resources Directorate (DTI), ASECNA",
+      "description": "Design and administration of network and security infrastructures for the entire Agency.",
+      "duration": "October 2022 - Present",
+      "responsibilities": [
+        "Design, supervision and updating of network and security architectures and infrastructures at Headquarters and in ASECNA's 19 member countries",
+        "Implementation, administration and maintenance of network and security equipment: Switch (Cisco, Fortinet), Router (Cisco, Mikrotik), FortiGate, FortiWeb, FortiManager, FortiAnalyzer, FortiAuthenticator, FortiPam, Forticlient EMS",
+        "Administration of central systems (Exchange mail, backup systems, Microsoft O365 suite, Microsoft Azure, Microsoft Sentinel, SCCM, Active Directory, Linux, etc.)",
+        "Administration of the Kaspersky security system",
+        "Deployment of security measures, support and assistance to users at Headquarters and Centers",
+        "Management (design, monitoring and implementation) of strategic projects for network modernization and IT security",
+        "Proposal of topics and supervision of final dissertations for Engineers and senior technicians in civil aviation operations, specializing in electronic and IT systems at the African School of Meteorology and Civil Aviation (EAMAC) in Niamey"
+      ]
+    },
+    "job3": {
+      "title": "Senior Network, IT Systems and Meteorological Equipment Specialist",
+      "company": "ASECNA Representation in Benin",
+      "description": "Administration of IT and meteorological systems for air navigation in Benin.",
+      "duration": "March 2018 - October 2022",
+      "responsibilities": [
+        "Administration and maintenance of networks (Cisco Switch, Cisco Router, Mikrotik Router, MESSIR COM, MUX, etc.) and IT systems (Radio Chain, Topsky, AMHS-RSFTA, Alcatel, etc.) for air navigation assistance",
+        "Administration and maintenance of meteorological equipment with electronic components (SAOMA, SAOSS, SADIS, SAAPI, EARTHNETWORK, SMT-SIO)",
+        "Participation in the implementation of local IT projects (SAGIM, RADAR METEO, etc.)",
+        "Technical support and assistance to Representation users"
+      ]
+    }
+  },
+  "education": {
+    "title": "My",
+    "academicPath": "academic path",
+    "master": {
+      "degree": "Research Master",
+      "specialty": "Embedded Systems Security (Hardware Cybersecurity)",
+      "institution": "Faculty of Science and Technology (FST) - UCAD, Dakar/Senegal",
+      "duration": "2023-2025 (in progress)"
+    },
+    "dess": {
+      "degree": "Specialized Graduate Diploma (DESS)",
+      "specialty": "Project Management and Local Development",
+      "institution": "Doctoral School of Economics and Management (ED-SEG) - UAC, Benin",
+      "duration": "2019-2020"
+    },
+    "lawLicence": {
+      "degree": "Bachelor's Degree",
+      "specialty": "Private Law",
+      "institution": "Faculty of Law and Political Science (FADESP) - UAC, Benin",
+      "duration": "2017-2021"
+    },
+    "engineering": {
+      "degree": "Engineering Degree",
+      "specialty": "Electronics-Computer Science",
+      "institution": "African School of Meteorology and Civil Aviation (EAMAC), Niamey/Niger",
+      "duration": "2013-2016"
+    },
+    "proLicence": {
+      "degree": "Professional Bachelor's Degree",
+      "specialty": "Mathematics-Computer Science",
+      "institution": "Higher Teacher Training College (ENS) of Natitingou, Benin",
+      "duration": "2009-2012"
+    },
+    "baccalaureate": {
+      "degree": "High School Diplomas",
+      "specialty": "Series C (2009) & Series D (2007)",
+      "institution": "CS CRAMER & Collège Jean-Piaget I, Abomey-Calavi/Benin",
+      "duration": "2006-2009"
+    }
+  },
+  "certifications": {
+    "title1": "Professional",
+    "title2": "Certifications",
+    "button": "View all certifications",
+    "neverExpires": "Never expires",
+    "viewCertificate": "View certificate",
+    "allCertifications": "All my certifications",
+    "noCertifications": "No certification found",
+    "stats": {
+      "total": "Total",
+      "valid": "Valid",
+      "expiringSoon": "Expiring Soon",
+      "expired": "Expired"
+    },
+    "filters": {
+      "all": "All",
+      "valid": "Valid",
+      "expired": "Expired",
+      "permanent": "Permanent"
+    },
+    "showing": "Showing",
+    "of": "of"
+
+  },
+  "languages": {
+    "title": "Language <span class='text-green-500'>skills</span>",
+    "french": {
+      "name": "French",
+      "level": "Professional",
+      "stars": 5
+    },
+    "english": {
+      "name": "English",
+      "level": "Advanced",
+      "stars": 4
+    }
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Contact Information",
+    "description": "I'm available to discuss your projects. Feel free to contact me for any professional opportunity.",
+    "address": {
+      "title": "Address",
+      "value": "Yoff-Dakar, Senegal"
+    },
+    "email": {
+      "title": "Email",
+      "value": "sogbossiaur@asecna.org"
+    },
+    "phone": {
+      "title": "Phone",
+      "value": "+221 78 185 66 71"
+    },
+    "social": "Social Networks",
+    "form": {
+      "title": "Send me a message",
+      "name": {
+        "label": "Full name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email address",
+        "placeholder": "Your email"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Your message subject"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message..."
+      },
+      "submit": "Send message",
+      "submitting": "Sending..."
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "saving": "Saving...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "update": "Update",
+    "active": "Active",
+    "inactive": "Inactive",
+    "activate": "Activate",
+    "deactivate": "Deactivate",
+    "french": "French",
+    "english": "English",
+    "retry": "Retry",
+    "current": "Current",
+    "errorLoadingData": "Error loading data"
+  },
+  "admin": {
+    "login": {
+      "title": "Aurlus Login",
+      "subtitle": "Access your administration panel",
+      "toggleLanguage": "Switch language",
+      "form": {
+        "username": {
+          "label": "Username",
+          "placeholder": "Enter your username"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password"
+        },
+        "remember": "Remember me",
+        "forgotPassword": "Forgot password?",
+        "submit": "Login",
+        "loggingIn": "Logging in..."
+      },
+      "firstLogin": {
+        "title": "First Login",
+        "message": "Use the default credentials: admin / admin123. You will be asked to change your password."
+      },
+      "forgotModal": {
+        "title": "Reset Password",
+        "message": "For security reasons, please contact the system administrator to reset your password.",
+        "cancel": "Cancel",
+        "confirm": "Got it"
+      },
+      "errors": {
+        "invalidCredentials": "Incorrect username or password",
+        "serverError": "Server error. Please try again later."
+      },
+      "backToPortfolio": "Back to portfolio"
+    },
+    "changePassword": {
+      "title": "Change Password",
+      "subtitle": "Secure your account with a new password",
+      "toggleLanguage": "Switch language",
+      "securityNotice": {
+        "title": "Mandatory Password Change",
+        "message": "For security reasons, you must change the default password on your first login."
+      },
+      "form": {
+        "currentPassword": {
+          "label": "Current Password",
+          "placeholder": "Enter your current password"
+        },
+        "newPassword": {
+          "label": "New Password",
+          "placeholder": "Enter your new password"
+        },
+        "confirmPassword": {
+          "label": "Confirm Password",
+          "placeholder": "Confirm your new password"
+        },
+        "cancel": "Cancel",
+        "submit": "Update",
+        "updating": "Updating..."
+      },
+      "requirements": {
+        "minLength": "At least 8 characters",
+        "hasUppercase": "At least one uppercase letter",
+        "hasLowercase": "At least one lowercase letter",
+        "hasNumber": "At least one number",
+        "hasSpecialChar": "At least one special character"
+      },
+      "strength": {
+        "weak": "Weak",
+        "medium": "Medium",
+        "strong": "Strong"
+      },
+      "errors": {
+        "invalidCurrentPassword": "The current password is incorrect",
+        "passwordMismatch": "Passwords do not match",
+        "samePassword": "The new password must be different from the old one",
+        "serverError": "Server error. Please try again later."
+      },
+      "success": {
+        "passwordMatch": "Passwords match",
+        "passwordChanged": "Password updated successfully! Redirecting..."
+      }
+    },
+    "sidebar": {
+      "title": "Admin Panel",
+      "subtitle": "Portfolio Management",
+      "toggleLanguage": "Switch language",
+      "user": {
+        "name": "Aurlus Admin",
+        "status": "Online"
+      },
+      "logout": "Logout",
+      "menu": {
+        "dashboard": "Dashboard",
+        "experiences": "Experiences",
+        "education": "Education",
+        "certifications": "Certifications",
+        "languages": "Languages & Skills",
+        "projects": "Projects",
+        "contact": "Messages",
+        "adminChangePassword":"Update Profil",
+        "about":"About"
+      }
+    },
+    "header": {
+      "viewPortfolio": "View Portfolio"
+    },
+    "pages": {
+      "dashboard": {
+        "title": "Dashboard",
+        "stats": {
+          "experiences": "Experiences",
+          "educations": "Education",
+          "certifications": "Certifications", 
+          "projects": "Projects",
+          "languages": "Languages",
+          "skills": "Skills",
+          "about": "About",
+          "messages": "Messages"
+        },
+        "quickActions": {
+          "title": "Quick actions",
+          "addExperience": "Add experience",
+          "addEducation": "Add education",
+          "addCertification": "Add certification", 
+          "addProject": "Add project",
+          "addSkill": "Add skill",
+          "addLanguage": "Add language",
+          "addAbout": "Add about section",
+          "viewMessages": "View messages"
+        },
+        "recentActivity": {
+          "title": "Recent activity",
+          "noActivity": "No recent activity",
+          "newMessage": "New message received",
+          "experienceUpdated": "Experience updated", 
+          "certificationAdded": "New certification added",
+          "projectCreated": "New project created"
+        },
+        "time": {
+          "justNow": "Just now",
+          "hoursAgo": "{hours}h ago",
+          "daysAgo": "{days}d ago"
+        },
+        "errors": {
+          "statsLoadFailed": "Error loading statistics",
+          "activityLoadFailed": "Error loading recent activity",
+          "initFailed": "Error initializing dashboard"
+        }
+      },
+      "experiences": {
+        "title": "Manage Experiences",
+        "subtitle": "Manage your professional experiences",
+        "addButton": "Add Experience",
+        "addTitle": "Add Experience",
+        "editTitle": "Edit Experience",
+        "current": "Current",
+        "noData": "No experience found",
+        "confirmDelete": "Are you sure you want to delete this experience?",
+        "deleteSuccess": "Experience deleted successfully",
+        "frenchContent": "French Content",
+        "englishContent": "English Content",
+        "generalInfo": "General Information",
+        "table": {
+          "position": "Position",
+          "company": "Company",
+          "period": "Period",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "form": {
+          "titleFr": "Job Title (French)",
+          "titleEn": "Job Title (English)",
+          "titlePlaceholder": "Ex: Cybersecurity Manager",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe your responsibilities and achievements...",
+          "company": "Company",
+          "companyPlaceholder": "Ex: ASECNA",
+          "location": "Location",
+          "locationPlaceholder": "Ex: Dakar, Senegal",
+          "startDate": "Start Date",
+          "endDate": "End Date",
+          "isCurrent": "Current Position",
+          "skills": "Skills",
+          "skillPlaceholder": "Ex: Cybersecurity",
+          "addSkill": "Add Skill",
+          "sortOrder": "Display Order",
+          "isActive": "Visible on portfolio"
+        },
+        "errors": {
+          "loadFailed": "Error loading experiences",
+          "saveFailed": "Error saving experience",
+          "deleteFailed": "Error deleting experience",
+          "statusFailed": "Error changing status"
+        }
+      },
+      "education": {
+        "title": "Education Management",
+        "subtitle": "Manage your education and degrees",
+        "addButton": "Add Education",
+        "addTitle": "Add Education",
+        "editTitle": "Edit Education",
+        "current": "Ongoing",
+        "noData": "No education found",
+        "confirmDelete": "Are you sure you want to delete this education?",
+        "deleteSuccess": "Education deleted successfully",
+        "frenchContent": "French Content",
+        "englishContent": "English Content", 
+        "generalInfo": "General Information",
+        "table": {
+          "degree": "Degree",
+          "institution": "Institution",
+          "period": "Period",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "form": {
+          "degreeFr": "Degree (French)",
+          "degreeEn": "Degree (English)",
+          "degreePlaceholder": "Ex: Master in Cybersecurity",
+          "specialtyFr": "Specialty (French)",
+          "specialtyEn": "Specialty (English)",
+          "specialtyPlaceholder": "Ex: Information Systems Security",
+          "institution": "Institution",
+          "institutionPlaceholder": "Ex: University of Technology",
+          "location": "Location",
+          "locationPlaceholder": "Ex: Dakar, Senegal",
+          "startYear": "Start Year",
+          "endYear": "End Year",
+          "isCurrent": "Ongoing Education",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe the education content...",
+          "sortOrder": "Display Order",
+          "isActive": "Visible on portfolio"
+        },
+        "errors": {
+          "loadFailed": "Error loading education",
+          "saveFailed": "Error saving education",
+          "deleteFailed": "Error deleting education",
+          "statusFailed": "Error changing status"
+        }
+      },
+      "certifications": {
+        "title": "Manage Certifications",
+        "subtitle": "Manage your professional certifications",
+        "addButton": "Add Certification",
+        "addTitle": "Add Certification",
+        "editTitle": "Edit Certification",
+        "noData": "No certification found",
+        "confirmDelete": "Are you sure you want to delete this certification?",
+        "deleteSuccess": "Certification deleted successfully",
+        "frenchContent": "French Content",
+        "englishContent": "English Content",
+        "generalInfo": "General Information",
+        "validityInfo": "Validity Information",
+        "table": {
+          "name": "Certification",
+          "organization": "Organization",
+          "obtained": "Obtained",
+          "expiry": "Expiry",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "status": {
+          "valid": "Valid",
+          "expired": "Expired",
+          "expiring_soon": "Expiring Soon",
+          "permanent": "Permanent"
+        },
+        "form": {
+          "nameFr": "Certification Name (French)",
+          "nameEn": "Certification Name (English)",
+          "namePlaceholder": "Ex: CISSP - Certified Information Systems Security Professional",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe the certification and skills acquired...",
+          "issuingOrganization": "Issuing Organization",
+          "organizationPlaceholder": "Ex: (ISC)²",
+          "obtainedDate": "Date Obtained",
+          "expiryDate": "Expiry Date",
+          "neverExpires": "Never Expires",
+          "certificateUrl": "Certificate URL",
+          "urlPlaceholder": "https://example.com/certificate",
+          "certificateId": "Certificate ID",
+          "idPlaceholder": "Certificate identifier or number",
+          "sortOrder": "Display Order",
+          "isActive": "Visible on portfolio"
+        },
+        "errors": {
+          "loadFailed": "Error loading certifications",
+          "saveFailed": "Error saving certification",
+          "deleteFailed": "Error deleting certification",
+          "statusFailed": "Error changing status"
+        },
+        "stats": {
+          "total": "Total Certifications",
+          "active": "Active",
+          "valid": "Valid",
+          "expired": "Expired",
+          "expiringSoon": "Expiring Soon"
+        }
+      },
+     "languages": {
+        "title": "Manage Languages",
+        "subtitle": "Manage your language skills",
+        "addButton": "Add Language",
+        "addTitle": "Add Language",
+        "editTitle": "Edit Language",
+        "noData": "No languages found",
+        "confirmDelete": "Are you sure you want to delete this language?",
+        "deleteSuccess": "Language deleted successfully",
+        "frenchContent": "French Content",
+        "englishContent": "English Content",
+        "generalInfo": "General Information",
+        "table": {
+          "language": "Language",
+          "level": "Level",
+          "certification": "Certification",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "levels": {
+          "native": "Native",
+          "advanced": "Advanced",
+          "intermediate": "Intermediate",
+          "elementary": "Elementary",
+          "beginner": "Beginner"
+        },
+        "form": {
+          "nameFr": "Language Name (French)",
+          "nameEn": "Language Name (English)",
+          "namePlaceholder": "Ex: English",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe your level and experience with this language...",
+          "flag": "Flag",
+          "flagPlaceholder": "🇺🇸",
+          "level": "Proficiency Level",
+          "certification": "Certification",
+          "certificationPlaceholder": "Ex: TOEIC 850, Cambridge C1",
+          "sortOrder": "Display Order",
+          "isActive": "Visible on portfolio"
+        },
+        "errors": {
+          "loadFailed": "Error loading languages",
+          "saveFailed": "Error saving language",
+          "deleteFailed": "Error deleting language",
+          "statusFailed": "Error changing status"
+        },
+        "stats": {
+          "total": "Total Languages",
+          "active": "Active",
+          "native": "Native Languages",
+          "advanced": "Advanced Level",
+          "withCertification": "With Certification"
+        }
+      },
+      "skills": {
+        "title": "Manage Skills",
+        "subtitle": "Manage your technical skills",
+        "addButton": "Add Skill",
+        "addTitle": "Add Skill",
+        "editTitle": "Edit Skill",
+        "noData": "No skills found",
+        "confirmDelete": "Are you sure you want to delete this skill?",
+        "deleteSuccess": "Skill deleted successfully",
+        "frenchContent": "French Content",
+        "englishContent": "English Content",
+        "generalInfo": "General Information",
+        "table": {
+          "skill": "Skill",
+          "category": "Category",
+          "level": "Level",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "form": {
+          "nameFr": "Skill Name (French)",
+          "nameEn": "Skill Name (English)",
+          "namePlaceholder": "Ex: JavaScript, Laravel, Vue.js",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe your experience and expertise with this skill...",
+          "categoryFr": "Category (French)",
+          "categoryEn": "Category (English)",
+          "level": "Proficiency Level",
+          "icon": "Icon (FontAwesome class)",
+          "color": "Color",
+          "sortOrder": "Display Order",
+          "isActive": "Visible on portfolio",
+          "isFeatured": "Highlight as Featured"
+        },
+        "errors": {
+          "loadFailed": "Error loading skills",
+          "saveFailed": "Error saving skill",
+          "deleteFailed": "Error deleting skill",
+          "statusFailed": "Error changing status"
+        },
+        "stats": {
+          "total": "Total Skills",
+          "active": "Active Skills",
+          "featured": "Featured Skills",
+          "byCategory": "By Category",
+          "advanced": "Advanced Level"
+        }
+      },
+      "projects": {
+        "title": "Project Management",
+        "subtitle": "Manage your projects and achievements",
+        "addButton": "Add project",
+        "addTitle": "Add new project",
+        "editTitle": "Edit project",
+        "noData": "No projects found",
+        "featured": "Featured",
+        "demo": "Demo",
+        "code": "Code",
+        "frenchContent": "French content",
+        "englishContent": "English content",
+        "generalInfo": "General information",
+        "addFeatured": "Mark as featured",
+        "removeFeatured": "Remove from featured",
+        "confirmDelete": "Are you sure you want to delete this project?",
+        "deleteSuccess": "Project deleted successfully",
+        "form": {
+          "titleFr": "Project title (French)",
+          "titleEn": "Project title (English)",
+          "titlePlaceholder": "E.g: Security management system",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Describe your project...",
+          "technologies": "Technologies used",
+          "technologyPlaceholder": "E.g: Vue.js, Laravel, MySQL",
+          "addTechnology": "Add technology",
+          "status": "Project status",
+          "image": "Project image",
+          "imagePlaceholder": "Image URL",
+          "demoUrl": "Demo URL",
+          "demoUrlPlaceholder": "https://demo.example.com",
+          "githubUrl": "GitHub URL",
+          "githubUrlPlaceholder": "https://github.com/user/project",
+          "startDate": "Start date",
+          "endDate": "End date",
+          "order": "Display order",
+          "isActive": "Active project",
+          "isFeatured": "Featured project"
+        },
+        "status": {
+          "completed": "Completed",
+          "in_progress": "In Progress",
+          "planned": "Planned",
+          "archived": "Archived"
+        },
+        "errors": {
+          "loadFailed": "Failed to load projects",
+          "saveFailed": "Failed to save project",
+          "statusFailed": "Failed to update status",
+          "featuredFailed": "Failed to update featured status",
+          "deleteFailed": "Failed to delete project"
+        }
+      },
+      "profile": {
+        "title": "My Profile",
+        "subtitle": "Manage your login credentials and security settings",
+        "currentInfo": "Current Information",
+        "currentEmail": "Current email",
+        "updateCredentials": "Change Email + Password",
+        "updateEmail": "Change Email only",
+        "updatePassword": "Change Password only",
+        "modal": {
+          "credentialsTitle": "Update Email and Password",
+          "emailTitle": "Update Email",
+          "passwordTitle": "Update Password"
+        },
+        "form": {
+          "currentPassword": "Current password",
+          "currentPasswordPlaceholder": "Enter your current password",
+          "newEmail": "New email",
+          "emailPlaceholder": "example@domain.com",
+          "newPassword": "New password",
+          "newPasswordPlaceholder": "Enter a secure new password",
+          "confirmPassword": "Confirm password",
+          "confirmPasswordPlaceholder": "Confirm your new password"
+        },
+        "passwordRequirements": {
+          "title": "Password requirements:",
+          "minLength": "At least 8 characters",
+          "mixedCase": "Upper and lowercase letters",
+          "numbers": "At least one number",
+          "symbols": "At least one symbol"
+        },
+        "errors": {
+          "loadFailed": "Unable to load profile information",
+          "updateFailed": "Error updating profile"
+        },
+        "success": {
+          "credentialsUpdated": "Email and password updated successfully",
+          "emailUpdated": "Email updated successfully",
+          "passwordUpdated": "Password updated successfully"
+        }
+      },
+      "contact": {
+        "title": "Received Messages",
+        "description": "View messages from the contact form"
+      },
+      "default": {
+        "title": "Administration",
+        "description": "Administration interface"
+      }, 
+       "about": {
+        "title": "About Management",
+        "subtitle": "Manage the About sections of your portfolio",
+        "addButton": "Add section",
+        "editTitle": "Edit section",
+        "addTitle": "Add section",
+        "frenchContent": "French content",
+        "englishContent": "English content",
+        "generalSettings": "General settings",
+        "noData": "No About sections found",
+        "confirmDelete": "Are you sure you want to delete this section?",
+        "deleteSuccess": "Section deleted successfully",
+        "table": {
+          "title": "Title",
+          "description": "Description",
+          "status": "Status",
+          "order": "Order",
+          "actions": "Actions"
+        },
+        "form": {
+          "titleFr": "Title in French",
+          "titleEn": "Title in English",
+          "titlePlaceholder": "Enter title...",
+          "descriptionFr": "Description in French",
+          "descriptionEn": "Description in English",
+          "descriptionPlaceholder": "Enter description...",
+          "sortOrder": "Display order",
+          "isActive": "Active section"
+        },
+        "errors": {
+          "loadFailed": "Error loading sections",
+          "saveFailed": "Error saving",
+          "deleteFailed": "Error deleting",
+          "statusFailed": "Error changing status"
+        }
+      }
+    }
+  }
+}
