@@ -238,7 +238,8 @@
     "retry": "Réessayer",
     "current": "Actuel",
     "errorLoadingData": "Erreur lors du chargement des données",
-    "reset":" Réinitialiser"
+    "reset":" Réinitialiser",
+    "unknown":"Inconnu"
   },
   "admin": {
     "login": {
@@ -660,6 +661,9 @@
         "socialLinks": "Réseaux sociaux",
         "visibility": "Paramètres de visibilité",
         "saveSuccess": "Profil sauvegardé avec succès",
+        "updateCredentials": "Mettre à jour les identifiants de connexion",
+        "updateEmail": "Mettre à jour l'email",
+        "updatePassword": "Mettre à jour le mot de passe",
         "form": {
           "firstName": "Prénom",
           "firstNamePlaceholder": "Votre prénom",
@@ -686,7 +690,14 @@
           "showEmail": "Afficher l'email publiquement",
           "showPhone": "Afficher le téléphone publiquement",
           "showAddress": "Afficher l'adresse publiquement",
-          "showAge": "Afficher l'âge publiquement"
+          "showAge": "Afficher l'âge publiquement",
+          "currentPassword": "Mot de passe actuel",
+          "currentPasswordPlaceholder": "Entrez votre mot de passe actuel",
+          "newPassword": "Nouveau mot de passe",
+          "confirmPassword": "Confirmer le mot de passe",
+          "updating": "Mise à jour en cours...",
+          "newEmail": "Nouvel email",
+          "newEmailPlaceholder": "votre.nouvel.email{'@'}example.com"
         },
         "errors": {
           "loadFailed": "Impossible de charger le profil",

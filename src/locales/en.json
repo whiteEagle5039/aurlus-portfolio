@@ -239,7 +239,13 @@
     "retry": "Retry",
     "current": "Current",
     "errorLoadingData": "Error loading data",
-    "reset":" Reset"
+    "reset":" Reset",
+    "unknown":"Unknown",
+    "updateCredentials": "Update login credentials",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "updating": "Updating..."
   },
   "admin": {
     "login": {
@@ -715,6 +721,9 @@
         "socialLinks": "Social networks",
         "visibility": "Visibility settings",
         "saveSuccess": "Profile saved successfully",
+        "updateCredentials": "Update login credentials",
+        "updateEmail": "Update email",
+        "updatePassword": "Update password",
         "form": {
           "firstName": "First name",
           "firstNamePlaceholder": "Your first name",
@@ -741,7 +750,14 @@
           "showEmail": "Show email publicly",
           "showPhone": "Show phone publicly",
           "showAddress": "Show address publicly",
-          "showAge": "Show age publicly"
+          "showAge": "Show age publicly",
+          "currentPassword": "Current password (required to save changes)",
+          "currentPasswordPlaceholder": "Enter your current password",
+          "newPassword": "New password",
+          "confirmPassword": "Confirm new password",
+          "updating": "Updating...",
+          "newEmail": "New email",
+          "newEmailPlaceholder": "Enter your new email"
         },
         "errors": {
           "loadFailed": "Unable to load profile",

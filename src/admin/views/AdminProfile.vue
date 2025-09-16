@@ -501,6 +501,21 @@ const apiHeaders = computed(() => ({
   'Authorization': `Bearer ${localStorage.getItem(TOKEN_STORAGE_KEY)}`
 }))
 
+
+// Ajouter cette fonction utilitaire dans la section script
+const formatDateForInput = (dateString:any) => {
+  if (!dateString) return ''
+  // Extraire seulement la partie date (YYYY-MM-DD) d'une date ISO
+  return dateString.split('T')[0]
+}
+
+const formatDateForApi = (dateString:any) => {
+  if (!dateString) return null
+  // Retourner la date au format attendu par l'API
+  return dateString
+}
+
+// Modifier la fonction loadProfile pour formater la date
 const loadProfile = async () => {
   loading.value = true
   try {
@@ -512,9 +527,13 @@ const loadProfile = async () => {
 
     if (response.ok && result.data) {
       profileExists.value = true
-      form.value = { ...form.value, ...result.data }
+      // Formater la date de naissance pour l'input HTML
+      const profileData = { ...result.data }
+      if (profileData.birthdate) {
+        profileData.birthdate = formatDateForInput(profileData.birthdate)
+      }
+      form.value = { ...form.value, ...profileData }
     } else if (response.status === 404) {
-      // Profil n'existe pas encore
       profileExists.value = false
     } else if (response.status === 401) {
       localStorage.removeItem(TOKEN_STORAGE_KEY)
@@ -522,7 +541,6 @@ const loadProfile = async () => {
     } else {
       throw new Error('Erreur lors du chargement du profil')
     }
-    
   } catch (error) {
     console.error('Erreur:', error)
     showNotification('error', t('admin.pages.profile.errors.loadFailed'))
@@ -531,6 +549,7 @@ const loadProfile = async () => {
   }
 }
 
+// Modifier la fonction saveProfile pour envoyer la date au bon format
 const saveProfile = async () => {
   saving.value = true
   errors.value = {}
@@ -542,10 +561,16 @@ const saveProfile = async () => {
     
     const method = profileExists.value && form.value.id ? 'PUT' : 'POST'
     
+    // Préparer les données avec la date formatée
+    const dataToSend = { ...form.value }
+    if (dataToSend.birthdate) {
+      dataToSend.birthdate = formatDateForApi(dataToSend.birthdate)
+    }
+    
     const response = await fetch(url, {
       method,
       headers: apiHeaders.value,
-      body: JSON.stringify(form.value)
+      body: JSON.stringify(dataToSend)
     })
 
     const result = await response.json()
@@ -553,7 +578,11 @@ const saveProfile = async () => {
     if (response.ok) {
       profileExists.value = true
       if (result.data) {
-        form.value = { ...form.value, ...result.data }
+        const profileData = { ...result.data }
+        if (profileData.birthdate) {
+          profileData.birthdate = formatDateForInput(profileData.birthdate)
+        }
+        form.value = { ...form.value, ...profileData }
       }
       showNotification('success', result.message || t('admin.pages.profile.saveSuccess'))
     } else {
@@ -562,9 +591,9 @@ const saveProfile = async () => {
       }
       throw new Error(result.message || 'Erreur lors de la sauvegarde')
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error('Erreur:', error)
-    showNotification('error', error.message || t('admin.pages.profile.errors.saveFailed'))
+    showNotification('error', t('admin.pages.profile.errors.saveFailed'))
   } finally {
     saving.value = false
   }

@@ -19,11 +19,11 @@
       <div class="mb-6">
         <h4 class="text-md font-medium text-gray-800 mb-4 flex items-center">
           <i class="fas fa-user-circle mr-2 text-gray-500"></i>
-          {{ $t('admin.pages.profile.currentInfo') }}
+          {{ $t('admin.pages.profile.personalInfo') }}
         </h4>
         <div class="bg-gray-50 p-4 rounded-lg">
           <p class="text-sm text-gray-600">
-            <span class="font-medium">{{ $t('admin.pages.profile.currentEmail') }}:</span>
+            <span class="font-medium">{{ $t('admin.pages.profile.form.email') }}:</span>
             {{ currentUser?.email }}
           </p>
         </div>
