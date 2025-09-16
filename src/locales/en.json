@@ -238,7 +238,8 @@
     "english": "English",
     "retry": "Retry",
     "current": "Current",
-    "errorLoadingData": "Error loading data"
+    "errorLoadingData": "Error loading data",
+    "reset":" Reset"
   },
   "admin": {
     "login": {
@@ -341,7 +342,8 @@
         "projects": "Projects",
         "contact": "Messages",
         "adminChangePassword":"Update Profil",
-        "about":"About"
+        "about":"About", 
+        "profile":"My Profile"
       }
     },
     "header": {
@@ -704,42 +706,46 @@
       },
       "profile": {
         "title": "My Profile",
-        "subtitle": "Manage your login credentials and security settings",
-        "currentInfo": "Current Information",
-        "currentEmail": "Current email",
-        "updateCredentials": "Change Email + Password",
-        "updateEmail": "Change Email only",
-        "updatePassword": "Change Password only",
-        "modal": {
-          "credentialsTitle": "Update Email and Password",
-          "emailTitle": "Update Email",
-          "passwordTitle": "Update Password"
-        },
+        "subtitle": "Manage your personal and professional information",
+        "complete": "Profile complete",
+        "incomplete": "Profile incomplete",
+        "personalInfo": "Personal information",
+        "frenchContent": "French content",
+        "englishContent": "English content",
+        "socialLinks": "Social networks",
+        "visibility": "Visibility settings",
+        "saveSuccess": "Profile saved successfully",
         "form": {
-          "currentPassword": "Current password",
-          "currentPasswordPlaceholder": "Enter your current password",
-          "newEmail": "New email",
-          "emailPlaceholder": "example@domain.com",
-          "newPassword": "New password",
-          "newPasswordPlaceholder": "Enter a secure new password",
-          "confirmPassword": "Confirm password",
-          "confirmPasswordPlaceholder": "Confirm your new password"
-        },
-        "passwordRequirements": {
-          "title": "Password requirements:",
-          "minLength": "At least 8 characters",
-          "mixedCase": "Upper and lowercase letters",
-          "numbers": "At least one number",
-          "symbols": "At least one symbol"
+          "firstName": "First name",
+          "firstNamePlaceholder": "Your first name",
+          "lastName": "Last name",
+          "lastNamePlaceholder": "Your last name",
+          "email": "Email",
+          "emailPlaceholder": "your.email@example.com",
+          "phone": "Phone",
+          "phonePlaceholder": "+33 1 23 45 67 89",
+          "address": "Address",
+          "addressPlaceholder": "Your address",
+          "birthdate": "Birth date",
+          "jobTitleFr": "Job title (FR)",
+          "jobTitleEn": "Job title (EN)",
+          "jobTitlePlaceholder": "Full Stack Web Developer",
+          "taglineFr": "Tagline (FR)",
+          "taglineEn": "Tagline (EN)",
+          "taglinePlaceholder": "A phrase that describes you",
+          "bioFr": "Biography (FR)",
+          "bioEn": "Biography (EN)",
+          "bioPlaceholder": "Introduce yourself in a few sentences...",
+          "website": "Website",
+          "isActive": "Active profile (visible on public portfolio)",
+          "showEmail": "Show email publicly",
+          "showPhone": "Show phone publicly",
+          "showAddress": "Show address publicly",
+          "showAge": "Show age publicly"
         },
         "errors": {
-          "loadFailed": "Unable to load profile information",
-          "updateFailed": "Error updating profile"
-        },
-        "success": {
-          "credentialsUpdated": "Email and password updated successfully",
-          "emailUpdated": "Email updated successfully",
-          "passwordUpdated": "Password updated successfully"
+          "loadFailed": "Unable to load profile",
+          "saveFailed": "Error saving profile"
         }
       },
       "contact": {
@@ -750,7 +756,7 @@
         "title": "Administration",
         "description": "Administration interface"
       }, 
-       "about": {
+      "about": {
         "title": "About Management",
         "subtitle": "Manage the About sections of your portfolio",
         "addButton": "Add section",

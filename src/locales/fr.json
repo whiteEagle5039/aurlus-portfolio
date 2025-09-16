@@ -191,7 +191,7 @@
     },
     "email": {
       "title": "Email",
-      "value": "sogbossiaur@asecna.org"
+      "value": "sogbossiaur{'@'}asecna.org"
     },
     "phone": {
       "title": "Téléphone",
@@ -237,7 +237,8 @@
     "english": "Anglais", 
     "retry": "Réessayer",
     "current": "Actuel",
-    "errorLoadingData": "Erreur lors du chargement des données"
+    "errorLoadingData": "Erreur lors du chargement des données",
+    "reset":" Réinitialiser"
   },
   "admin": {
     "login": {
@@ -340,7 +341,8 @@
         "projects": "Projets",
         "contact": "Messages",
         "adminChangePassword":"Changer Profil", 
-        "about":"À propos"
+        "about":"À propos", 
+        "profile": "Mon Profil"
       }
     },
     "header": {
@@ -649,45 +651,48 @@
       },
       "profile": {
         "title": "Mon Profil",
-        "subtitle": "Gérez vos informations de connexion et paramètres de sécurité",
-        "currentInfo": "Informations actuelles",
-        "currentEmail": "Email actuel",
-        "updateCredentials": "Changer Email + Mot de passe",
-        "updateEmail": "Changer Email uniquement",
-        "updatePassword": "Changer Mot de passe uniquement",
-        "modal": {
-          "credentialsTitle": "Modifier Email et Mot de passe",
-          "emailTitle": "Modifier l'Email",
-          "passwordTitle": "Modifier le Mot de passe"
-        },
+        "subtitle": "Gérez vos informations personnelles et professionnelles",
+        "complete": "Profil complet",
+        "incomplete": "Profil incomplet",
+        "personalInfo": "Informations personnelles",
+        "frenchContent": "Contenu en français",
+        "englishContent": "Contenu en anglais",
+        "socialLinks": "Réseaux sociaux",
+        "visibility": "Paramètres de visibilité",
+        "saveSuccess": "Profil sauvegardé avec succès",
         "form": {
-          "currentPassword": "Mot de passe actuel",
-          "currentPasswordPlaceholder": "Entrez votre mot de passe actuel",
-          "newEmail": "Nouvel email",
-          "emailPlaceholder": "exemple@domaine.com",
-          "newPassword": "Nouveau mot de passe",
-          "newPasswordPlaceholder": "Entrez un nouveau mot de passe sécurisé",
-          "confirmPassword": "Confirmer le mot de passe",
-          "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe"
-        },
-        "passwordRequirements": {
-          "title": "Exigences du mot de passe :",
-          "minLength": "Au moins 8 caractères",
-          "mixedCase": "Majuscules et minuscules",
-          "numbers": "Au moins un chiffre",
-          "symbols": "Au moins un symbole"
+          "firstName": "Prénom",
+          "firstNamePlaceholder": "Votre prénom",
+          "lastName": "Nom",
+          "lastNamePlaceholder": "Votre nom",
+          "email": "Email",
+          "emailPlaceholder": "votre.email{'@'}example.com",
+          "phone": "Téléphone",
+          "phonePlaceholder": "+33 1 23 45 67 89",
+          "address": "Adresse",
+          "addressPlaceholder": "Votre adresse",
+          "birthdate": "Date de naissance",
+          "jobTitleFr": "Titre professionnel (FR)",
+          "jobTitleEn": "Titre professionnel (EN)",
+          "jobTitlePlaceholder": "Développeur Web Full Stack",
+          "taglineFr": "Phrase d'accroche (FR)",
+          "taglineEn": "Phrase d'accroche (EN)",
+          "taglinePlaceholder": "Une phrase qui vous décrit",
+          "bioFr": "Biographie (FR)",
+          "bioEn": "Biographie (EN)",
+          "bioPlaceholder": "Présentez-vous en quelques phrases...",
+          "website": "Site web",
+          "isActive": "Profil actif (visible sur le portfolio public)",
+          "showEmail": "Afficher l'email publiquement",
+          "showPhone": "Afficher le téléphone publiquement",
+          "showAddress": "Afficher l'adresse publiquement",
+          "showAge": "Afficher l'âge publiquement"
         },
         "errors": {
-          "loadFailed": "Impossible de charger les informations du profil",
-          "updateFailed": "Erreur lors de la mise à jour du profil"
-        },
-        "success": {
-          "credentialsUpdated": "Email et mot de passe mis à jour avec succès",
-          "emailUpdated": "Email mis à jour avec succès",
-          "passwordUpdated": "Mot de passe mis à jour avec succès"
+          "loadFailed": "Impossible de charger le profil",
+          "saveFailed": "Erreur lors de la sauvegarde du profil"
         }
       },
-      
       "projects": {
         "title": "Gestion des projets",
         "subtitle": "Gérez vos projets et réalisations",

@@ -71,8 +71,8 @@ const menuItems = [
     icon: 'fas fa-tachometer-alt'
   },
   {
-    path: '/admin/about',
-    key: 'about',
+    path: '/admin/profile',
+    key: 'profile',
     icon: 'fas fa-info-circle'
   },
   {

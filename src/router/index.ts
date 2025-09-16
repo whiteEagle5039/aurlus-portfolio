@@ -18,6 +18,7 @@ import AdminChangePassword from '../admin/views/AdminChangePassword.vue'
 import AdminDashboardHome from '../admin/views/AdminDashboardHome.vue'
 import AdminExperience from '../admin/views/AdminExperience.vue'
 import AdminEducation from '../admin/views/AdminEducation.vue'
+import AdminProfile from '../admin/views/AdminProfile.vue'
 import AdminCertifications from '../admin/views/AdminCertifications.vue'
 import AdminLanguages from '../admin/views/AdminLanguages.vue'
 import AdminProjects from '../admin/views/AdminProjects.vue'
@@ -126,9 +127,9 @@ const routes: Array<RouteRecordRaw> = [
         meta: { title: 'Changer profil'}
       }, 
       {
-        path: 'about',
-        name: 'AdminAbout',
-        component: AdminAbout,
+        path: 'profile',
+        name: 'AdminProfile',
+        component: AdminProfile,
         meta: { requiresAuth: true }
       }
     ]

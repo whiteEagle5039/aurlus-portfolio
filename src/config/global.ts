@@ -1,10 +1,11 @@
-// export const API_BASE_URL = "http://127.0.0.1:8000/api/";
-export const API_BASE_URL = "http://194.164.77.56/aurlus/api/";
+export const API_BASE_URL = "http://127.0.0.1:8000/api/";
+// export const API_BASE_URL = "http://194.164.77.56/aurlus/api/";
 export const TOKEN_STORAGE_KEY = "adminToken";
 export const API_ENDPOINT = {
     login : "auth/login",
     logout: "auth/logout",
 
+    //-------------------------Admin Section----------------------- 
     //experiences routes
     experiences: "admin/experiences",
     //toogle status
@@ -21,6 +22,13 @@ export const API_ENDPOINT = {
     projects: "admin/projects",
     //about routes
     about: "admin/about",
+    // Admin contact routes
+    adminContacts: "admin/contacts",
+    adminContactMarkRead: "admin/contacts/{id}/mark-read",
+    //Admin profile routes
+    profile:"admin/profile",
+
+    //-------------------------Portfolio Section-----------------------
 
     //portfolio experiences routes
     portfolioExperiences: "portfolio/experiences",
@@ -39,7 +47,7 @@ export const API_ENDPOINT = {
     // Contact routes
     contactSend: "portfolio/contact/send",
 
-    // Admin contact routes
-    adminContacts: "admin/contacts",
-    adminContactMarkRead: "admin/contacts/{id}/mark-read"
+    //Portfolio profile routes
+    portfolioProfile:"portfolio/profile",
+    
 }
