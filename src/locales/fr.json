@@ -40,13 +40,14 @@
     "paragraph2": "Je suis spécialisé dans la conception et la mise en œuvre d'architectures réseaux sécurisées, le déploiement de politiques de cybersécurité conformes à la norme ISO 27001 et à la stratégie de l'OACI, et la gestion d'équipes techniques multisites dans des environnements critiques.",
     "viewAllCertifications": "Voir toutes les certifications",
     "skills": {
-    "cybersecurity": "Cybersécurité",
-    "networks": "Réseaux Informatiques",
-    "iso": "Norme ISO 27001",
-    "projectManagement": "Gestion de Projets",
-    "leadership": "Leadership d'Équipe",
-    "criticalEnvironments": "Environnements Critiques"
-  },
+      "title":"Compétences",
+      "cybersecurity": "Cybersécurité",
+      "networks": "Réseaux Informatiques",
+      "iso": "Norme ISO 27001",
+      "projectManagement": "Gestion de Projets",
+      "leadership": "Leadership d'Équipe",
+      "criticalEnvironments": "Environnements Critiques"
+    },
     "certificationsTitle": "Certifications",
     "certifications": [
       "CISSP",

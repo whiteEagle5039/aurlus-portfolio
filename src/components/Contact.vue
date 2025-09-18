@@ -17,60 +17,124 @@
             Je suis disponible pour discuter de vos projets. N'hésitez pas à me contacter pour toute opportunité professionnelle.
           </p>
           
-          <div class="space-y-6">
-            <!-- Adresse -->
-            <div class="flex items-start">
+          <!-- Loading state pour les informations de contact -->
+          <div v-if="profileLoading" class="space-y-6">
+            <div v-for="i in 3" :key="i" class="flex items-start animate-pulse">
+              <div class="bg-gray-300 dark:bg-gray-600 w-12 h-12 rounded-lg mr-4 shrink-0"></div>
+              <div class="flex-1">
+                <div class="h-4 bg-gray-300 dark:bg-gray-600 rounded mb-2 w-1/3"></div>
+                <div class="h-3 bg-gray-300 dark:bg-gray-600 rounded w-2/3"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Informations de contact dynamiques -->
+          <div v-else class="space-y-6">
+            <!-- Adresse (si disponible) -->
+            <div v-if="profileData?.address" class="flex items-start">
               <div class="bg-green-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shrink-0">
                 <font-awesome-icon icon="fa-solid fa-location-dot" class="text-white text-xl" />
               </div>
               <div>
                 <h4 class="font-bold mb-1">Adresse</h4>
                 <p class="text-gray-700 dark:text-gray-300">
-                  Yoff-Dakar, Sénégal
+                  {{ profileData.address }}
                 </p>
               </div>
             </div>
             
-            <!-- Email -->
-            <div class="flex items-start">
+            <!-- Email (si visible) -->
+            <div v-if="profileData?.email" class="flex items-start">
               <div class="bg-green-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shrink-0">
                 <font-awesome-icon icon="fa-solid fa-envelope" class="text-white text-xl" />
               </div>
               <div>
                 <h4 class="font-bold mb-1">Email</h4>
                 <p class="text-gray-700 dark:text-gray-300">
-                  sogbossiaur@asecna.org
+                  <a :href="`mailto:${profileData.email}`" class="hover:text-green-500 transition-colors duration-300">
+                    {{ profileData.email }}
+                  </a>
                 </p>
               </div>
             </div>
             
-            <!-- Téléphone -->
-            <div class="flex items-start">
+            <!-- Téléphone (si visible) -->
+            <div v-if="profileData?.phone" class="flex items-start">
               <div class="bg-green-500 w-12 h-12 rounded-lg flex items-center justify-center mr-4 shrink-0">
                 <font-awesome-icon icon="fa-solid fa-phone" class="text-white text-xl" />
               </div>
               <div>
                 <h4 class="font-bold mb-1">Téléphone</h4>
                 <p class="text-gray-700 dark:text-gray-300">
-                  +221 78 185 66 71
+                  <a :href="`tel:${profileData.phone}`" class="hover:text-green-500 transition-colors duration-300">
+                    {{ profileData.phone }}
+                  </a>
                 </p>
               </div>
+            </div>
+
+            <!-- Fallback si aucune information n'est disponible -->
+            <div v-if="!profileData?.address && !profileData?.email && !profileData?.phone" class="text-center py-8 text-gray-500 dark:text-gray-400">
+              <p>Les informations de contact ne sont pas encore configurées.</p>
             </div>
           </div>
           
           <!-- Réseaux sociaux -->
           <div class="mt-8">
             <h4 class="font-bold mb-4">Réseaux sociaux</h4>
-            <div class="flex space-x-4">
-              <a href="#" class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
-                <font-awesome-icon icon="fa-brands fa-linkedin-in" class="text-gray-700 dark:text-gray-300 hover:text-white" />
+            
+            <!-- Loading state pour les réseaux sociaux -->
+            <div v-if="profileLoading" class="flex space-x-4">
+              <div v-for="i in 3" :key="i" class="w-10 h-10 bg-gray-300 dark:bg-gray-600 rounded-full animate-pulse"></div>
+            </div>
+            
+            <!-- Réseaux sociaux dynamiques -->
+            <div v-else-if="profileData?.social_links && Object.keys(profileData.social_links).length > 0" class="flex space-x-4">
+              <a 
+                v-if="profileData.social_links.linkedin" 
+                :href="profileData.social_links.linkedin" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 group"
+                title="LinkedIn"
+              >
+                <font-awesome-icon icon="fa-brands fa-linkedin-in" class="text-gray-700 dark:text-gray-300 group-hover:text-white" />
               </a>
-              <a href="#" class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
-                <font-awesome-icon icon="fa-brands fa-github" class="text-gray-700 dark:text-gray-300 hover:text-white" />
+              <a 
+                v-if="profileData.social_links.github" 
+                :href="profileData.social_links.github" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 group"
+                title="GitHub"
+              >
+                <font-awesome-icon icon="fa-brands fa-github" class="text-gray-700 dark:text-gray-300 group-hover:text-white" />
               </a>
-              <a href="#" class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
-                <font-awesome-icon icon="fa-brands fa-twitter" class="text-gray-700 dark:text-gray-300 hover:text-white" />
+              <a 
+                v-if="profileData.social_links.twitter" 
+                :href="profileData.social_links.twitter" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 group"
+                title="Twitter"
+              >
+                <font-awesome-icon icon="fa-brands fa-twitter" class="text-gray-700 dark:text-gray-300 group-hover:text-white" />
               </a>
+              <a 
+                v-if="profileData.social_links.website" 
+                :href="profileData.social_links.website" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 group"
+                title="Site Web"
+              >
+                <font-awesome-icon icon="fa-solid fa-globe" class="text-gray-700 dark:text-gray-300 group-hover:text-white" />
+              </a>
+            </div>
+            
+            <!-- Fallback si pas de réseaux sociaux -->
+            <div v-else class="text-gray-500 dark:text-gray-400 text-sm">
+              <p>Aucun réseau social configuré pour le moment.</p>
             </div>
           </div>
         </div>
@@ -208,14 +272,34 @@ interface AlertState {
   message: string;
 }
 
+interface ProfileData {
+  id?: number;
+  first_name?: string;
+  last_name?: string;
+  full_name?: string;
+  email?: string;
+  phone?: string;
+  address?: string;
+  social_links?: {
+    linkedin?: string;
+    github?: string;
+    twitter?: string;
+    website?: string;
+  };
+}
 
 export default defineComponent({
   name: 'ContactSection',
   emits: ['observe'],
   setup(props, { emit }) {
-    const { t } = useI18n();
+    const { t, locale } = useI18n();
     const sectionRef = ref<HTMLElement | null>(null);
     const isSubmitting = ref(false);
+    
+    // État pour les données du profil
+    const profileData = ref<ProfileData | null>(null);
+    const profileLoading = ref(true);
+    const profileError = ref<string | null>(null);
     
     const form = ref<ContactForm>({
       name: '',
@@ -231,6 +315,39 @@ export default defineComponent({
       type: 'success',
       message: ''
     });
+    
+    // Fonction pour récupérer les données du profil
+    const fetchProfile = async () => {
+      profileLoading.value = true;
+      profileError.value = null;
+      
+      try {
+        const response = await fetch(`${API_BASE_URL}${API_ENDPOINT.portfolioProfile}?locale=${locale.value}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        
+        if (result.success && result.data) {
+          profileData.value = result.data;
+        } else {
+          throw new Error(result.message || 'Erreur lors de la récupération du profil');
+        }
+      } catch (err: any) {
+        console.error('Erreur lors de la récupération du profil:', err);
+        profileError.value = err.message || 'Impossible de charger les informations du profil';
+      } finally {
+        profileLoading.value = false;
+      }
+    };
     
     // Classes CSS pour les alertes
     const alertClasses = computed(() => {
@@ -370,7 +487,7 @@ export default defineComponent({
     };
     
     // Observer pour l'intersection
-    onMounted(() => {
+    onMounted(async () => {
       const observer = new IntersectionObserver(
         ([entry]) => {
           emit('observe', 'contact', entry.isIntersecting);
@@ -381,6 +498,9 @@ export default defineComponent({
       if (sectionRef.value) {
         observer.observe(sectionRef.value);
       }
+      
+      // Récupération des données du profil
+      await fetchProfile();
       
       onUnmounted(() => {
         if (sectionRef.value) {
@@ -396,8 +516,12 @@ export default defineComponent({
       alert,
       alertClasses,
       isSubmitting,
+      profileData,
+      profileLoading,
+      profileError,
       submitForm,
-      getFieldClass
+      getFieldClass,
+      fetchProfile
     };
   }
 });
@@ -434,5 +558,19 @@ textarea:focus {
 /* Animation du bouton */
 button:not(:disabled):hover {
   box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+/* Animation de pulsation pour le loading */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 </style>

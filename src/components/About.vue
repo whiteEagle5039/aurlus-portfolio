@@ -44,50 +44,41 @@
                 
           <!-- Right: About content -->
           <div class="w-full md:w-7/12">
-            <!-- Dynamic Title -->
+            <!-- Dynamic Title from Profile -->
             <h3 class="text-2xl font-bold mb-4">
-              {{ aboutData?.title || $t('about.jobTitle') }}
+              {{ profileData?.job_title }}
             </h3>
             
-            <!-- Dynamic Description -->
-            <div v-if="aboutData?.description" class="mb-8 leading-relaxed text-gray-700 dark:text-gray-300">
-              <div v-html="formatDescription(aboutData.description)"></div>
+            <!-- Fallback to Profile Bio if no About data -->
+            <div v-if="profileData?.bio" class="mb-8 leading-relaxed text-gray-700 dark:text-gray-300">
+              <p>{{ profileData.bio }}</p>
             </div>
             
-            <!-- Fallback static content if no API data -->
-            <div v-else class="mb-8">
-              <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                {{ $t('about.paragraph1') }}
-              </p>
-              <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                {{ $t('about.paragraph2') }}
-              </p>
-            </div>
-                    
             <!-- Dynamic Skills -->
             <div v-if="featuredSkills.length > 0" class="mb-8">
-              <h4 class="text-lg font-semibold mb-4">{{ $t('certifications.title1') }}</h4>
+              <h4 class="text-lg font-semibold mb-4">{{ $t('about.skills.title') }}</h4>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div 
                   v-for="skill in featuredSkills.slice(0, 6)" 
                   :key="skill.id"
-                  class="flex items-center"
+                  class="flex items-center skill-item"
                 >
                   <font-awesome-icon icon="fa-solid fa-check" class="text-green-500 mr-2" />
                   <span>{{ skill.name }}</span>
+                  <span v-if="skill.level" class="ml-2 text-sm text-gray-500">({{ skill.level }}%)</span>
                 </div>
               </div>
             </div>
             
             <!-- Dynamic Certifications -->
             <div v-if="featuredCertifications.length > 0" class="mb-8">
-              <h4 class="text-lg font-semibold mb-3">{{ $t('certifications.title2') }}</h4>
+              <h4 class="text-lg font-semibold mb-3">{{ $t('about.certificationsTitle') }}</h4>
               <div class="flex flex-wrap gap-2">
                 <span 
                   v-for="cert in featuredCertifications" 
                   :key="cert.id"
                   :class="[
-                    'px-3 py-1 rounded-full text-sm transition-colors cursor-pointer',
+                    'px-3 py-1 rounded-full text-sm transition-colors cursor-pointer certification-badge',
                     cert.is_valid 
                       ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 hover:bg-green-200 dark:hover:bg-green-800' 
                       : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-600'
@@ -115,19 +106,6 @@
               </div>
             </div>
             
-            <!-- Fallback static certifications -->
-            <div v-else class="mb-8">
-              <h4 class="text-lg font-semibold mb-3">Certifications</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm">CISSP</span>
-                <span class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm">CISM</span>
-                <span class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm">Fortinet</span>
-                <span class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm">CCNP Security</span>
-                <span class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm">CISO</span>
-                <span class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm">CSA</span>
-              </div>
-            </div>
-                    
             <!-- Download CV button -->
             <a 
               download="cv.pdf" 
@@ -150,11 +128,21 @@ import { defineComponent, ref, computed, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { API_BASE_URL, API_ENDPOINT } from '@/config/global';
 
-interface AboutData {
+interface ProfileData {
   id: number;
-  title: string;
-  description: string;
-  sort_order: number;
+  first_name: string;
+  last_name: string;
+  full_name: string;
+  job_title: string;
+  bio: string;
+  email?: string;
+  phone?: string;
+  social_links?: {
+    linkedin?: string;
+    github?: string;
+    twitter?: string;
+    website?: string;
+  };
 }
 
 interface Skill {
@@ -186,18 +174,13 @@ export default defineComponent({
     const error = ref<string | null>(null);
     
     // Data refs
-    const aboutSections = ref<AboutData[]>([]);
+    const profileData = ref<ProfileData | null>(null);
     const skills = ref<Skill[]>([]);
     const certifications = ref<Certification[]>([]);
-    
-    // Computed properties
-    const aboutData = computed(() => {
-      return aboutSections.value.length > 0 ? aboutSections.value[0] : null;
-    });
-    
+   
     const featuredSkills = computed(() => {
       return skills.value
-        .filter(skill => skill.is_featured )
+        .filter(skill => skill.is_featured)
         .slice(0, 6);
     });
     
@@ -218,18 +201,18 @@ export default defineComponent({
         .join('');
     };
     
-    const fetchAboutData = async () => {
+    const fetchProfile = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}${API_ENDPOINT.portfolioAbout}?locale=${locale.value}`);
+        const response = await fetch(`${API_BASE_URL}${API_ENDPOINT.portfolioProfile}?locale=${locale.value}`);
         
         if (response.ok) {
           const data = await response.json();
           if (data.success) {
-            aboutSections.value = data.data;
+            profileData.value = data.data;
           }
         }
       } catch (err) {
-        console.error('Error fetching about data:', err);
+        console.error('Error fetching profile data:', err);
         // Don't throw error, fallback to static content
       }
     };
@@ -272,7 +255,7 @@ export default defineComponent({
       
       try {
         await Promise.all([
-          fetchAboutData(),
+          fetchProfile(),
           fetchSkills(),
           fetchCertifications()
         ]);
@@ -344,7 +327,7 @@ export default defineComponent({
       sectionRef,
       loading,
       error,
-      aboutData,
+      profileData,
       featuredSkills,
       featuredCertifications,
       totalCertifications,

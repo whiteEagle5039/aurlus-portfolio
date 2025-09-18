@@ -21,7 +21,10 @@ import {
   faBriefcase, faStar as fasStar, faLocationDot, 
   faEnvelope, faPhone, faSpinner, faLanguage, faNetworkWired, 
   faShieldAlt, faServer, faSchool, faUserGraduate, faBell,
-  faEdit, faPause, faPlay, faTrash
+  faEdit, faPause, faPlay, faTrash,
+  faThumbsUp, faCalendarCheck, faCalendarTimes, faExternalLinkAlt, faDesktop, faGlobe,
+  faHome, faMedal,
+  faPaperPlane, faCalendarAlt, faBook
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { 
@@ -36,7 +39,10 @@ library.add(
   faLinkedinIn, faGithub, faTwitter, faInstagram, 
   faNetworkWired, faShieldAlt, faServer, faSchool,
   faUserGraduate, faBell,
-  faEdit, faPause, faPlay, faTrash
+  faEdit, faPause, faPlay, faTrash,
+  faThumbsUp, faCalendarCheck, faCalendarTimes, faExternalLinkAlt, faDesktop, faGlobe,
+  faHome, faMedal,
+  faPaperPlane, faCalendarAlt, faBook
 );
 
 // Typage des messages
