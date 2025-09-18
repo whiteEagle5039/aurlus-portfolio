@@ -14,7 +14,7 @@
       "first": "Aurlus",
       "last": "SOGBOSSI"
     },
-    "description": "Ingénieur en sécurité des systèmes d'information avec <span class='text-green-600 dark:text-green-300'>7+ ans d'expertise</span> à l'ASECNA. Spécialiste en architectures réseaux sécurisées et conformité ISO 27001.",
+    "description": "Ingénieur en sécurité des systèmes d'information avec 7+ ans d'expertise à l'ASECNA. Spécialiste en architectures réseaux sécurisées et conformité ISO 27001.",
     "tags": {
       "security": "Cybersécurité",
       "ciso": "RSSI",
@@ -61,6 +61,7 @@
   },
   "experience": {
     "title": "Expérience",
+    "noExperiences": "Aucune expérience disponible",
     "professional": "professionnelle",
     "viewDetails": "Voir les responsabilités détaillées",
     "job1": {
@@ -109,6 +110,7 @@
   "education": {
     "title": "Mon",
     "academicPath": "parcours académique",
+    "noEducations": "Aucune formation disponible",
     "master": {
       "degree": "Master de Recherche",
       "specialty": "Sécurité des Systèmes Embarqués (Cybersécurité matériel)",
@@ -154,6 +156,8 @@
     "viewCertificate": "Voir le certificat",
     "allCertifications": "Toutes mes certifications",
     "noCertifications": "Aucune certification trouvée",
+    "valid": "Valide",
+
     "stats": {
       "total": "Total",
       "valid": "Valides", 
@@ -170,7 +174,10 @@
     "of": "sur"
   },
  "languages": {
-    "title": "Compétence <span class='text-green-500'>linguistique</span>",
+    "title": "Compétence linguistique",
+    "native": "Langue maternelle",
+     "noData": "Aucune langue disponible",
+    "certification": "Certification linguistique",
     "french": {
       "name": "Français",
       "level": "Professionnel",
@@ -230,17 +237,56 @@
     "delete": "Supprimer",
     "add": "Ajouter",
     "update": "Mettre à jour",
+    "view": "Voir",
+    "details": "Détails",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "yes": "Oui",
+    "no": "Non",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "resetFilters": "Réinitialiser les filtres",
+    "sort": "Trier",
+    "actions": "Actions",
+    "status": "Statut",
     "active": "Actif",
     "inactive": "Inactif",
     "activate": "Activer",
     "deactivate": "Désactiver",
-    "french": "Français",
-    "english": "Anglais", 
-    "retry": "Réessayer",
+    "enabled": "Activé",
+    "disabled": "Désactivé",
     "current": "Actuel",
+    "success": "Succès",
+    "error": "Erreur",
+    "warning": "Avertissement",
+    "info": "Information",
+    "french": "Français",
+    "english": "Anglais",
+    "retry": "Réessayer",
+    "unknown": "Inconnu",
+    "noData": "Aucune donnée disponible",
+    "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet élément ?",
+    "deleteSuccess": "Élément supprimé avec succès",
+    "deleteFailed": "Échec de la suppression",
+    "saveSuccess": "Enregistré avec succès",
+    "saveFailed": "Échec de l'enregistrement",
+    "updateSuccess": "Mise à jour réussie",
+    "updateFailed": "Échec de la mise à jour",
+    "formInvalid": "Veuillez corriger les erreurs dans le formulaire",
+    "required": "Champ obligatoire",
+    "optional": "Optionnel",
+    "reset": "Réinitialiser",
     "errorLoadingData": "Erreur lors du chargement des données",
-    "reset":" Réinitialiser",
-    "unknown":"Inconnu"
+    "pagination": {
+      "itemsPerPage": "Éléments par page",
+      "showing": "Affichage de",
+      "to": "à",
+      "of": "sur",
+      "results": "résultats"
+    }
   },
   "admin": {
     "login": {
@@ -564,6 +610,8 @@
         "frenchContent": "Contenu en Français",
         "englishContent": "Contenu en Anglais",
         "generalInfo": "Informations Générales",
+        "native": "Langue maternelle",
+        "certification": "Certification linguistique",
         "table": {
           "language": "Langue",
           "level": "Niveau",
