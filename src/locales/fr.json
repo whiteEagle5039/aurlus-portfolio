@@ -550,6 +550,7 @@
         "englishContent": "Contenu en Anglais",
         "generalInfo": "Informations Générales",
         "validityInfo": "Informations de Validité",
+        "valid": "Valide",
         "table": {
           "name": "Certification",
           "organization": "Organisme",
