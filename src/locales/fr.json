@@ -741,7 +741,7 @@
           "lastName": "Nom",
           "lastNamePlaceholder": "Votre nom",
           "email": "Email",
-          "emailPlaceholder": "votre.email@example.com",
+          "emailPlaceholder": "votre.email{'@'}example.com",
           "phone": "Téléphone",
           "phonePlaceholder": "+33 1 23 45 67 89",
           "address": "Adresse",
@@ -769,7 +769,7 @@
           "confirmPassword": "Confirmer le mot de passe",
           "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe",
           "newEmail": "Nouvel email",
-          "newEmailPlaceholder": "votre.nouvel.email@example.com",
+          "newEmailPlaceholder": "votre.nouvel.email{'@'}example.com",
           "updating": "Mise à jour en cours..."
         },
         "passwordRequirements": {

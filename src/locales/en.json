@@ -199,7 +199,7 @@
     },
     "email": {
       "title": "Email",
-      "value": "sogbossiaur@asecna.org"
+      "value": "sogbossiaur{'@'}asecna.org"
     },
     "phone": {
       "title": "Phone",
@@ -796,7 +796,7 @@
           "lastName": "Last name",
           "lastNamePlaceholder": "Your last name",
           "email": "Email",
-          "emailPlaceholder": "your.email@example.com",
+          "emailPlaceholder": "your.email{'@'}example.com",
           "phone": "Phone",
           "phonePlaceholder": "+1 234 567 8901",
           "address": "Address",
@@ -824,7 +824,7 @@
           "confirmPassword": "Confirm password",
           "confirmPasswordPlaceholder": "Confirm your new password",
           "newEmail": "New email",
-          "newEmailPlaceholder": "your.new.email@example.com",
+          "newEmailPlaceholder": "your.new.email{'@'}example.com",
           "updating": "Updating..."
         },
         "passwordRequirements": {
