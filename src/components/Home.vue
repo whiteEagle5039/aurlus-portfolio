@@ -183,7 +183,17 @@
           <div class="absolute inset-0 rounded-full bg-gradient-to-br from-green-500 to-green-600 opacity-80"></div>
           
           <div class="absolute inset-2 sm:inset-3 md:inset-4 rounded-full overflow-hidden border-4 sm:border-6 md:border-8 border-white dark:border-gray-900/70 shadow-2xl transition-colors duration-500">
+            <!-- Image de profil dynamique avec fallback -->
             <img
+              v-if="profileData?.profile_photo"
+              :src="profileData.profile_photo"
+              :alt="`Photo de ${profileData?.full_name || 'profil'}`"
+              class="w-full h-full object-cover object-center scale-110"
+              @error="handleImageError"
+            />
+            <!-- Fallback si pas de photo ou erreur de chargement -->
+            <img
+              v-else
               src="../assets/img/profile.jpg"
               :alt="`Photo de ${profileData?.full_name || 'profil'}`"
               class="w-full h-full object-cover object-center scale-110"
@@ -212,6 +222,15 @@ export default defineComponent({
     const isLoading = ref(true);
     const error = ref(null);
     
+    // Fonction pour gérer les erreurs de chargement d'image
+    const handleImageError = (event) => {
+      console.error('Erreur de chargement de l\'image de profil');
+      // L'image de fallback sera automatiquement affichée via v-else
+      if (profileData.value) {
+        profileData.value.profile_photo = null;
+      }
+    };
+    
     // Fonction pour récupérer les données du profil
     const fetchProfile = async () => {
       isLoading.value = true;
@@ -234,6 +253,8 @@ export default defineComponent({
         
         if (result.success && result.data) {
           profileData.value = result.data;
+          console.log('Profil chargé:', profileData.value);
+          console.log('URL photo de profil:', profileData.value.profile_photo);
         } else {
           throw new Error(result.message || 'Erreur lors de la récupération du profil');
         }
@@ -255,7 +276,7 @@ export default defineComponent({
         }
 
         const script = document.createElement('script');
-        script.src = '/js/particles.min.js'; // Chemin vers votre fichier local
+        script.src = '/js/particles.min.js';
         script.onload = () => resolve(true);
         script.onerror = () => resolve(false);
         document.head.appendChild(script);
@@ -277,7 +298,7 @@ export default defineComponent({
             }
           },
           "color": {
-            "value": "#20C997" // Couleur jaune plus visible
+            "value": "#20C997"
           },
           "shape": {
             "type": "circle",
@@ -311,19 +332,19 @@ export default defineComponent({
           },
           "line_linked": {
             "enable": true,
-            "distance": 180,      // Distance augmentée
-            "color": "#20C997",   // Couleur coordonnée
-            "opacity": 1,         // Opacité renforcée
-            "width": 0.6          // Épaisseur légèrement augmentée
+            "distance": 180,
+            "color": "#20C997",
+            "opacity": 1,
+            "width": 0.6
           },
           "move": {
             "enable": true,
-            "speed": 4,           // Vitesse réduite
+            "speed": 4,
             "direction": "none",
             "random": false,
             "straight": false,
-            "out_mode": "bounce", // Rebond au lieu de sortie
-            "bounce": true,       // Activation du rebond
+            "out_mode": "bounce",
+            "bounce": true,
             "attract": {
               "enable": false,
               "rotateX": 600,
@@ -336,7 +357,7 @@ export default defineComponent({
           "events": {
             "onhover": {
               "enable": true,
-              "mode": "grab"      // Mode grab au lieu de repulse
+              "mode": "grab"
             },
             "onclick": {
               "enable": true,
@@ -346,9 +367,9 @@ export default defineComponent({
           },
           "modes": {
             "grab": {
-              "distance": 150,    // Distance réduite
+              "distance": 150,
               "line_linked": {
-                "opacity": 0.8    // Opacité renforcée lors du survol
+                "opacity": 0.8
               }
             },
             "bubble": {
@@ -359,10 +380,10 @@ export default defineComponent({
               "speed": 3
             },
             "repulse": {
-              "distance": 100     // Distance réduite
+              "distance": 100
             },
             "push": {
-              "particles_nb": 3   // Nombre de particules poussées réduit
+              "particles_nb": 3
             },
             "remove": {
               "particles_nb": 2
@@ -377,8 +398,8 @@ export default defineComponent({
       mediaQuery.addEventListener('change', (e) => {
         const container = document.getElementById('particles-js');
         if (container) {
-          container.innerHTML = ''; // Nettoie les particules existantes
-          initParticles(); // Réinitialise avec les nouvelles couleurs
+          container.innerHTML = '';
+          initParticles();
         }
       });
     };
@@ -411,7 +432,8 @@ export default defineComponent({
       profileData,
       isLoading,
       error,
-      fetchProfile
+      fetchProfile,
+      handleImageError
     };
   }
 });

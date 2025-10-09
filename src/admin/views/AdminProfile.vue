@@ -59,9 +59,19 @@
                   class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-600 transition-colors shadow-lg"
                   :title="$t('admin.pages.profile.deletePhoto')"
                 >
-                  <i v-if="deletingPhoto" class="fas fa-spinner fa-spin text-xs"></i>
-                  <i v-else class="fas fa-times text-xs"></i>
+                  <font-awesome-icon 
+                    v-if="deletingPhoto" 
+                    :icon="['fas', 'spinner']" 
+                    spin 
+                    class="text-xs" 
+                  />
+                  <font-awesome-icon 
+                    v-else 
+                    :icon="['fas', 'trash']" 
+                    class="text-xs"
+                  />
                 </button>
+
               </div>
             </div>
             
