@@ -15,74 +15,92 @@
       </button>
     </div>
 
-    <!-- Statistiques -->
-    <div v-if="stats" class="grid grid-cols-1 md:grid-cols-5 gap-4">
-      <div class="bg-white p-4 rounded-lg shadow">
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-certificate text-white text-sm"></i>
-            </div>
-          </div>
-          <div class="ml-3">
-            <p class="text-sm font-medium text-gray-500">{{ $t('admin.pages.certifications.stats.total') }}</p>
-            <p class="text-lg font-semibold text-gray-900">{{ stats.total }}</p>
-          </div>
+    <!-- Filtres -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <div class="flex flex-wrap gap-4 items-center">
+        <div class="flex-1 min-w-[200px]">
+          <label class="block text-sm font-medium text-gray-700 mb-1">
+            {{ $t('admin.pages.certifications.filters.type') }}
+          </label>
+          <select
+            v-model="filters.type"
+            @change="loadCertifications"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+          >
+            <option value="">{{ $t('admin.pages.certifications.filters.allTypes') }}</option>
+            <option value="professional">{{ $t('admin.pages.certifications.types.professional') }}</option>
+            <option value="training">{{ $t('admin.pages.certifications.types.training') }}</option>
+          </select>
+        </div>
+
+        <div class="flex items-center space-x-4 pt-6">
+          <label class="flex items-center">
+            <input
+              v-model="filters.activeOnly"
+              @change="loadCertifications"
+              type="checkbox"
+              class="rounded border-gray-300 text-green-600 shadow-sm focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50"
+            >
+            <span class="ml-2 text-sm text-gray-700">
+              {{ $t('admin.pages.certifications.filters.activeOnly') }}
+            </span>
+          </label>
+
+          <label class="flex items-center">
+            <input
+              v-model="filters.validOnly"
+              @change="loadCertifications"
+              type="checkbox"
+              class="rounded border-gray-300 text-green-600 shadow-sm focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50"
+            >
+            <span class="ml-2 text-sm text-gray-700">
+              {{ $t('admin.pages.certifications.filters.validOnly') }}
+            </span>
+          </label>
         </div>
       </div>
-      
+    </div>
+
+    <!-- Statistiques par type -->
+    <div v-if="stats && stats.by_type" class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div class="bg-white p-4 rounded-lg shadow">
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-check text-white text-sm"></i>
-            </div>
+        <h4 class="text-sm font-semibold text-gray-700 mb-3 flex items-center">
+          <i class="fas fa-briefcase text-indigo-500 mr-2"></i>
+          {{ $t('admin.pages.certifications.types.professional') }}
+        </h4>
+        <div class="grid grid-cols-3 gap-4">
+          <div>
+            <p class="text-xs text-gray-500">{{ $t('admin.pages.certifications.stats.total') }}</p>
+            <p class="text-xl font-bold text-gray-900">{{ stats.by_type.professional.total }}</p>
           </div>
-          <div class="ml-3">
-            <p class="text-sm font-medium text-gray-500">{{ $t('admin.pages.certifications.stats.active') }}</p>
-            <p class="text-lg font-semibold text-gray-900">{{ stats.active }}</p>
+          <div>
+            <p class="text-xs text-gray-500">{{ $t('admin.pages.certifications.stats.active') }}</p>
+            <p class="text-xl font-bold text-green-600">{{ stats.by_type.professional.active }}</p>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500">{{ $t('admin.pages.certifications.stats.valid') }}</p>
+            <p class="text-xl font-bold text-emerald-600">{{ stats.by_type.professional.valid }}</p>
           </div>
         </div>
       </div>
 
       <div class="bg-white p-4 rounded-lg shadow">
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-shield-check text-white text-sm"></i>
-            </div>
+        <h4 class="text-sm font-semibold text-gray-700 mb-3 flex items-center">
+          <i class="fas fa-graduation-cap text-purple-500 mr-2"></i>
+          {{ $t('admin.pages.certifications.types.training') }}
+        </h4>
+        <div class="grid grid-cols-3 gap-4">
+          <div>
+            <p class="text-xs text-gray-500">{{ $t('admin.pages.certifications.stats.total') }}</p>
+            <p class="text-xl font-bold text-gray-900">{{ stats.by_type.training.total }}</p>
           </div>
-          <div class="ml-3">
-            <p class="text-sm font-medium text-gray-500">{{ $t('admin.pages.certifications.stats.valid') }}</p>
-            <p class="text-lg font-semibold text-gray-900">{{ stats.valid }}</p>
+          <div>
+            <p class="text-xs text-gray-500">{{ $t('admin.pages.certifications.stats.active') }}</p>
+            <p class="text-xl font-bold text-green-600">{{ stats.by_type.training.active }}</p>
           </div>
-        </div>
-      </div>
-
-      <div class="bg-white p-4 rounded-lg shadow">
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-times text-white text-sm"></i>
-            </div>
-          </div>
-          <div class="ml-3">
-            <p class="text-sm font-medium text-gray-500">{{ $t('admin.pages.certifications.stats.expired') }}</p>
-            <p class="text-lg font-semibold text-gray-900">{{ stats.expired }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-white p-4 rounded-lg shadow">
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
-              <i class="fas fa-exclamation-triangle text-white text-sm"></i>
-            </div>
-          </div>
-          <div class="ml-3">
-            <p class="text-sm font-medium text-gray-500">{{ $t('admin.pages.certifications.stats.expiringSoon') }}</p>
-            <p class="text-lg font-semibold text-gray-900">{{ stats.expiring_soon }}</p>
+          <div>
+            <p class="text-xs text-gray-500">{{ $t('admin.pages.certifications.stats.valid') }}</p>
+            <p class="text-xl font-bold text-emerald-600">{{ stats.by_type.training.valid }}</p>
           </div>
         </div>
       </div>
@@ -100,6 +118,9 @@
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
             <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {{ $t('admin.pages.certifications.table.type') }}
+              </th>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 {{ $t('admin.pages.certifications.table.name') }}
               </th>
@@ -123,6 +144,24 @@
           <tbody class="bg-white divide-y divide-gray-200">
             <tr v-for="certification in certifications" :key="certification.id">
               <td class="px-6 py-4 whitespace-nowrap">
+                <span 
+                  :class="[
+                    'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
+                    certification.type === 'professional' 
+                      ? 'bg-indigo-100 text-indigo-800' 
+                      : 'bg-purple-100 text-purple-800'
+                  ]"
+                >
+                  <i 
+                    :class="[
+                      'mr-1',
+                      certification.type === 'professional' ? 'fas fa-briefcase' : 'fas fa-graduation-cap'
+                    ]"
+                  ></i>
+                  {{ getTypeLabel(certification.type) }}
+                </span>
+              </td>
+              <td class="px-6 py-4">
                 <div class="text-sm font-medium text-gray-900">
                   {{ currentLocale === 'fr' ? certification.name_fr : certification.name_en }}
                 </div>
@@ -152,10 +191,8 @@
                 >
                   {{ getStatusText(certification) }}
                 </span>
-                
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                <!-- Éditer -->
                 <button
                   @click="openModal(certification)"
                   class="text-indigo-600 hover:text-indigo-900 transition-colors"
@@ -163,7 +200,6 @@
                 >
                   <font-awesome-icon icon="edit" />
                 </button>
-                <!-- Activer / Désactiver -->
                 <button
                   @click="toggleStatus(certification.id)"
                   :class="[
@@ -176,7 +212,6 @@
                 >
                   <font-awesome-icon :icon="certification.is_active ? 'pause' : 'play'" />
                 </button>
-                <!-- Supprimer -->
                 <button
                   @click="deleteCertification(certification.id)"
                   class="text-red-600 hover:text-red-900 transition-colors"
@@ -187,7 +222,7 @@
               </td>
             </tr>
             <tr v-if="certifications.length === 0">
-              <td colspan="6" class="px-6 py-8 text-center text-gray-500">
+              <td colspan="7" class="px-6 py-8 text-center text-gray-500">
                 {{ $t('admin.pages.certifications.noData') }}
               </td>
             </tr>
@@ -331,6 +366,23 @@
                 <i class="fas fa-info-circle mr-2 text-gray-500"></i>
                 {{ $t('admin.pages.certifications.generalInfo') }}
               </h4>
+
+              <!-- Type de certification -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">
+                  {{ $t('admin.pages.certifications.form.type') }} *
+                </label>
+                <select
+                  v-model="form.type"
+                  required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                >
+                  <option value="" disabled>{{ $t('admin.pages.certifications.form.selectType') }}</option>
+                  <option value="professional">{{ $t('admin.pages.certifications.types.professional') }}</option>
+                  <option value="training">{{ $t('admin.pages.certifications.types.training') }}</option>
+                </select>
+                <p v-if="errors.type" class="text-red-500 text-xs mt-1">{{ errors.type[0] }}</p>
+              </div>
               
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">
@@ -497,6 +549,7 @@ const { locale, t } = useI18n()
 
 interface Certification {
   id: number
+  type: 'professional' | 'training'
   name_fr: string
   name_en: string
   description_fr?: string
@@ -519,6 +572,18 @@ interface Stats {
   valid: number
   expired: number
   expiring_soon: number
+  by_type?: {
+    professional: {
+      total: number
+      active: number
+      valid: number
+    }
+    training: {
+      total: number
+      active: number
+      valid: number
+    }
+  }
 }
 
 const currentLocale = computed(() => locale.value)
@@ -530,7 +595,14 @@ const showModal = ref(false)
 const activeTab = ref<'fr' | 'en' | 'general'>('fr')
 const editingCertification = ref<Certification | null>(null)
 
+const filters = ref({
+  type: '',
+  activeOnly: false,
+  validOnly: false
+})
+
 const form = ref({
+  type: '' as 'professional' | 'training' | '',
   name_fr: '',
   name_en: '',
   description_fr: '',
@@ -571,6 +643,12 @@ const formatDate = (dateString: string | null): string => {
   return new Date(dateString).toLocaleDateString(currentLocale.value === 'fr' ? 'fr-FR' : 'en-US')
 }
 
+const getTypeLabel = (type: string): string => {
+  return type === 'professional' 
+    ? t('admin.pages.certifications.types.professional')
+    : t('admin.pages.certifications.types.training')
+}
+
 const getStatusClass = (certification: Certification): string => {
   if (!certification.is_active) return 'bg-gray-100 text-gray-800'
   
@@ -603,7 +681,21 @@ const getStatusText = (certification: Certification): string => {
 const loadCertifications = async () => {
   loading.value = true
   try {
-    const response = await fetch(`${API_BASE_URL}${API_ENDPOINT.certifications}`, {
+    const params = new URLSearchParams()
+    
+    if (filters.value.type) {
+      params.append('type', filters.value.type)
+    }
+    if (filters.value.activeOnly) {
+      params.append('active_only', '1')
+    }
+    if (filters.value.validOnly) {
+      params.append('valid_only', '1')
+    }
+
+    const url = `${API_BASE_URL}${API_ENDPOINT.certifications}${params.toString() ? '?' + params.toString() : ''}`
+    
+    const response = await fetch(url, {
       method: 'GET',
       headers: apiHeaders.value
     })
@@ -648,6 +740,7 @@ const openModal = (certification?: Certification) => {
   if (certification) {
     editingCertification.value = certification
     form.value = {
+      type: certification.type,
       name_fr: certification.name_fr,
       name_en: certification.name_en,
       description_fr: certification.description_fr || '',
@@ -664,6 +757,7 @@ const openModal = (certification?: Certification) => {
   } else {
     editingCertification.value = null
     form.value = {
+      type: '',
       name_fr: '',
       name_en: '',
       description_fr: '',

@@ -537,65 +537,77 @@
         }
       },
       "certifications": {
-        "title": "Manage Certifications",
+        "title": "Certifications Management",
         "description": " Professional Certifications",
-        "subtitle": "Manage your professional certifications",
-        "addButton": "Add Certification",
-        "addTitle": "Add Certification",
-        "editTitle": "Edit Certification",
-        "noData": "No certification found",
+        "subtitle": "Manage your professional and training certifications",
+        "addButton": "Add certification",
+        "addTitle": "Add a certification",
+        "editTitle": "Edit certification",
+        "noData": "No certifications found",
         "confirmDelete": "Are you sure you want to delete this certification?",
         "deleteSuccess": "Certification deleted successfully",
-        "frenchContent": "French Content",
-        "englishContent": "English Content",
-        "generalInfo": "General Information",
-        "validityInfo": "Validity Information",
-        "valid": "Valid",
+        "frenchContent": "French content",
+        "englishContent": "English content",
+        "generalInfo": "General information",
+        "validityInfo": "Validity information",
+        "types": {
+          "professional": "Professional Certification",
+          "training": "Training Certification"
+        },
+        "filters": {
+          "type": "Certification type",
+          "allTypes": "All types",
+          "activeOnly": "Active only",
+          "validOnly": "Valid only"
+        },
         "table": {
-          "name": "Certification",
+          "type": "Type",
+          "name": "Name",
           "organization": "Organization",
-          "obtained": "Obtained",
-          "expiry": "Expiry",
+          "obtained": "Obtained date",
+          "expiry": "Expiry date",
           "status": "Status",
           "actions": "Actions"
+        },
+        "form": {
+          "type": "Certification type",
+          "selectType": "Select a type",
+          "nameFr": "Name (French)",
+          "nameEn": "Name (English)",
+          "namePlaceholder": "Ex: AWS Certified Solutions Architect",
+          "descriptionFr": "Description (French)",
+          "descriptionEn": "Description (English)",
+          "descriptionPlaceholder": "Detailed description of the certification...",
+          "issuingOrganization": "Issuing organization",
+          "organizationPlaceholder": "Ex: Amazon Web Services",
+          "obtainedDate": "Obtained date",
+          "expiryDate": "Expiry date",
+          "neverExpires": "This certification never expires",
+          "certificateUrl": "Certificate URL",
+          "urlPlaceholder": "https://...",
+          "certificateId": "Certificate ID",
+          "idPlaceholder": "Ex: ABC123456",
+          "sortOrder": "Display order",
+          "isActive": "Active"
+        },
+        "stats": {
+          "total": "Total",
+          "active": "Active",
+          "valid": "Valid",
+          "expired": "Expired",
+          "expiringSoon": "Expiring soon"
         },
         "status": {
           "valid": "Valid",
           "expired": "Expired",
-          "expiring_soon": "Expiring Soon",
+          "expiring_soon": "Expiring soon",
           "permanent": "Permanent"
-        },
-        "form": {
-          "nameFr": "Certification Name (French)",
-          "nameEn": "Certification Name (English)",
-          "namePlaceholder": "Ex: CISSP - Certified Information Systems Security Professional",
-          "descriptionFr": "Description (French)",
-          "descriptionEn": "Description (English)",
-          "descriptionPlaceholder": "Describe the certification and skills acquired...",
-          "issuingOrganization": "Issuing Organization",
-          "organizationPlaceholder": "Ex: (ISC)²",
-          "obtainedDate": "Date Obtained",
-          "expiryDate": "Expiry Date",
-          "neverExpires": "Never Expires",
-          "certificateUrl": "Certificate URL",
-          "urlPlaceholder": "https://example.com/certificate",
-          "certificateId": "Certificate ID",
-          "idPlaceholder": "Certificate identifier or number",
-          "sortOrder": "Display Order",
-          "isActive": "Visible on portfolio"
         },
         "errors": {
           "loadFailed": "Error loading certifications",
-          "saveFailed": "Error saving certification",
-          "deleteFailed": "Error deleting certification",
-          "statusFailed": "Error changing status"
-        },
-        "stats": {
-          "total": "Total Certifications",
-          "active": "Active",
-          "valid": "Valid",
-          "expired": "Expired",
-          "expiringSoon": "Expiring Soon"
+          "saveFailed": "Error saving",
+          "statusFailed": "Error changing status",
+          "deleteFailed": "Error deleting"
         }
       },
      "languages": {

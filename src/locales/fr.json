@@ -537,65 +537,77 @@
         }
       },
       "certifications": {
-        "title": "Gérer les Certifications",
+        "title": "Gestion des Certifications",
+        "subtitle": "Gérez vos certifications professionnelles et de formation",
         "description": " Certifications professionnelles",
-        "subtitle": "Gérez vos certifications professionnelles",
-        "addButton": "Ajouter une Certification",
-        "addTitle": "Ajouter une Certification",
-        "editTitle": "Modifier la Certification",
+        "addButton": "Ajouter une certification",
+        "addTitle": "Ajouter une certification",
+        "editTitle": "Modifier la certification",
         "noData": "Aucune certification trouvée",
         "confirmDelete": "Êtes-vous sûr de vouloir supprimer cette certification ?",
         "deleteSuccess": "Certification supprimée avec succès",
-        "frenchContent": "Contenu en Français",
-        "englishContent": "Contenu en Anglais",
-        "generalInfo": "Informations Générales",
-        "validityInfo": "Informations de Validité",
-        "valid": "Valide",
+        "frenchContent": "Contenu en français",
+        "englishContent": "Contenu en anglais",
+        "generalInfo": "Informations générales",
+        "validityInfo": "Informations de validité",
+        "types": {
+          "professional": "Certification Professionnelle",
+          "training": "Certification de Formation"
+        },
+        "filters": {
+          "type": "Type de certification",
+          "allTypes": "Tous les types",
+          "activeOnly": "Actifs uniquement",
+          "validOnly": "Valides uniquement"
+        },
         "table": {
-          "name": "Certification",
-          "organization": "Organisme",
-          "obtained": "Obtenue le",
-          "expiry": "Expiration",
+          "type": "Type",
+          "name": "Nom",
+          "organization": "Organisation",
+          "obtained": "Date d'obtention",
+          "expiry": "Date d'expiration",
           "status": "Statut",
           "actions": "Actions"
+        },
+        "form": {
+          "type": "Type de certification",
+          "selectType": "Sélectionnez un type",
+          "nameFr": "Nom (Français)",
+          "nameEn": "Nom (Anglais)",
+          "namePlaceholder": "Ex: AWS Certified Solutions Architect",
+          "descriptionFr": "Description (Français)",
+          "descriptionEn": "Description (Anglais)",
+          "descriptionPlaceholder": "Description détaillée de la certification...",
+          "issuingOrganization": "Organisation émettrice",
+          "organizationPlaceholder": "Ex: Amazon Web Services",
+          "obtainedDate": "Date d'obtention",
+          "expiryDate": "Date d'expiration",
+          "neverExpires": "Cette certification n'expire jamais",
+          "certificateUrl": "URL du certificat",
+          "urlPlaceholder": "https://...",
+          "certificateId": "ID du certificat",
+          "idPlaceholder": "Ex: ABC123456",
+          "sortOrder": "Ordre d'affichage",
+          "isActive": "Active"
+        },
+        "stats": {
+          "total": "Total",
+          "active": "Actives",
+          "valid": "Valides",
+          "expired": "Expirées",
+          "expiringSoon": "Expire bientôt"
         },
         "status": {
           "valid": "Valide",
           "expired": "Expirée",
-          "expiring_soon": "Expire Bientôt",
+          "expiring_soon": "Expire bientôt",
           "permanent": "Permanente"
-        },
-        "form": {
-          "nameFr": "Nom de la Certification (Français)",
-          "nameEn": "Nom de la Certification (Anglais)",
-          "namePlaceholder": "Ex : CISSP - Certified Information Systems Security Professional",
-          "descriptionFr": "Description (Français)",
-          "descriptionEn": "Description (Anglais)",
-          "descriptionPlaceholder": "Décrivez la certification et les compétences acquises...",
-          "issuingOrganization": "Organisme Délivreur",
-          "organizationPlaceholder": "Ex : (ISC)²",
-          "obtainedDate": "Date d’Obtention",
-          "expiryDate": "Date d’Expiration",
-          "neverExpires": "N’expire Jamais",
-          "certificateUrl": "URL du Certificat",
-          "urlPlaceholder": "https://exemple.com/certificat",
-          "certificateId": "Identifiant du Certificat",
-          "idPlaceholder": "Identifiant ou numéro du certificat",
-          "sortOrder": "Ordre d’Affichage",
-          "isActive": "Visible sur le portfolio"
         },
         "errors": {
           "loadFailed": "Erreur lors du chargement des certifications",
-          "saveFailed": "Erreur lors de l’enregistrement de la certification",
-          "deleteFailed": "Erreur lors de la suppression de la certification",
-          "statusFailed": "Erreur lors du changement de statut"
-        },
-        "stats": {
-          "total": "Nombre Total de Certifications",
-          "active": "Actives",
-          "valid": "Valides",
-          "expired": "Expirées",
-          "expiringSoon": "Expirant Bientôt"
+          "saveFailed": "Erreur lors de la sauvegarde",
+          "statusFailed": "Erreur lors du changement de statut",
+          "deleteFailed": "Erreur lors de la suppression"
         }
       },
       "languages": {
