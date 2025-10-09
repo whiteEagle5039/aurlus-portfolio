@@ -718,22 +718,30 @@
         "subtitle": "Gérez vos informations personnelles et professionnelles",
         "complete": "Profil complet",
         "incomplete": "Profil incomplet",
+        "profilePhoto": "Photo de profil",
+        "uploadPhoto": "Cliquez pour télécharger une photo ou glissez-la ici",
+        "chooseFile": "Choisir un fichier",
+        "photoFormats": "JPG, PNG, GIF, WEBP (max. 2MB)",
+        "deletePhoto": "Supprimer la photo",
+        "cancelSelection": "Annuler la sélection",
+        "confirmDeletePhoto": "Êtes-vous sûr de vouloir supprimer cette photo ?",
+        "photoDeleted": "Photo supprimée avec succès",
+        "saveSuccess": "Profil sauvegardé avec succès",
+        "updateCredentials": "Mettre à jour les identifiants de connexion",
+        "updateEmail": "Mettre à jour l'email",
+        "updatePassword": "Mettre à jour le mot de passe",
         "personalInfo": "Informations personnelles",
         "frenchContent": "Contenu en français",
         "englishContent": "Contenu en anglais",
         "socialLinks": "Réseaux sociaux",
         "visibility": "Paramètres de visibilité",
-        "saveSuccess": "Profil sauvegardé avec succès",
-        "updateCredentials": "Mettre à jour les identifiants de connexion",
-        "updateEmail": "Mettre à jour l'email",
-        "updatePassword": "Mettre à jour le mot de passe",
         "form": {
           "firstName": "Prénom",
           "firstNamePlaceholder": "Votre prénom",
           "lastName": "Nom",
           "lastNamePlaceholder": "Votre nom",
           "email": "Email",
-          "emailPlaceholder": "votre.email{'@'}example.com",
+          "emailPlaceholder": "votre.email@example.com",
           "phone": "Téléphone",
           "phonePlaceholder": "+33 1 23 45 67 89",
           "address": "Adresse",
@@ -757,12 +765,12 @@
           "currentPassword": "Mot de passe actuel",
           "currentPasswordPlaceholder": "Entrez votre mot de passe actuel",
           "newPassword": "Nouveau mot de passe",
-          "confirmPassword": "Confirmer le mot de passe",
-          "updating": "Mise à jour en cours...",
-          "newEmail": "Nouvel email",
-          "newEmailPlaceholder": "votre.nouvel.email{'@'}example.com",
           "newPasswordPlaceholder": "Entrez un nouveau mot de passe sécurisé",
-          "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe"
+          "confirmPassword": "Confirmer le mot de passe",
+          "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe",
+          "newEmail": "Nouvel email",
+          "newEmailPlaceholder": "votre.nouvel.email@example.com",
+          "updating": "Mise à jour en cours..."
         },
         "passwordRequirements": {
           "title": "Exigences du mot de passe :",
@@ -772,10 +780,13 @@
           "symbols": "Au moins un symbole"
         },
         "errors": {
-          "loadFailed": "Impossible de charger le profil",
-          "saveFailed": "Erreur lors de la sauvegarde du profil"
+          "loadFailed": "Erreur lors du chargement du profil",
+          "saveFailed": "Erreur lors de la sauvegarde du profil",
+          "invalidFileType": "Type de fichier invalide. Utilisez JPG, PNG, GIF ou WEBP",
+          "fileTooLarge": "Le fichier est trop volumineux (max. 2MB)",
+          "deletePhotoFailed": "Erreur lors de la suppression de la photo"
         },
-         "success": {
+        "success": {
           "credentialsUpdated": "Email et mot de passe mis à jour avec succès",
           "emailUpdated": "Email mis à jour avec succès",
           "passwordUpdated": "Mot de passe mis à jour avec succès"

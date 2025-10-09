@@ -29,6 +29,97 @@
     <div v-else class="bg-white rounded-lg shadow">
       <form @submit.prevent="saveProfile" class="p-6 space-y-8">
         
+        <!-- Section Photo de profil -->
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h4 class="text-lg font-medium text-gray-800 mb-6 flex items-center">
+            <i class="fas fa-camera mr-2 text-teal-500"></i>
+            {{ $t('admin.pages.profile.profilePhoto') }}
+          </h4>
+          
+          <div class="flex items-start space-x-6">
+            <!-- Prévisualisation de la photo -->
+            <div class="flex-shrink-0">
+              <div class="relative">
+                <div class="w-32 h-32 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center border-4 border-white shadow-lg">
+                  <img 
+                    v-if="photoPreview || form.profile_photo" 
+                    :src="photoPreview || form.profile_photo" 
+                    alt="Profile photo"
+                    class="w-full h-full object-cover"
+                  >
+                  <i v-else class="fas fa-user text-gray-400 text-4xl"></i>
+                </div>
+                
+                <!-- Bouton supprimer la photo -->
+                <button
+                  v-if="form.profile_photo && !photoPreview"
+                  type="button"
+                  @click="deletePhoto"
+                  :disabled="deletingPhoto"
+                  class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-600 transition-colors shadow-lg"
+                  :title="$t('admin.pages.profile.deletePhoto')"
+                >
+                  <i v-if="deletingPhoto" class="fas fa-spinner fa-spin text-xs"></i>
+                  <i v-else class="fas fa-times text-xs"></i>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Zone d'upload -->
+            <div class="flex-1">
+              <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-teal-500 transition-colors">
+                <input
+                  ref="photoInput"
+                  type="file"
+                  accept="image/jpeg,image/png,image/jpg,image/gif,image/webp"
+                  @change="handlePhotoChange"
+                  class="hidden"
+                >
+                
+                <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-3"></i>
+                
+                <p class="text-sm text-gray-600 mb-2">
+                  {{ $t('admin.pages.profile.uploadPhoto') }}
+                </p>
+                
+                <button
+                  type="button"
+                  @click="triggerPhotoInput"
+                  class="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition-colors text-sm"
+                >
+                  <i class="fas fa-folder-open mr-2"></i>
+                  {{ $t('admin.pages.profile.chooseFile') }}
+                </button>
+                
+                <p class="text-xs text-gray-500 mt-2">
+                  {{ $t('admin.pages.profile.photoFormats') }}
+                </p>
+                
+                <!-- Nom du fichier sélectionné -->
+                <p v-if="selectedFileName" class="text-sm text-teal-600 mt-2 font-medium">
+                  <i class="fas fa-file-image mr-1"></i>
+                  {{ selectedFileName }}
+                </p>
+              </div>
+              
+              <!-- Bouton pour annuler la sélection -->
+              <button
+                v-if="photoPreview"
+                type="button"
+                @click="cancelPhotoSelection"
+                class="mt-3 text-sm text-red-600 hover:text-red-700 flex items-center"
+              >
+                <i class="fas fa-times mr-1"></i>
+                {{ $t('admin.pages.profile.cancelSelection') }}
+              </button>
+              
+              <p v-if="errors.profile_photo" class="text-red-500 text-xs mt-2">
+                {{ errors.profile_photo[0] }}
+              </p>
+            </div>
+          </div>
+        </div>
+
         <!-- Onglets de langues -->
         <div class="border-b border-gray-200">
           <nav class="-mb-px flex space-x-8">
@@ -424,7 +515,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { API_BASE_URL, API_ENDPOINT, TOKEN_STORAGE_KEY } from '@/config/global'
 
-const { locale, t } = useI18n()
+const { t } = useI18n()
 
 interface ProfileData {
   id?: number
@@ -440,6 +531,7 @@ interface ProfileData {
   tagline_en?: string
   bio_fr: string
   bio_en: string
+  profile_photo?: string
   linkedin_url?: string
   github_url?: string
   twitter_url?: string
@@ -453,8 +545,13 @@ interface ProfileData {
 
 const loading = ref(false)
 const saving = ref(false)
+const deletingPhoto = ref(false)
 const activeTab = ref<'fr' | 'en'>('fr')
 const profileExists = ref(false)
+const photoInput = ref<HTMLInputElement | null>(null)
+const photoPreview = ref<string | null>(null)
+const selectedFile = ref<File | null>(null)
+const selectedFileName = ref<string>('')
 
 const form = ref<ProfileData>({
   first_name: '',
@@ -469,6 +566,7 @@ const form = ref<ProfileData>({
   tagline_en: '',
   bio_fr: '',
   bio_en: '',
+  profile_photo: '',
   linkedin_url: '',
   github_url: '',
   twitter_url: '',
@@ -496,26 +594,92 @@ const showNotification = (type: 'success' | 'error', message: string) => {
 }
 
 const apiHeaders = computed(() => ({
-  'Content-Type': 'application/json',
   'Accept': 'application/json',
   'Authorization': `Bearer ${localStorage.getItem(TOKEN_STORAGE_KEY)}`
 }))
 
-
-// Ajouter cette fonction utilitaire dans la section script
-const formatDateForInput = (dateString:any) => {
+const formatDateForInput = (dateString: any) => {
   if (!dateString) return ''
-  // Extraire seulement la partie date (YYYY-MM-DD) d'une date ISO
   return dateString.split('T')[0]
 }
 
-const formatDateForApi = (dateString:any) => {
+const formatDateForApi = (dateString: any) => {
   if (!dateString) return null
-  // Retourner la date au format attendu par l'API
   return dateString
 }
 
-// Modifier la fonction loadProfile pour formater la date
+const triggerPhotoInput = () => {
+  photoInput.value?.click()
+}
+
+const handlePhotoChange = (event: Event) => {
+  const target = event.target as HTMLInputElement
+  const file = target.files?.[0]
+  
+  if (file) {
+    const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/webp']
+    if (!validTypes.includes(file.type)) {
+      showNotification('error', t('admin.pages.profile.errors.invalidFileType'))
+      return
+    }
+    
+    if (file.size > 2048 * 1024) {
+      showNotification('error', t('admin.pages.profile.errors.fileTooLarge'))
+      return
+    }
+    
+    selectedFile.value = file
+    selectedFileName.value = file.name
+    
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      photoPreview.value = e.target?.result as string
+    }
+    reader.readAsDataURL(file)
+  }
+}
+
+const cancelPhotoSelection = () => {
+  selectedFile.value = null
+  selectedFileName.value = ''
+  photoPreview.value = null
+  if (photoInput.value) {
+    photoInput.value.value = ''
+  }
+}
+
+const deletePhoto = async () => {
+  if (!form.value.id || !confirm(t('admin.pages.profile.confirmDeletePhoto'))) {
+    return
+  }
+  
+  deletingPhoto.value = true
+  
+  try {
+    const response = await fetch(
+      `${API_BASE_URL}${API_ENDPOINT.profile}/${form.value.id}/profile-photo`,
+      {
+        method: 'DELETE',
+        headers: apiHeaders.value
+      }
+    )
+    
+    const result = await response.json()
+    
+    if (response.ok) {
+      form.value.profile_photo = ''
+      showNotification('success', result.message || t('admin.pages.profile.photoDeleted'))
+    } else {
+      throw new Error(result.message || 'Erreur lors de la suppression')
+    }
+  } catch (error) {
+    console.error('Erreur:', error)
+    showNotification('error', t('admin.pages.profile.errors.deletePhotoFailed'))
+  } finally {
+    deletingPhoto.value = false
+  }
+}
+
 const loadProfile = async () => {
   loading.value = true
   try {
@@ -527,12 +691,14 @@ const loadProfile = async () => {
 
     if (response.ok && result.data) {
       profileExists.value = true
-      // Formater la date de naissance pour l'input HTML
       const profileData = { ...result.data }
       if (profileData.birthdate) {
         profileData.birthdate = formatDateForInput(profileData.birthdate)
       }
       form.value = { ...form.value, ...profileData }
+      photoPreview.value = null
+      selectedFile.value = null
+      selectedFileName.value = ''
     } else if (response.status === 404) {
       profileExists.value = false
     } else if (response.status === 401) {
@@ -549,7 +715,6 @@ const loadProfile = async () => {
   }
 }
 
-// Modifier la fonction saveProfile pour envoyer la date au bon format
 const saveProfile = async () => {
   saving.value = true
   errors.value = {}
@@ -561,16 +726,34 @@ const saveProfile = async () => {
     
     const method = profileExists.value && form.value.id ? 'PUT' : 'POST'
     
-    // Préparer les données avec la date formatée
-    const dataToSend = { ...form.value }
-    if (dataToSend.birthdate) {
-      dataToSend.birthdate = formatDateForApi(dataToSend.birthdate)
+    const formData = new FormData()
+    
+    Object.keys(form.value).forEach(key => {
+      const value = form.value[key as keyof ProfileData]
+      if (value !== null && value !== undefined && key !== 'profile_photo' && key !== 'id') {
+        if (key === 'birthdate' && value) {
+          formData.append(key, formatDateForApi(value) || '')
+        } else {
+          formData.append(key, String(value))
+        }
+      }
+    })
+    
+    if (selectedFile.value) {
+      formData.append('profile_photo', selectedFile.value)
+    }
+    
+    if (method === 'PUT') {
+      formData.append('_method', 'PUT')
     }
     
     const response = await fetch(url, {
-      method,
-      headers: apiHeaders.value,
-      body: JSON.stringify(dataToSend)
+      method: method === 'PUT' ? 'POST' : method,
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem(TOKEN_STORAGE_KEY)}`
+      },
+      body: formData
     })
 
     const result = await response.json()
@@ -583,6 +766,12 @@ const saveProfile = async () => {
           profileData.birthdate = formatDateForInput(profileData.birthdate)
         }
         form.value = { ...form.value, ...profileData }
+      }
+      selectedFile.value = null
+      selectedFileName.value = ''
+      photoPreview.value = null
+      if (photoInput.value) {
+        photoInput.value.value = ''
       }
       showNotification('success', result.message || t('admin.pages.profile.saveSuccess'))
     } else {
@@ -616,6 +805,7 @@ const resetForm = async () => {
       tagline_en: '',
       bio_fr: '',
       bio_en: '',
+      profile_photo: '',
       linkedin_url: '',
       github_url: '',
       twitter_url: '',
@@ -626,6 +816,9 @@ const resetForm = async () => {
       show_address: false,
       show_age: false
     }
+    photoPreview.value = null
+    selectedFile.value = null
+    selectedFileName.value = ''
   }
   errors.value = {}
 }

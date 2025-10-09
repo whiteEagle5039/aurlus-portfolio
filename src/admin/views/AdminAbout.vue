@@ -28,6 +28,9 @@
           <thead class="bg-gray-50">
             <tr>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {{ $t('admin.pages.about.table.photo') }}
+              </th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 {{ $t('admin.pages.about.table.title') }}
               </th>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -46,6 +49,22 @@
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
             <tr v-for="item in aboutItems" :key="item.id">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex-shrink-0 h-16 w-16">
+                  <img 
+                    v-if="item.profile_photo" 
+                    :src="item.profile_photo" 
+                    :alt="currentLocale === 'fr' ? item.title_fr : item.title_en"
+                    class="h-16 w-16 rounded-full object-cover border-2 border-gray-200"
+                  >
+                  <div 
+                    v-else 
+                    class="h-16 w-16 rounded-full bg-gray-200 flex items-center justify-center"
+                  >
+                    <i class="fas fa-user text-gray-400 text-2xl"></i>
+                  </div>
+                </div>
+              </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="text-sm font-medium text-gray-900">
                   {{ currentLocale === 'fr' ? item.title_fr : item.title_en }}
@@ -107,7 +126,7 @@
               </td>
             </tr>
             <tr v-if="aboutItems.length === 0">
-              <td colspan="5" class="px-6 py-8 text-center text-gray-500">
+              <td colspan="6" class="px-6 py-8 text-center text-gray-500">
                 {{ $t('admin.pages.about.noData') }}
               </td>
             </tr>
@@ -130,6 +149,73 @@
           </div>
           
           <form @submit.prevent="saveItem" class="space-y-6">
+            <!-- Section Photo de profil -->
+            <div class="border-b border-gray-200 pb-6">
+              <h4 class="text-md font-medium text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-camera mr-2 text-teal-500"></i>
+                {{ $t('admin.pages.about.profilePhoto') }}
+              </h4>
+              
+              <div class="flex items-center space-x-6">
+                <!-- Aperçu de la photo -->
+                <div class="flex-shrink-0">
+                  <div class="h-32 w-32 rounded-full overflow-hidden border-4 border-gray-200 bg-gray-100 flex items-center justify-center">
+                    <img 
+                      v-if="photoPreview || (editingItem && editingItem.profile_photo)" 
+                      :src="photoPreview || editingItem?.profile_photo || ''" 
+                      alt="Profile preview"
+                      class="h-full w-full object-cover"
+                    >
+                    <i v-else class="fas fa-user text-gray-400 text-5xl"></i>
+                  </div>
+                </div>
+                
+                <!-- Actions photo -->
+                <div class="flex-1">
+                  <div class="space-y-2">
+                    <!-- Input file caché -->
+                    <input 
+                      ref="fileInput"
+                      type="file" 
+                      accept="image/*"
+                      @change="handleFileChange"
+                      class="hidden"
+                    >
+                    
+                    <!-- Boutons -->
+                    <div class="flex space-x-2">
+                     <button
+                        type="button"
+                        @click="fileInput?.click()"
+                        class="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition-colors flex items-center"
+                      >
+                        <i class="fas fa-upload mr-2"></i>
+                        {{ photoPreview || editingItem?.profile_photo ? $t('admin.pages.about.changePhoto') : $t('admin.pages.about.uploadPhoto') }}
+                      </button>
+                      
+                      <button
+                        v-if="photoPreview || editingItem?.profile_photo"
+                        type="button"
+                        @click="removePhoto"
+                        class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors flex items-center"
+                      >
+                        <i class="fas fa-trash mr-2"></i>
+                        {{ $t('admin.pages.about.removePhoto') }}
+                      </button>
+                    </div>
+                    
+                    <p class="text-xs text-gray-500">
+                      {{ $t('admin.pages.about.photoHelp') }}
+                    </p>
+                    
+                    <p v-if="errors.profile_photo" class="text-red-500 text-xs">
+                      {{ errors.profile_photo[0] }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- Langues tabs -->
             <div class="border-b border-gray-200">
               <nav class="-mb-px flex space-x-8">
@@ -318,6 +404,7 @@ interface AboutItem {
   title_en: string
   description_fr: string
   description_en: string
+  profile_photo: string | null
   is_active: boolean
   sort_order: number
 }
@@ -329,6 +416,10 @@ const saving = ref(false)
 const showModal = ref(false)
 const activeTab = ref<'fr' | 'en'>('fr')
 const editingItem = ref<AboutItem | null>(null)
+const fileInput = ref<HTMLInputElement | null>(null)
+const photoPreview = ref<string | null>(null)
+const photoFile = ref<File | null>(null)
+const removePhotoFlag = ref(false)
 
 const form = ref({
   title_fr: '',
@@ -355,10 +446,72 @@ const showNotification = (type: 'success' | 'error', message: string) => {
 }
 
 const apiHeaders = computed(() => ({
-  'Content-Type': 'application/json',
   'Accept': 'application/json',
   'Authorization': `Bearer ${localStorage.getItem(TOKEN_STORAGE_KEY)}`
 }))
+
+const handleFileChange = (event: Event) => {
+  const target = event.target as HTMLInputElement
+  const file = target.files?.[0]
+  
+  if (file) {
+    // Vérifier le type de fichier
+    if (!file.type.startsWith('image/')) {
+      showNotification('error', t('admin.pages.about.errors.invalidFileType'))
+      return
+    }
+    
+    // Vérifier la taille (2MB max)
+    if (file.size > 2 * 1024 * 1024) {
+      showNotification('error', t('admin.pages.about.errors.fileTooLarge'))
+      return
+    }
+    
+    photoFile.value = file
+    removePhotoFlag.value = false
+    
+    // Créer un aperçu
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      photoPreview.value = e.target?.result as string
+    }
+    reader.readAsDataURL(file)
+  }
+}
+
+const removePhoto = async () => {
+  if (editingItem.value?.profile_photo && !photoFile.value) {
+    // Si on édite et qu'il y a une photo existante, on la supprime du serveur
+    if (confirm(t('admin.pages.about.confirmDeletePhoto'))) {
+      try {
+        const response = await fetch(
+          `${API_BASE_URL}${API_ENDPOINT.about}/${editingItem.value.id}/profile-photo`,
+          {
+            method: 'DELETE',
+            headers: apiHeaders.value
+          }
+        )
+
+        if (response.ok) {
+          editingItem.value.profile_photo = null
+          photoPreview.value = null
+          showNotification('success', t('admin.pages.about.photoDeletedSuccess'))
+        }
+      } catch (error) {
+        console.error('Erreur:', error)
+        showNotification('error', t('admin.pages.about.errors.photoDeleteFailed'))
+      }
+    }
+  } else {
+    // Sinon on annule juste la nouvelle photo sélectionnée
+    photoFile.value = null
+    photoPreview.value = null
+    removePhotoFlag.value = true
+    if (fileInput.value) {
+      fileInput.value.value = ''
+    }
+  }
+}
 
 const loadAboutItems = async () => {
   loading.value = true
@@ -375,7 +528,6 @@ const loadAboutItems = async () => {
       localStorage.removeItem(TOKEN_STORAGE_KEY)
       window.location.href = '/admin/login'
     } else {
-      console.log('Validation errors:', result.error)
       throw new Error('Erreur lors du chargement des sections About')
     }
   } catch (error) {
@@ -389,6 +541,9 @@ const loadAboutItems = async () => {
 const openModal = (item?: AboutItem) => {
   errors.value = {}
   activeTab.value = 'fr'
+  photoPreview.value = null
+  photoFile.value = null
+  removePhotoFlag.value = false
   
   if (item) {
     editingItem.value = item
@@ -418,6 +573,9 @@ const closeModal = () => {
   showModal.value = false
   editingItem.value = null
   errors.value = {}
+  photoPreview.value = null
+  photoFile.value = null
+  removePhotoFlag.value = false
 }
 
 const saveItem = async () => {
@@ -431,10 +589,32 @@ const saveItem = async () => {
     
     const method = editingItem.value ? 'PUT' : 'POST'
     
+    // Utiliser FormData pour envoyer les fichiers
+    const formData = new FormData()
+    formData.append('title_fr', form.value.title_fr)
+    formData.append('title_en', form.value.title_en)
+    formData.append('description_fr', form.value.description_fr)
+    formData.append('description_en', form.value.description_en)
+    formData.append('sort_order', form.value.sort_order.toString())
+    formData.append('is_active', form.value.is_active ? '1' : '0')
+    
+    // Ajouter la photo si elle existe
+    if (photoFile.value) {
+      formData.append('profile_photo', photoFile.value)
+    }
+    
+    // Pour Laravel, il faut ajouter _method pour PUT avec FormData
+    if (method === 'PUT') {
+      formData.append('_method', 'PUT')
+    }
+    
     const response = await fetch(url, {
-      method,
-      headers: apiHeaders.value,
-      body: JSON.stringify(form.value)
+      method: editingItem.value ? 'POST' : 'POST', // Toujours POST avec FormData
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem(TOKEN_STORAGE_KEY)}`
+      },
+      body: formData
     })
 
     const result = await response.json()
@@ -444,7 +624,6 @@ const saveItem = async () => {
       closeModal()
       await loadAboutItems()
     } else {
-
       if (result.errors) {
         errors.value = result.errors
       }
