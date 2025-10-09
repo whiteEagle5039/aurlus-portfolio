@@ -728,35 +728,52 @@ const saveProfile = async () => {
     
     const formData = new FormData()
     
+    // Ajouter tous les champs du formulaire
     Object.keys(form.value).forEach(key => {
       const value = form.value[key as keyof ProfileData]
       if (value !== null && value !== undefined && key !== 'profile_photo' && key !== 'id') {
         if (key === 'birthdate' && value) {
           formData.append(key, formatDateForApi(value) || '')
+        } else if (typeof value === 'boolean') {
+          formData.append(key, value ? '1' : '0')
         } else {
           formData.append(key, String(value))
         }
       }
     })
     
+    // Ajouter la photo si elle a été sélectionnée
     if (selectedFile.value) {
       formData.append('profile_photo', selectedFile.value)
     }
     
+    // IMPORTANT : Pour Laravel, on utilise POST avec _method pour simuler PUT
     if (method === 'PUT') {
       formData.append('_method', 'PUT')
     }
     
+    // Debug : afficher le contenu du FormData
+    console.log('=== FormData Debug ===')
+    for (let pair of formData.entries()) {
+      console.log(pair[0] + ': ' + pair[1])
+    }
+    
     const response = await fetch(url, {
-      method: method === 'PUT' ? 'POST' : method,
+      method: 'POST', // Toujours POST même pour PUT (Laravel l'interceptera via _method)
       headers: {
         'Accept': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem(TOKEN_STORAGE_KEY)}`
+        // NE PAS mettre Content-Type, le navigateur le fait automatiquement pour FormData
       },
       body: formData
     })
 
     const result = await response.json()
+    
+    // Debug : afficher la réponse
+    console.log('=== Response Debug ===')
+    console.log('Status:', response.status)
+    console.log('Result:', result)
 
     if (response.ok) {
       profileExists.value = true
@@ -777,6 +794,7 @@ const saveProfile = async () => {
     } else {
       if (result.errors) {
         errors.value = result.errors
+        console.error('Validation errors:', result.errors)
       }
       throw new Error(result.message || 'Erreur lors de la sauvegarde')
     }
