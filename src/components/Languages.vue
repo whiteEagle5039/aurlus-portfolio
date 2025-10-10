@@ -2,7 +2,7 @@
 <section 
   id="languages" 
   ref="sectionRef"
-  class="py-20 px-4"
+  class="py-20 px-4 bg-gray-800"
 >
   <div class="container mx-auto">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg inline-block" v-html="$t('languages.title')">

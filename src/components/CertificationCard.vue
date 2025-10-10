@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white dark:bg-gray-900 p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-300 relative">
+  <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-300 relative">
     <!-- Status indicator -->
     <div v-if="showStatus" class="absolute top-2 right-2">
       <span v-if="certification.is_valid" class="inline-block w-3 h-3 bg-green-500 rounded-full" title="Valid"></span>

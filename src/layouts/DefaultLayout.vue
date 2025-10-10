@@ -14,7 +14,7 @@
       <Education id="education" @observe="handleIntersection" />
       <Certifications id="certifications" @observe="handleIntersection" />
       <Languages id="languages" @observe="handleIntersection" />
-      <Contact id="contact" @observe="handleIntersection" /> -->
+      <Contact id="contact" @observe="handleIntersection" /> 
       <!-- <router-view @observe="handleIntersection" /> -->
     </div>
   </div>

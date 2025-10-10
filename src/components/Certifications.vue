@@ -2,7 +2,7 @@
   <section 
     id="certifications" 
     ref="sectionRef"
-    class="py-16 px-4 bg-gray-50 dark:bg-gray-800"
+    class="py-16 px-4 bg-gray-50 dark:bg-gray-900"
   >
     <div class="container mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg inline-block">
@@ -249,23 +249,6 @@ export default defineComponent({
         loading.value = false;
       }
     };
-
-    // Fetch certification statistics
-    // const fetchStats = async () => {
-    //   try {
-    //     const response = await fetch(`${API_BASE_URL}portfolio/certifications-stats`);
-        
-    //     if (response.ok) {
-    //       const data = await response.json();
-    //       if (data.success) {
-    //         stats.value = data.data;
-    //       }
-    //     }
-    //   } catch (err) {
-    //     console.error('Error fetching certification stats:', err);
-    //     // Don't show error for stats, it's optional
-    //   }
-    // };
 
     onMounted(() => {
       // Fetch data on component mount
