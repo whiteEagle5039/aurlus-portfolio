@@ -2,7 +2,7 @@
 <section 
   id="languages" 
   ref="sectionRef"
-  class="py-20 px-4 bg-gray-800"
+  class="py-20 px-4 bg-gray-900"
 >
   <div class="container mx-auto">
     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg inline-block" v-html="$t('languages.title')">
@@ -29,7 +29,7 @@
       <div 
         v-for="language in languages" 
         :key="language.id"
-        class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+        class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
       >
         <!-- Header with Flag and Name -->
         <div class="flex items-center mb-4">

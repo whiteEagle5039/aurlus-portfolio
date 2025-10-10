@@ -171,7 +171,21 @@
       "permanent": "Permanentes"
     },
     "showing": "Affichage de",
-    "of": "sur"
+    "of": "sur",
+    "professional": {
+      "title": "Certifications Professionnelles",
+      "allTitle": "Toutes les Certifications Professionnelles"
+    },
+    "training": {
+      "title": "Certifications de Formation",
+      "allTitle": "Toutes les Certifications de Formation"
+    },
+    "status": {
+      "valid": "Valide",
+      "expired": "Expirée",
+      "expiring_soon": "Expire bientôt",
+      "permanent": "Permanente"
+    }
   },
  "languages": {
     "title": "Compétence linguistique",

@@ -170,8 +170,22 @@
       "permanent": "Permanent"
     },
     "showing": "Showing",
-    "of": "of"
-
+    "of": "of",
+    "professional": {
+      "title": "Professional Certifications",
+      "allTitle": "All Professional Certifications"
+    },
+    "training": {
+      "title": "Training Certifications",
+      "allTitle": "All Training Certifications"
+    },
+    
+    "status": {
+      "valid": "Valid",
+      "expired": "Expired",
+      "expiring_soon": "Expiring soon",
+      "permanent": "Permanent"
+    }
   },
   "languages": {
     "title": "Language skills",
