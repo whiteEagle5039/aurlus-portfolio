@@ -29,104 +29,120 @@
     <div v-else class="bg-white rounded-lg shadow">
       <form @submit.prevent="saveProfile" class="p-6 space-y-8">
         
-        <!-- Section Photo de profil -->
-        <div class="bg-gray-50 rounded-lg p-6">
+        <!-- Section Album Photos -->
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6">
           <h4 class="text-lg font-medium text-gray-800 mb-6 flex items-center">
-            <i class="fas fa-camera mr-2 text-teal-500"></i>
-            {{ $t('admin.pages.profile.profilePhoto') }}
+            <i class="fas fa-images mr-2 text-teal-500"></i>
+            {{ $t('admin.pages.profile.photoAlbum') }}
           </h4>
           
-          <div class="flex items-start space-x-6">
-            <!-- Prévisualisation de la photo -->
-            <div class="flex-shrink-0">
-              <div class="relative">
-                <div class="w-32 h-32 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center border-4 border-white shadow-lg">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Carte Photo de Couverture -->
+            <div 
+              @click="openPhotoModal('cover')"
+              class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden group"
+            >
+              <div class="relative h-48 bg-gradient-to-br from-blue-400 to-purple-500 overflow-hidden">
+                <img 
+                  v-if="coverPreview || form.cover_photo" 
+                  :src="coverPreview || form.cover_photo" 
+                  alt="Cover photo"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                >
+                <div v-else class="absolute inset-0 flex flex-col items-center justify-center text-white">
+                  <i class="fas fa-image text-5xl mb-2 opacity-50"></i>
+                  <p class="text-sm font-medium opacity-75">{{ $t('admin.pages.profile.noCoverPhoto') }}</p>
+                </div>
+                
+                <!-- Badge indicateur -->
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-gray-800 shadow-sm">
+                    <i class="fas fa-panorama mr-1.5"></i>
+                    {{ $t('admin.pages.profile.coverPhoto') }}
+                  </span>
+                </div>
+                
+                <!-- Overlay hover -->
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div class="text-white text-center">
+                    <i class="fas fa-edit text-2xl mb-2"></i>
+                    <p class="text-sm font-medium">{{ $t('admin.pages.profile.clickToEdit') }}</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm font-medium text-gray-700">{{ $t('admin.pages.profile.coverPhotoTitle') }}</p>
+                    <p class="text-xs text-gray-500 mt-0.5">{{ $t('admin.pages.profile.recommendedSize') }}: 1920x400px</p>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span v-if="form.cover_photo" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-600">
+                      <i class="fas fa-check text-sm"></i>
+                    </span>
+                    <span v-else class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-gray-400">
+                      <i class="fas fa-plus text-sm"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Carte Photo de Profil -->
+            <div 
+              @click="openPhotoModal('profile')"
+              class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden group"
+            >
+              <div class="relative h-48 bg-gradient-to-br from-teal-400 to-cyan-500 overflow-hidden flex items-center justify-center">
+                <div class="w-32 h-32 rounded-full overflow-hidden bg-white shadow-lg ring-4 ring-white/50">
                   <img 
                     v-if="photoPreview || form.profile_photo" 
                     :src="photoPreview || form.profile_photo" 
                     alt="Profile photo"
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   >
-                  <i v-else class="fas fa-user text-gray-400 text-4xl"></i>
+                  <div v-else class="w-full h-full flex items-center justify-center bg-gray-100">
+                    <i class="fas fa-user text-gray-400 text-4xl"></i>
+                  </div>
                 </div>
                 
-                <!-- Bouton supprimer la photo -->
-                <button
-                  v-if="form.profile_photo && !photoPreview"
-                  type="button"
-                  @click="deletePhoto"
-                  :disabled="deletingPhoto"
-                  class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-600 transition-colors shadow-lg"
-                  :title="$t('admin.pages.profile.deletePhoto')"
-                >
-                  <font-awesome-icon 
-                    v-if="deletingPhoto" 
-                    :icon="['fas', 'spinner']" 
-                    spin 
-                    class="text-xs" 
-                  />
-                  <font-awesome-icon 
-                    v-else 
-                    :icon="['fas', 'trash']" 
-                    class="text-xs"
-                  />
-                </button>
-
+                <!-- Badge indicateur -->
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-gray-800 shadow-sm">
+                    <i class="fas fa-user-circle mr-1.5"></i>
+                    {{ $t('admin.pages.profile.profilePhoto') }}
+                  </span>
+                </div>
+                
+                <!-- Overlay hover -->
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div class="text-white text-center">
+                    <i class="fas fa-edit text-2xl mb-2"></i>
+                    <p class="text-sm font-medium">{{ $t('admin.pages.profile.clickToEdit') }}</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm font-medium text-gray-700">{{ $t('admin.pages.profile.profilePhotoTitle') }}</p>
+                    <p class="text-xs text-gray-500 mt-0.5">{{ $t('admin.pages.profile.recommendedSize') }}: 400x400px</p>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span v-if="form.profile_photo" class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-600">
+                      <i class="fas fa-check text-sm"></i>
+                    </span>
+                    <span v-else class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-gray-400">
+                      <i class="fas fa-plus text-sm"></i>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <!-- Zone d'upload -->
-            <div class="flex-1">
-              <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-teal-500 transition-colors">
-                <input
-                  ref="photoInput"
-                  type="file"
-                  accept="image/jpeg,image/png,image/jpg,image/gif,image/webp"
-                  @change="handlePhotoChange"
-                  class="hidden"
-                >
-                
-                <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-3"></i>
-                
-                <p class="text-sm text-gray-600 mb-2">
-                  {{ $t('admin.pages.profile.uploadPhoto') }}
-                </p>
-                
-                <button
-                  type="button"
-                  @click="triggerPhotoInput"
-                  class="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition-colors text-sm"
-                >
-                  <i class="fas fa-folder-open mr-2"></i>
-                  {{ $t('admin.pages.profile.chooseFile') }}
-                </button>
-                
-                <p class="text-xs text-gray-500 mt-2">
-                  {{ $t('admin.pages.profile.photoFormats') }}
-                </p>
-                
-                <!-- Nom du fichier sélectionné -->
-                <p v-if="selectedFileName" class="text-sm text-teal-600 mt-2 font-medium">
-                  <i class="fas fa-file-image mr-1"></i>
-                  {{ selectedFileName }}
-                </p>
-              </div>
-              
-              <!-- Bouton pour annuler la sélection -->
-              <button
-                v-if="photoPreview"
-                type="button"
-                @click="cancelPhotoSelection"
-                class="mt-3 text-sm text-red-600 hover:text-red-700 flex items-center"
-              >
-                <i class="fas fa-times mr-1"></i>
-                {{ $t('admin.pages.profile.cancelSelection') }}
-              </button>
-              
-              <p v-if="errors.profile_photo" class="text-red-500 text-xs mt-2">
-                {{ errors.profile_photo[0] }}
-              </p>
-            </div>
           </div>
         </div>
 
@@ -506,6 +522,205 @@
       </form>
     </div>
 
+    <!-- Modal de gestion des photos -->
+    <Teleport to="body">
+      <Transition name="modal">
+        <div 
+          v-if="showPhotoModal" 
+          class="fixed inset-0 z-50 overflow-y-auto"
+          @click.self="closePhotoModal"
+        >
+          <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Overlay -->
+            <div class="fixed inset-0 transition-opacity bg-gray-900 bg-opacity-75" @click="closePhotoModal"></div>
+            
+            <!-- Modal -->
+            <div class="inline-block w-full max-w-2xl my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-2xl rounded-2xl">
+              <!-- Header -->
+              <div class="bg-gradient-to-r from-teal-500 to-cyan-600 px-6 py-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                      <i :class="currentPhotoType === 'cover' ? 'fas fa-panorama' : 'fas fa-user-circle'" class="text-white text-lg"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-white">
+                        {{ currentPhotoType === 'cover' ? $t('admin.pages.profile.manageCoverPhoto') : $t('admin.pages.profile.manageProfilePhoto') }}
+                      </h3>
+                      <p class="text-xs text-white/80">
+                        {{ currentPhotoType === 'cover' 
+                          ? $t('admin.pages.profile.coverPhotoDescription') 
+                          : $t('admin.pages.profile.profilePhotoDescription') 
+                        }}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    @click="closePhotoModal"
+                    class="text-white hover:bg-white/20 rounded-full p-2 transition-colors"
+                  >
+                    <i class="fas fa-times text-xl"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Body -->
+              <div class="p-6 space-y-6">
+                <!-- Prévisualisation actuelle -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-3">
+                    {{ $t('admin.pages.profile.currentPhoto') }}
+                  </label>
+                  <div :class="[
+                    'rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center',
+                    currentPhotoType === 'cover' ? 'h-48' : 'h-64'
+                  ]">
+                    <template v-if="currentPhotoType === 'cover'">
+                      <img 
+                        v-if="coverPreview || form.cover_photo" 
+                        :src="coverPreview || form.cover_photo" 
+                        alt="Cover preview"
+                        class="w-full h-full object-cover"
+                      >
+                      <div v-else class="text-center text-gray-400">
+                        <i class="fas fa-image text-6xl mb-3"></i>
+                        <p class="text-sm">{{ $t('admin.pages.profile.noPhotoYet') }}</p>
+                      </div>
+                    </template>
+                    <template v-else>
+                      <div class="w-48 h-48 rounded-full overflow-hidden bg-white shadow-lg">
+                        <img 
+                          v-if="photoPreview || form.profile_photo" 
+                          :src="photoPreview || form.profile_photo" 
+                          alt="Profile preview"
+                          class="w-full h-full object-cover"
+                        >
+                        <div v-else class="w-full h-full flex items-center justify-center bg-gray-100">
+                          <i class="fas fa-user text-gray-400 text-6xl"></i>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+                
+                <!-- Zone d'upload -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-3">
+                    {{ $t('admin.pages.profile.uploadNewPhoto') }}
+                  </label>
+                  <div 
+                    class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-teal-500 transition-colors cursor-pointer bg-gray-50"
+                    @click="triggerFileInput"
+                  >
+                    <input
+                      :ref="currentPhotoType === 'cover' ? 'coverInput' : 'photoInput'"
+                      type="file"
+                      accept="image/jpeg,image/png,image/jpg,image/gif,image/webp"
+                      @change="currentPhotoType === 'cover' ? handleCoverChange($event) : handlePhotoChange($event)"
+                      class="hidden"
+                    >
+                    
+                    <i class="fas fa-cloud-upload-alt text-5xl text-gray-400 mb-4"></i>
+                    
+                    <p class="text-base text-gray-600 mb-2 font-medium">
+                      {{ $t('admin.pages.profile.dragDropOrClick') }}
+                    </p>
+                    
+                    <p class="text-sm text-gray-500 mb-4">
+                      {{ $t('admin.pages.profile.photoFormats') }} • Max 2MB
+                    </p>
+                    
+                    <button
+                      type="button"
+                      class="px-6 py-2.5 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium inline-flex items-center"
+                    >
+                      <i class="fas fa-folder-open mr-2"></i>
+                      {{ $t('admin.pages.profile.selectFile') }}
+                    </button>
+                    
+                    <!-- Nom du fichier sélectionné -->
+                    <p v-if="currentPhotoType === 'cover' && selectedCoverFileName" class="text-sm text-teal-600 mt-4 font-medium">
+                      <i class="fas fa-file-image mr-1"></i>
+                      {{ selectedCoverFileName }}
+                    </p>
+                    <p v-if="currentPhotoType === 'profile' && selectedFileName" class="text-sm text-teal-600 mt-4 font-medium">
+                      <i class="fas fa-file-image mr-1"></i>
+                      {{ selectedFileName }}
+                    </p>
+                  </div>
+                  
+                  <!-- Message d'erreur -->
+                  <p v-if="currentPhotoType === 'cover' && errors.cover_photo" class="text-red-500 text-sm mt-2">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    {{ errors.cover_photo[0] }}
+                  </p>
+                  <p v-if="currentPhotoType === 'profile' && errors.profile_photo" class="text-red-500 text-sm mt-2">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    {{ errors.profile_photo[0] }}
+                  </p>
+                </div>
+                
+                <!-- Informations -->
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <div class="flex items-start">
+                    <i class="fas fa-info-circle text-blue-500 mt-0.5 mr-3"></i>
+                    <div class="text-sm text-blue-800">
+                      <p class="font-medium mb-1">{{ $t('admin.pages.profile.recommendations') }}</p>
+                      <ul class="list-disc list-inside space-y-1 text-blue-700">
+                        <li v-if="currentPhotoType === 'cover'">
+                          {{ $t('admin.pages.profile.coverPhotoTips1') }}
+                        </li>
+                        <li v-else>
+                          {{ $t('admin.pages.profile.profilePhotoTips1') }}
+                        </li>
+                        <li>{{ $t('admin.pages.profile.photoTips2') }}</li>
+                        <li>{{ $t('admin.pages.profile.photoTips3') }}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Footer -->
+              <div class="bg-gray-50 px-6 py-4 flex items-center justify-between border-t border-gray-200">
+                <div>
+                  <!-- Bouton supprimer (si photo existe) -->
+                  <button
+                    v-if="(currentPhotoType === 'cover' && form.cover_photo) || (currentPhotoType === 'profile' && form.profile_photo)"
+                    type="button"
+                    @click="deleteCurrentPhoto"
+                    :disabled="deletingPhoto || deletingCover"
+                    class="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors text-sm font-medium inline-flex items-center disabled:opacity-50"
+                  >
+                    <i v-if="deletingPhoto || deletingCover" class="fas fa-spinner fa-spin mr-2"></i>
+                    <i v-else class="fas fa-trash mr-2"></i>
+                    {{ $t('admin.pages.profile.deletePhoto') }}
+                  </button>
+                </div>
+                <div class="flex space-x-3">
+                  <button
+                    type="button"
+                    @click="cancelPhotoSelection"
+                    class="px-5 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm font-medium"
+                  >
+                    {{ $t('common.cancel') }}
+                  </button>
+                  <button
+                    type="button"
+                    @click="closePhotoModal"
+                    class="px-5 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium inline-flex items-center"
+                  >
+                    <i class="fas fa-check mr-2"></i>
+                    {{ $t('common.next') }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
+
     <!-- Notifications -->
     <div v-if="notification.show" 
          :class="[
@@ -542,6 +757,7 @@ interface ProfileData {
   bio_fr: string
   bio_en: string
   profile_photo?: string
+  cover_photo?: string
   linkedin_url?: string
   github_url?: string
   twitter_url?: string
@@ -556,12 +772,25 @@ interface ProfileData {
 const loading = ref(false)
 const saving = ref(false)
 const deletingPhoto = ref(false)
+const deletingCover = ref(false)
 const activeTab = ref<'fr' | 'en'>('fr')
 const profileExists = ref(false)
+
+// Modal
+const showPhotoModal = ref(false)
+const currentPhotoType = ref<'profile' | 'cover'>('profile')
+
+// Refs pour la photo de profil
 const photoInput = ref<HTMLInputElement | null>(null)
 const photoPreview = ref<string | null>(null)
 const selectedFile = ref<File | null>(null)
 const selectedFileName = ref<string>('')
+
+// Refs pour la photo de couverture
+const coverInput = ref<HTMLInputElement | null>(null)
+const coverPreview = ref<string | null>(null)
+const selectedCoverFile = ref<File | null>(null)
+const selectedCoverFileName = ref<string>('')
 
 const form = ref<ProfileData>({
   first_name: '',
@@ -577,6 +806,7 @@ const form = ref<ProfileData>({
   bio_fr: '',
   bio_en: '',
   profile_photo: '',
+  cover_photo: '',
   linkedin_url: '',
   github_url: '',
   twitter_url: '',
@@ -618,10 +848,25 @@ const formatDateForApi = (dateString: any) => {
   return dateString
 }
 
-const triggerPhotoInput = () => {
-  photoInput.value?.click()
+// Fonctions Modal
+const openPhotoModal = (type: 'profile' | 'cover') => {
+  currentPhotoType.value = type
+  showPhotoModal.value = true
 }
 
+const closePhotoModal = () => {
+  showPhotoModal.value = false
+}
+
+const triggerFileInput = () => {
+  if (currentPhotoType.value === 'cover') {
+    coverInput.value?.click()
+  } else {
+    photoInput.value?.click()
+  }
+}
+
+// Fonctions pour la photo de profil
 const handlePhotoChange = (event: Event) => {
   const target = event.target as HTMLInputElement
   const file = target.files?.[0]
@@ -649,15 +894,6 @@ const handlePhotoChange = (event: Event) => {
   }
 }
 
-const cancelPhotoSelection = () => {
-  selectedFile.value = null
-  selectedFileName.value = ''
-  photoPreview.value = null
-  if (photoInput.value) {
-    photoInput.value.value = ''
-  }
-}
-
 const deletePhoto = async () => {
   if (!form.value.id || !confirm(t('admin.pages.profile.confirmDeletePhoto'))) {
     return
@@ -678,7 +914,9 @@ const deletePhoto = async () => {
     
     if (response.ok) {
       form.value.profile_photo = ''
+      photoPreview.value = null
       showNotification('success', result.message || t('admin.pages.profile.photoDeleted'))
+      closePhotoModal()
     } else {
       throw new Error(result.message || 'Erreur lors de la suppression')
     }
@@ -688,6 +926,95 @@ const deletePhoto = async () => {
   } finally {
     deletingPhoto.value = false
   }
+}
+
+// Fonctions pour la photo de couverture
+const handleCoverChange = (event: Event) => {
+  const target = event.target as HTMLInputElement
+  const file = target.files?.[0]
+  
+  if (file) {
+    const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/webp']
+    if (!validTypes.includes(file.type)) {
+      showNotification('error', t('admin.pages.profile.errors.invalidFileType'))
+      return
+    }
+    
+    if (file.size > 2048 * 1024) {
+      showNotification('error', t('admin.pages.profile.errors.fileTooLarge'))
+      return
+    }
+    
+    selectedCoverFile.value = file
+    selectedCoverFileName.value = file.name
+    
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      coverPreview.value = e.target?.result as string
+    }
+    reader.readAsDataURL(file)
+  }
+}
+
+const deleteCoverPhoto = async () => {
+  if (!form.value.id || !confirm(t('admin.pages.profile.confirmDeleteCoverPhoto'))) {
+    return
+  }
+  
+  deletingCover.value = true
+  
+  try {
+    const response = await fetch(
+      `${API_BASE_URL}${API_ENDPOINT.profile}/${form.value.id}/cover-photo`,
+      {
+        method: 'DELETE',
+        headers: apiHeaders.value
+      }
+    )
+    
+    const result = await response.json()
+    
+    if (response.ok) {
+      form.value.cover_photo = ''
+      coverPreview.value = null
+      showNotification('success', result.message || t('admin.pages.profile.coverPhotoDeleted'))
+      closePhotoModal()
+    } else {
+      throw new Error(result.message || 'Erreur lors de la suppression')
+    }
+  } catch (error) {
+    console.error('Erreur:', error)
+    showNotification('error', t('admin.pages.profile.errors.deleteCoverPhotoFailed'))
+  } finally {
+    deletingCover.value = false
+  }
+}
+
+const deleteCurrentPhoto = () => {
+  if (currentPhotoType.value === 'cover') {
+    deleteCoverPhoto()
+  } else {
+    deletePhoto()
+  }
+}
+
+const cancelPhotoSelection = () => {
+  if (currentPhotoType.value === 'cover') {
+    selectedCoverFile.value = null
+    selectedCoverFileName.value = ''
+    coverPreview.value = null
+    if (coverInput.value) {
+      coverInput.value.value = ''
+    }
+  } else {
+    selectedFile.value = null
+    selectedFileName.value = ''
+    photoPreview.value = null
+    if (photoInput.value) {
+      photoInput.value.value = ''
+    }
+  }
+  closePhotoModal()
 }
 
 const loadProfile = async () => {
@@ -706,9 +1033,14 @@ const loadProfile = async () => {
         profileData.birthdate = formatDateForInput(profileData.birthdate)
       }
       form.value = { ...form.value, ...profileData }
+      
+      // Réinitialiser les previews
       photoPreview.value = null
       selectedFile.value = null
       selectedFileName.value = ''
+      coverPreview.value = null
+      selectedCoverFile.value = null
+      selectedCoverFileName.value = ''
     } else if (response.status === 404) {
       profileExists.value = false
     } else if (response.status === 401) {
@@ -741,7 +1073,7 @@ const saveProfile = async () => {
     // Ajouter tous les champs du formulaire
     Object.keys(form.value).forEach(key => {
       const value = form.value[key as keyof ProfileData]
-      if (value !== null && value !== undefined && key !== 'profile_photo' && key !== 'id') {
+      if (value !== null && value !== undefined && key !== 'profile_photo' && key !== 'cover_photo' && key !== 'id') {
         if (key === 'birthdate' && value) {
           formData.append(key, formatDateForApi(value) || '')
         } else if (typeof value === 'boolean') {
@@ -752,38 +1084,31 @@ const saveProfile = async () => {
       }
     })
     
-    // Ajouter la photo si elle a été sélectionnée
+    // Ajouter la photo de profil si elle a été sélectionnée
     if (selectedFile.value) {
       formData.append('profile_photo', selectedFile.value)
     }
     
-    // IMPORTANT : Pour Laravel, on utilise POST avec _method pour simuler PUT
+    // Ajouter la photo de couverture si elle a été sélectionnée
+    if (selectedCoverFile.value) {
+      formData.append('cover_photo', selectedCoverFile.value)
+    }
+    
+    // Pour Laravel, on utilise POST avec _method pour simuler PUT
     if (method === 'PUT') {
       formData.append('_method', 'PUT')
     }
     
-    // Debug : afficher le contenu du FormData
-    console.log('=== FormData Debug ===')
-    for (let pair of formData.entries()) {
-      console.log(pair[0] + ': ' + pair[1])
-    }
-    
     const response = await fetch(url, {
-      method: 'POST', // Toujours POST même pour PUT (Laravel l'interceptera via _method)
+      method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem(TOKEN_STORAGE_KEY)}`
-        // NE PAS mettre Content-Type, le navigateur le fait automatiquement pour FormData
       },
       body: formData
     })
 
     const result = await response.json()
-    
-    // Debug : afficher la réponse
-    console.log('=== Response Debug ===')
-    console.log('Status:', response.status)
-    console.log('Result:', result)
 
     if (response.ok) {
       profileExists.value = true
@@ -794,17 +1119,26 @@ const saveProfile = async () => {
         }
         form.value = { ...form.value, ...profileData }
       }
+      
+      // Réinitialiser les sélections
       selectedFile.value = null
       selectedFileName.value = ''
       photoPreview.value = null
+      selectedCoverFile.value = null
+      selectedCoverFileName.value = ''
+      coverPreview.value = null
+      
       if (photoInput.value) {
         photoInput.value.value = ''
       }
+      if (coverInput.value) {
+        coverInput.value.value = ''
+      }
+      
       showNotification('success', result.message || t('admin.pages.profile.saveSuccess'))
     } else {
       if (result.errors) {
         errors.value = result.errors
-        console.error('Validation errors:', result.errors)
       }
       throw new Error(result.message || 'Erreur lors de la sauvegarde')
     }
@@ -834,6 +1168,7 @@ const resetForm = async () => {
       bio_fr: '',
       bio_en: '',
       profile_photo: '',
+      cover_photo: '',
       linkedin_url: '',
       github_url: '',
       twitter_url: '',
@@ -847,6 +1182,9 @@ const resetForm = async () => {
     photoPreview.value = null
     selectedFile.value = null
     selectedFileName.value = ''
+    coverPreview.value = null
+    selectedCoverFile.value = null
+    selectedCoverFileName.value = ''
   }
   errors.value = {}
 }
@@ -855,3 +1193,25 @@ onMounted(() => {
   loadProfile()
 })
 </script>
+
+<style scoped>
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active .inline-block,
+.modal-leave-active .inline-block {
+  transition: transform 0.3s ease;
+}
+
+.modal-enter-from .inline-block,
+.modal-leave-to .inline-block {
+  transform: scale(0.95);
+}
+</style>

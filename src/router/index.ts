@@ -22,7 +22,6 @@ import AdminProfile from '../admin/views/AdminProfile.vue'
 import AdminCertifications from '../admin/views/AdminCertifications.vue'
 import AdminLanguages from '../admin/views/AdminLanguages.vue'
 import AdminProjects from '../admin/views/AdminProjects.vue'
-import AdminAbout from '@/admin/views/AdminAbout.vue'
 // Guards d'authentification
 const requireAuth = (to: any, from: any, next: any) => {
   const token = localStorage.getItem('adminToken')
