@@ -35,8 +35,9 @@
             <div class="relative">
               <div class="bg-green-500 absolute -top-4 -left-4 w-full h-full rounded-lg"></div>
               <img
-                src="../assets/img/about.jpg"
-                :alt="$t('about.imageAlt')"
+                v-if= "profileData?.cover_photo"
+                :src="profileData.cover_photo"
+                :alt="`photo de ${profileData?.full_name || 'profile'}`"
                 class="w-full h-auto rounded-lg relative z-10"
               />
             </div>
@@ -137,6 +138,7 @@ interface ProfileData {
   bio: string;
   email?: string;
   phone?: string;
+  cover_photo?:string;
   social_links?: {
     linkedin?: string;
     github?: string;
@@ -189,7 +191,7 @@ export default defineComponent({
         .filter(cert => cert.is_valid)
         .slice(0, 8);
     });
-    
+
     const totalCertifications = computed(() => certifications.value.length);
     
     // Methods
@@ -300,7 +302,7 @@ export default defineComponent({
           fetchAllData();
         }
       };
-      
+     
       const interval = setInterval(checkLocaleChange, 500);
       
       // Intersection Observer
@@ -334,7 +336,7 @@ export default defineComponent({
       formatDescription,
       fetchAllData,
       scrollToCertifications,
-      downloadCV
+      downloadCV, 
     };
   }
 });
