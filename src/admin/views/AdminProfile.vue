@@ -608,18 +608,29 @@
                   <label class="block text-sm font-medium text-gray-700 mb-3">
                     {{ $t('admin.pages.profile.uploadNewPhoto') }}
                   </label>
+                  
+                  <!-- Input caché HORS de la div cliquable -->
+                  <input
+                    v-if="currentPhotoType === 'cover'"
+                    ref="coverInputModal"
+                    type="file"
+                    accept="image/jpeg,image/png,image/jpg,image/gif,image/webp"
+                    @change="handleCoverChange($event)"
+                    class="hidden"
+                  >
+                  <input
+                    v-else
+                    ref="photoInputModal"
+                    type="file"
+                    accept="image/jpeg,image/png,image/jpg,image/gif,image/webp"
+                    @change="handlePhotoChange($event)"
+                    class="hidden"
+                  >
+                  
                   <div 
                     class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-teal-500 transition-colors cursor-pointer bg-gray-50"
-                    @click="triggerFileInput"
+                    @click="triggerModalFileInput"
                   >
-                    <input
-                      :ref="currentPhotoType === 'cover' ? 'coverInput' : 'photoInput'"
-                      type="file"
-                      accept="image/jpeg,image/png,image/jpg,image/gif,image/webp"
-                      @change="currentPhotoType === 'cover' ? handleCoverChange($event) : handlePhotoChange($event)"
-                      class="hidden"
-                    >
-                    
                     <i class="fas fa-cloud-upload-alt text-5xl text-gray-400 mb-4"></i>
                     
                     <p class="text-base text-gray-600 mb-2 font-medium">
@@ -632,6 +643,7 @@
                     
                     <button
                       type="button"
+                      @click.stop="triggerModalFileInput"
                       class="px-6 py-2.5 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium inline-flex items-center"
                     >
                       <i class="fas fa-folder-open mr-2"></i>
@@ -711,7 +723,7 @@
                     class="px-5 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium inline-flex items-center"
                   >
                     <i class="fas fa-check mr-2"></i>
-                    {{ $t('common.next') }}
+                    {{ $t('common.done') }}
                   </button>
                 </div>
               </div>
@@ -792,6 +804,10 @@ const coverPreview = ref<string | null>(null)
 const selectedCoverFile = ref<File | null>(null)
 const selectedCoverFileName = ref<string>('')
 
+// Refs pour les inputs du modal
+const photoInputModal = ref<HTMLInputElement | null>(null)
+const coverInputModal = ref<HTMLInputElement | null>(null)
+
 const form = ref<ProfileData>({
   first_name: '',
   last_name: '',
@@ -858,11 +874,11 @@ const closePhotoModal = () => {
   showPhotoModal.value = false
 }
 
-const triggerFileInput = () => {
+const triggerModalFileInput = () => {
   if (currentPhotoType.value === 'cover') {
-    coverInput.value?.click()
+    coverInputModal.value?.click()
   } else {
-    photoInput.value?.click()
+    photoInputModal.value?.click()
   }
 }
 
