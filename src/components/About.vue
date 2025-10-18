@@ -40,6 +40,14 @@
                 :alt="`photo de ${profileData?.full_name || 'profile'}`"
                 class="w-full h-auto rounded-lg relative z-10"
               />
+              <!-- Fallback si pas de photo ou erreur de chargement -->
+              <img
+                v-else
+                src="../assets/img/profile.jpg"
+                :alt="`Photo de ${profileData?.full_name || 'profil'}`"
+                class="w-full h-auto rounded-lg relative z-10"
+
+              />
             </div>
           </div>
                 
