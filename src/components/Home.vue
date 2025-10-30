@@ -419,11 +419,24 @@ export default defineComponent({
       // Récupération des données du profil
       await fetchProfile();
 
+      // Watch pour les changements de locale (comme dans Languages.vue)
+      let previousLocale = locale.value;
+      
+      const checkLocaleChange = () => {
+        if (locale.value !== previousLocale) {
+          previousLocale = locale.value;
+          fetchProfile();
+        }
+      };
+      
+      const interval = setInterval(checkLocaleChange, 500);
+
       // Nettoyage
       onUnmounted(() => {
         if (sectionRef.value) observer.unobserve(sectionRef.value);
         const particles = document.getElementById('particles-js');
         if (particles) particles.innerHTML = '';
+        clearInterval(interval);
       });
     });
 

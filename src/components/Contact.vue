@@ -6,15 +6,15 @@
   >
     <div class="container mx-auto">
       <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-lg inline-block">
-        <span class="text-green-500">Contactez</span>-moi
+        <span class="text-green-500">{{ $t('contact.titleHighlight') }}</span>{{ $t('contact.title').replace($t('contact.titleHighlight'), '') }}
       </h2> 
       
       <div class="flex flex-col md:flex-row gap-10">
         <!-- Informations de contact -->
         <div class="w-full md:w-5/12">
-          <h3 class="text-2xl font-bold mb-6">Coordonnées</h3>
+          <h3 class="text-2xl font-bold mb-6">{{ $t('contact.coordinates.title') }}</h3>
           <p class="text-gray-700 dark:text-gray-300 mb-8">
-            Je suis disponible pour discuter de vos projets. N'hésitez pas à me contacter pour toute opportunité professionnelle.
+            {{ $t('contact.coordinates.description') }}
           </p>
           
           <!-- Loading state pour les informations de contact -->
@@ -36,7 +36,7 @@
                 <font-awesome-icon icon="fa-solid fa-location-dot" class="text-white text-xl" />
               </div>
               <div>
-                <h4 class="font-bold mb-1">Adresse</h4>
+                <h4 class="font-bold mb-1">{{ $t('contact.coordinates.address') }}</h4>
                 <p class="text-gray-700 dark:text-gray-300">
                   {{ profileData.address }}
                 </p>
@@ -49,7 +49,7 @@
                 <font-awesome-icon icon="fa-solid fa-envelope" class="text-white text-xl" />
               </div>
               <div>
-                <h4 class="font-bold mb-1">Email</h4>
+                <h4 class="font-bold mb-1">{{ $t('contact.coordinates.email') }}</h4>
                 <p class="text-gray-700 dark:text-gray-300">
                   <a :href="`mailto:${profileData.email}`" class="hover:text-green-500 transition-colors duration-300">
                     {{ profileData.email }}
@@ -64,7 +64,7 @@
                 <font-awesome-icon icon="fa-solid fa-phone" class="text-white text-xl" />
               </div>
               <div>
-                <h4 class="font-bold mb-1">Téléphone</h4>
+                <h4 class="font-bold mb-1">{{ $t('contact.coordinates.phone') }}</h4>
                 <p class="text-gray-700 dark:text-gray-300">
                   <a :href="`tel:${profileData.phone}`" class="hover:text-green-500 transition-colors duration-300">
                     {{ profileData.phone }}
@@ -75,13 +75,13 @@
 
             <!-- Fallback si aucune information n'est disponible -->
             <div v-if="!profileData?.address && !profileData?.email && !profileData?.phone" class="text-center py-8 text-gray-500 dark:text-gray-400">
-              <p>Les informations de contact ne sont pas encore configurées.</p>
+              <p>{{ $t('contact.coordinates.noInfo') }}</p>
             </div>
           </div>
           
           <!-- Réseaux sociaux -->
           <div class="mt-8">
-            <h4 class="font-bold mb-4">Réseaux sociaux</h4>
+            <h4 class="font-bold mb-4">{{ $t('contact.social.title') }}</h4>
             
             <!-- Loading state pour les réseaux sociaux -->
             <div v-if="profileLoading" class="flex space-x-4">
@@ -126,7 +126,7 @@
                 target="_blank" 
                 rel="noopener noreferrer"
                 class="bg-gray-200 dark:bg-gray-700 hover:bg-green-500 dark:hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 group"
-                title="Site Web"
+                :title="$t('contact.social.website')"
               >
                 <font-awesome-icon icon="fa-solid fa-globe" class="text-gray-700 dark:text-gray-300 group-hover:text-white" />
               </a>
@@ -134,7 +134,7 @@
             
             <!-- Fallback si pas de réseaux sociaux -->
             <div v-else class="text-gray-500 dark:text-gray-400 text-sm">
-              <p>Aucun réseau social configuré pour le moment.</p>
+              <p>{{ $t('contact.social.noSocial') }}</p>
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@
         <!-- Formulaire de contact -->
         <div class="w-full md:w-7/12">
           <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md">
-            <h3 class="text-2xl font-bold mb-6">Envoyez-moi un message</h3>
+            <h3 class="text-2xl font-bold mb-6">{{ $t('contact.form.title') }}</h3>
             
             <!-- Messages d'alerte -->
             <div v-if="alert.show" class="mb-6 p-4 rounded-lg" :class="alertClasses">
@@ -160,7 +160,7 @@
                 <!-- Nom -->
                 <div>
                   <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Nom complet <span class="text-red-500">*</span>
+                    {{ $t('contact.form.name.label') }} <span class="text-red-500">*</span>
                   </label>
                   <input 
                     type="text" 
@@ -168,7 +168,7 @@
                     v-model="form.name"
                     class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors"
                     :class="getFieldClass('name')"
-                    placeholder="Votre nom"
+                    :placeholder="$t('contact.form.name.placeholder')"
                     required
                   />
                   <p v-if="errors.name" class="text-red-500 text-sm mt-1">{{ errors.name[0] }}</p>
@@ -177,7 +177,7 @@
                 <!-- Email -->
                 <div>
                   <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Adresse email <span class="text-red-500">*</span>
+                    {{ $t('contact.form.email.label') }} <span class="text-red-500">*</span>
                   </label>
                   <input 
                     type="email" 
@@ -185,7 +185,7 @@
                     v-model="form.email"
                     class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors"
                     :class="getFieldClass('email')"
-                    placeholder="votre.email@exemple.com"
+                    :placeholder="$t('contact.form.email.placeholder')"
                     required
                   />
                   <p v-if="errors.email" class="text-red-500 text-sm mt-1">{{ errors.email[0] }}</p>
@@ -195,7 +195,7 @@
               <!-- Sujet -->
               <div class="mb-6">
                 <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Objet <span class="text-red-500">*</span>
+                  {{ $t('contact.form.subject.label') }} <span class="text-red-500">*</span>
                 </label>
                 <input 
                   type="text" 
@@ -203,7 +203,7 @@
                   v-model="form.subject"
                   class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors"
                   :class="getFieldClass('subject')"
-                  placeholder="Objet de votre message"
+                  :placeholder="$t('contact.form.subject.placeholder')"
                   required
                 />
                 <p v-if="errors.subject" class="text-red-500 text-sm mt-1">{{ errors.subject[0] }}</p>
@@ -212,7 +212,7 @@
               <!-- Message -->
               <div class="mb-6">
                 <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Message <span class="text-red-500">*</span>
+                  {{ $t('contact.form.message.label') }} <span class="text-red-500">*</span>
                 </label>
                 <textarea 
                   id="message" 
@@ -220,13 +220,13 @@
                   rows="5"
                   class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 transition-colors resize-vertical"
                   :class="getFieldClass('message')"
-                  placeholder="Votre message..."
+                  :placeholder="$t('contact.form.message.placeholder')"
                   maxlength="5000"
                   required
                 ></textarea>
                 <div class="flex justify-between items-center mt-1">
                   <p v-if="errors.message" class="text-red-500 text-sm">{{ errors.message[0] }}</p>
-                  <p class="text-gray-500 text-sm">{{ form.message.length }}/5000 caractères</p>
+                  <p class="text-gray-500 text-sm">{{ form.message.length }}/5000 {{ $t('contact.form.message.counter') }}</p>
                 </div>
               </div>
               
@@ -240,7 +240,7 @@
                   <font-awesome-icon icon="fa-solid fa-spinner" class="animate-spin" />
                 </span>
                 <font-awesome-icon v-else icon="fa-solid fa-paper-plane" class="mr-2" />
-                <span>{{ isSubmitting ? 'Envoi en cours...' : 'Envoyer le message' }}</span>
+                <span>{{ isSubmitting ? $t('contact.form.submitting') : $t('contact.form.submit') }}</span>
               </button>
             </form>
           </div>
@@ -396,29 +396,29 @@ export default defineComponent({
       const newErrors: ValidationErrors = {};
       
       if (!form.value.name.trim()) {
-        newErrors.name = ['Le nom est requis'];
+        newErrors.name = [t('contact.form.name.required')];
       } else if (form.value.name.trim().length > 255) {
-        newErrors.name = ['Le nom ne peut pas dépasser 255 caractères'];
+        newErrors.name = [t('contact.form.name.maxLength')];
       }
       
       if (!form.value.email.trim()) {
-        newErrors.email = ['L\'email est requis'];
+        newErrors.email = [t('contact.form.email.required')];
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.value.email)) {
-        newErrors.email = ['Format d\'email invalide'];
+        newErrors.email = [t('contact.form.email.invalid')];
       } else if (form.value.email.length > 255) {
-        newErrors.email = ['L\'email ne peut pas dépasser 255 caractères'];
+        newErrors.email = [t('contact.form.email.maxLength')];
       }
       
       if (!form.value.subject.trim()) {
-        newErrors.subject = ['L\'objet est requis'];
+        newErrors.subject = [t('contact.form.subject.required')];
       } else if (form.value.subject.trim().length > 255) {
-        newErrors.subject = ['L\'objet ne peut pas dépasser 255 caractères'];
+        newErrors.subject = [t('contact.form.subject.maxLength')];
       }
       
       if (!form.value.message.trim()) {
-        newErrors.message = ['Le message est requis'];
+        newErrors.message = [t('contact.form.message.required')];
       } else if (form.value.message.trim().length > 5000) {
-        newErrors.message = ['Le message ne peut pas dépasser 5000 caractères'];
+        newErrors.message = [t('contact.form.message.maxLength')];
       }
       
       errors.value = newErrors;
@@ -429,7 +429,7 @@ export default defineComponent({
     const submitForm = async () => {
       // Validation côté client
       if (!validateForm()) {
-        showAlert('error', 'Veuillez corriger les erreurs dans le formulaire');
+        showAlert('error', t('contact.form.error'));
         return;
       }
       
@@ -455,7 +455,7 @@ export default defineComponent({
         const data = await response.json();
         
         if (response.ok && data.success) {
-          showAlert('success', data.message || 'Message envoyé avec succès !');
+          showAlert('success', data.message || t('contact.form.success'));
           resetForm();
           
           // Scroll vers le haut du formulaire pour voir le message de succès
@@ -466,9 +466,9 @@ export default defineComponent({
           // Erreurs de validation du serveur
           const validationErrors = data.errors || {};
           errors.value = validationErrors;
-          showAlert('error', data.message || 'Données invalides');
+          showAlert('error', data.message || t('contact.form.errorData'));
         } else {
-          showAlert('error', data.message || 'Une erreur est survenue lors de l\'envoi');
+          showAlert('error', data.message || t('contact.form.errorSend'));
         }
         
       } catch (error: any) {
@@ -476,10 +476,10 @@ export default defineComponent({
         
         if (error.name === 'TypeError' && error.message.includes('fetch')) {
           // Erreur réseau
-          showAlert('error', 'Impossible de contacter le serveur. Vérifiez votre connexion internet.');
+          showAlert('error', t('contact.form.errorNetwork'));
         } else {
           // Autre erreur
-          showAlert('error', 'Une erreur inattendue est survenue. Veuillez réessayer.');
+          showAlert('error', t('contact.form.errorUnexpected'));
         }
       } finally {
         isSubmitting.value = false;
@@ -502,10 +502,23 @@ export default defineComponent({
       // Récupération des données du profil
       await fetchProfile();
       
+      // Watch pour les changements de locale (comme dans Home.vue et Languages.vue)
+      let previousLocale = locale.value;
+      
+      const checkLocaleChange = () => {
+        if (locale.value !== previousLocale) {
+          previousLocale = locale.value;
+          fetchProfile();
+        }
+      };
+      
+      const interval = setInterval(checkLocaleChange, 500);
+      
       onUnmounted(() => {
         if (sectionRef.value) {
           observer.unobserve(sectionRef.value);
         }
+        clearInterval(interval);
       });
     });
     

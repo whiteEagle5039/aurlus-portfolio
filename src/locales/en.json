@@ -205,41 +205,55 @@
   },
   "contact": {
     "title": "Contact Me",
-    "subtitle": "Contact Information",
-    "description": "I'm available to discuss your projects. Feel free to contact me for any professional opportunity.",
-    "address": {
-      "title": "Address",
-      "value": "Yoff-Dakar, Senegal"
+    "titleHighlight": "Contact",
+    "coordinates": {
+      "title": "Contact Information",
+      "description": "I am available to discuss your projects. Feel free to contact me for any professional opportunity.",
+      "address": "Address",
+      "email": "Email",
+      "phone": "Phone",
+      "noInfo": "Contact information is not yet configured."
     },
-    "email": {
-      "title": "Email",
-      "value": "sogbossiaur{'@'}asecna.org"
+    "social": {
+      "title": "Social Networks",
+      "noSocial": "No social networks configured yet."
     },
-    "phone": {
-      "title": "Phone",
-      "value": "+221 78 185 66 71"
-    },
-    "social": "Social Networks",
     "form": {
       "title": "Send me a message",
       "name": {
         "label": "Full name",
-        "placeholder": "Your name"
+        "placeholder": "Your name",
+        "required": "Name is required",
+        "maxLength": "Name cannot exceed 255 characters"
       },
       "email": {
         "label": "Email address",
-        "placeholder": "Your email"
+        "placeholder": "your.email{'@'}example.com",
+        "required": "Email is required",
+        "invalid": "Invalid email format",
+        "maxLength": "Email cannot exceed 255 characters"
       },
       "subject": {
         "label": "Subject",
-        "placeholder": "Your message subject"
+        "placeholder": "Subject of your message",
+        "required": "Subject is required",
+        "maxLength": "Subject cannot exceed 255 characters"
       },
       "message": {
         "label": "Message",
-        "placeholder": "Your message..."
+        "placeholder": "Your message...",
+        "required": "Message is required",
+        "maxLength": "Message cannot exceed 5000 characters",
+        "counter": "characters"
       },
       "submit": "Send message",
-      "submitting": "Sending..."
+      "submitting": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Please correct the errors in the form",
+      "errorSend": "An error occurred while sending",
+      "errorData": "Invalid data",
+      "errorNetwork": "Unable to contact the server. Check your internet connection.",
+      "errorUnexpected": "An unexpected error occurred. Please try again."
     }
   },
   "common": {

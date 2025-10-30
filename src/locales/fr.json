@@ -205,41 +205,55 @@
   },
   "contact": {
     "title": "Contactez-moi",
-    "subtitle": "Coordonnées",
-    "description": "Je suis disponible pour discuter de vos projets. N'hésitez pas à me contacter pour toute opportunité professionnelle.",
-    "address": {
-      "title": "Adresse",
-      "value": "Yoff-Dakar, Sénégal"
+    "titleHighlight": "Contactez",
+    "coordinates": {
+      "title": "Coordonnées",
+      "description": "Je suis disponible pour discuter de vos projets. N'hésitez pas à me contacter pour toute opportunité professionnelle.",
+      "address": "Adresse",
+      "email": "Email",
+      "phone": "Téléphone",
+      "noInfo": "Les informations de contact ne sont pas encore configurées."
     },
-    "email": {
-      "title": "Email",
-      "value": "sogbossiaur{'@'}asecna.org"
+    "social": {
+      "title": "Réseaux sociaux",
+      "noSocial": "Aucun réseau social configuré pour le moment."
     },
-    "phone": {
-      "title": "Téléphone",
-      "value": "+221 78 185 66 71"
-    },
-    "social": "Réseaux sociaux",
     "form": {
       "title": "Envoyez-moi un message",
       "name": {
         "label": "Nom complet",
-        "placeholder": "Votre nom"
+        "placeholder": "Votre nom",
+        "required": "Le nom est requis",
+        "maxLength": "Le nom ne peut pas dépasser 255 caractères"
       },
       "email": {
         "label": "Adresse email",
-        "placeholder": "Votre email"
+        "placeholder": "votre.email{'@'}exemple.com",
+        "required": "L'email est requis",
+        "invalid": "Format d'email invalide",
+        "maxLength": "L'email ne peut pas dépasser 255 caractères"
       },
       "subject": {
         "label": "Objet",
-        "placeholder": "Objet de votre message"
+        "placeholder": "Objet de votre message",
+        "required": "L'objet est requis",
+        "maxLength": "L'objet ne peut pas dépasser 255 caractères"
       },
       "message": {
         "label": "Message",
-        "placeholder": "Votre message..."
+        "placeholder": "Votre message...",
+        "required": "Le message est requis",
+        "maxLength": "Le message ne peut pas dépasser 5000 caractères",
+        "counter": "caractères"
       },
       "submit": "Envoyer le message",
-      "submitting": "Envoi en cours..."
+      "submitting": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Veuillez corriger les erreurs dans le formulaire",
+      "errorSend": "Une erreur est survenue lors de l'envoi",
+      "errorData": "Données invalides",
+      "errorNetwork": "Impossible de contacter le serveur. Vérifiez votre connexion internet.",
+      "errorUnexpected": "Une erreur inattendue est survenue. Veuillez réessayer."
     }
   },
   "common": {
